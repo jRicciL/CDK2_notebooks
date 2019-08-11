@@ -19,3 +19,11 @@ def find_gaps(seq, r=1): # r es el número de residuos móviles al lado de la ve
         gap_window.append([start_right, end_right])
     return({"num_gaps": num_gaps, "gap_lengths":gap_lengths,
             "gap_list": gap_list, "gap_window": gap_window})
+
+def is_a_gap(x, seq_intervals): 
+# Recibe una lista x de i intervalos de posiciones que definen un gap
+        gap_res = []
+        for i in x: 
+                for j in range(i[0], i[1] + 1 ): gap_res.append(j)
+        # Si el gap se solapa con los residuos, devuelve un False
+        return( set(gap_res).isdisjoint(seq_intervals) )
