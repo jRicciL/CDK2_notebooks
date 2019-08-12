@@ -11,8 +11,8 @@ def cMDS(D):
     D_sq = D**2
     # Se genera la matriz de  centrado J (Centering matrix)
     # Definida como la matriz de identidad In menos la matriz de nxn unos/n
-    e1 = np.ones(n).reshape(n,1)
-    m = ( np.ones(n).reshape(n, 1) / n)
+    e1 = np.ones((n,1))
+    m = ( np.ones((n, 1)) / n)
     I = np.eye(n) # Matriz de identidad I_n
     J = I - e1.dot(np.transpose(m)) # Matriz de centrado
     # Se genera la matriz B, definida como B = -0.5*J*D^2*J                                                                                 
@@ -37,17 +37,42 @@ def cMDS(D):
 
     return F.T, D_sq, B, e_vals
 
+def cMDS_proj(cMDS_obj, sup_point):
+    # Recibe un objeto cMDS_obj
+    F = cMDS_obj[0].T # Matriz F de scores obtenida con cMDS a partir de los valores "Activos"
+    D_sq = cMDS_obj[1] # Matrix Delta^2
+    e_vals = cMDS_obj[3] # Eigenvalores positivos obtenidos del B de los valores "Activos"
+    n = len(D_sq)
+    e1 = np.ones((n, 1))
+    m = len(sup_point)
+    e1_sup = np.ones((m, 1))
+    m = ( np.ones((n, 1)) / n)
+    I = np.eye(n) # Matriz de identidad I_n
+    J = I - e1.dot(np.transpose(m)) # Mariz de centrado
+    # MDS out-of-smaple: Adición de un punto suplementario
+    a_out = sup_point**2
+    # D_sup_2 es un vector con los valores de RMSD del nuevo punto frente a los "Activos"
+    # Se calcula B_sup como -0.5*J*(a_out - D^2*(m1^t))
+    B_sup = -0.5 * J.dot(a_out.T - D_sq.dot(m.dot(np.transpose(e1_sup))))
+    # Finalmente se calcula F_sup = (B_sup^t)*F*L_inv
+    # Donde L_inv es la matriz diagonal con la inversa de los eingenvalores
+    L_m_inv = np.diag( 1 / e_vals )
+    F_proj = np.transpose(B_sup).dot( F ).dot( L_m_inv)
+    return F_proj
+
 
 def plot_mds_or_pca(mds, labels = None,
     colors_list = ['red', 'cyan', 'green', 'blue', 'orange', 'gray'],
     dic_of_ref_labels = None,
     traj_labels = None,
-    alpha=0.7, fig_size = 7, refs_fontsize = 15,
+    alpha=0.6, fig_size = 7, refs_fontsize = 15,
     point_size = 60,
     title = "Classic MDS",
     xlabel = "Primer componente",
     ylabel = "Segundo componente",
-    legend = False):
+    legend = False,
+    equal_axis = True,
+    xy_lims = None):
 
     # Properties of the scatter plot
     colors = colors_list
@@ -94,6 +119,9 @@ def plot_mds_or_pca(mds, labels = None,
             if label != 'None':
                 plt.scatter(x, y, marker='o', s=80, c = "None", linewidths = 1.5, edgecolors = "black")
                 plt.annotate(label.split("_")[0], xy = (x, y), fontsize = refs_fontsize, weight = 'bold')
-    
-    plt.axis('equal')
+    if xy_lims is not None and len(xy_lims) == 4:
+        plt.xlim(xy_lims[0], xy_lims[1])
+        plt.ylim(xy_lims[2], xy_lims[3])
+    if equal_axis:
+        plt.axis('equal')
     plt.grid(linestyle='--')
