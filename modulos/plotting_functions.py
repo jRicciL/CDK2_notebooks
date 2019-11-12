@@ -15,19 +15,15 @@ def density_estimation(x, y, sort_points = True):
         x, y, z = x[idx], y[idx], z[idx]
     return x, y, z
 
-def plot_mds(distance_matrix, titulo = '', list_of_labels = None, 
-             similarity = False, key_structures = None, df_conf_indexes = None):
-    '''Función para grraficar un MDS dado un path o una instancia de una matriz de disimilitud
+def plot_mds(mds_obj, titulo = '', list_of_labels = None, 
+             df_conf_indexes = None, key_structures = None, 
+             color_key_labels = "magenta", xytext_delta = [0.1, 0.1]):
+    '''Función para grraficar un MDS dado una instancia de una matriz de disimilitud
     o similitud, y adicionalmente etiquetas que distingan a cada observación'''
-    if isinstance(distance_matrix, str):
-        distance_mtx = pd.read_csv(distance_matrix, header=None) 
-    if similarity: # Si la  matriz es de similitud, la convertimos a distancia
-        distance_mtx = (1 - distance_mtx)
-    mds = cMDS(distance_mtx)
-    plot_mds_or_pca(mds = mds[0], labels = list_of_labels, title = titulo)
+    plot_mds_or_pca(mds = mds_obj, labels = list_of_labels, title = titulo)
     if key_structures is not None and df_conf_indexes is not None:
         plot_anotation_labels(df_conf_indexes, key_structures, 
-                          mds[0][0], mds[0][1], xytext_delta=[-0.03, 0.1], s=120)
+                          mds_obj[0], mds_obj[1], xytext_delta=xytext_delta, s=120, c = color_key_labels)
 
 def plot_anotation_labels(list_of_all_index, list_of_ref_names, x, y, 
     marker='o', s = 90, c = "", 
