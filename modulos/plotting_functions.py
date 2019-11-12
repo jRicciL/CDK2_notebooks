@@ -48,10 +48,11 @@ def plot_anotation_labels(list_of_all_index, list_of_ref_names, x, y,
 
 
 def plot_mds_or_pca(mds, labels = None,
-    colors_list = ['red', 'cyan', 'green', 'blue', 'orange', 'gray'],
-    dic_of_ref_labels = None,
-    traj_labels = None,
+    colors_list = ['#E93523', '#23E9BC', '#23B537', '#036193', '#FEA50A', 'gray'],
+    #dic_of_ref_labels = None,
+    #traj_labels = None,
     alpha=0.6, fig_size = 7, refs_fontsize = 15,
+    general_font_size = 16,
     point_size = 60,
     title = "Classic MDS",
     xlabel = "Primer componente",
@@ -63,7 +64,7 @@ def plot_mds_or_pca(mds, labels = None,
     '''Genera una gráfica de dispersión en dos dimensiones dado un objeto de cDM.'''
     # Properties of the scatter plot
     colors = colors_list
-    plt.rcParams.update({'font.size': 16})
+    plt.rcParams.update({'font.size': general_font_size})
     plt.axhline(0, color='grey',  linestyle='--')
     plt.axvline(0, color='grey',  linestyle='--')
     plt.title(title, fontsize=18)
@@ -96,16 +97,17 @@ def plot_mds_or_pca(mds, labels = None,
             plt.legend(handles=patchList)
         
     else:
-        plt.scatter( mds[0], mds[1], marker='o', c = colors_list[0], alpha=alpha, s=60)
-
+        plt.scatter( mds[0], mds[1], marker='o', c = colors_list[0], alpha=alpha, s=point_size)
+    '''
     if dic_of_ref_labels is not None  and  traj_labels is not None:
         # Creates the refs label and its color
         name_ref_label, color_ref_label = zip(*[(i, dic_of_ref_labels[i])  if i in dic_of_ref_labels.keys() else ("None", "None") for i in traj_labels])
         # plots the labels of the given references indixes 
         for label, x, y in zip( name_ref_label, mds[0], mds[1]):
             if label != 'None':
-                plt.scatter(x, y, marker='o', s=80, c = "None", linewidths = 1.5, edgecolors = "black")
+                plt.scatter(x, y, marker='o', s=point_size, c = "None", linewidths = 1.5, edgecolors = "black")
                 plt.annotate(label.split("_")[0], xy = (x, y), fontsize = refs_fontsize, weight = 'bold')
+                '''
     if xy_lims is not None and len(xy_lims) == 4:
         plt.xlim(xy_lims[0], xy_lims[1])
         plt.ylim(xy_lims[2], xy_lims[3])
