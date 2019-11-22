@@ -1,0 +1,403 @@
+,PDB_ID,Title,Date,Entities,ChainID,Resolution,Identity,Coverage,NumGaps,GapLen,GapPos,NumLigs,NameLigs
+0,1aq1,human cyclin dependent kinase 2 complexed with the inhibitor staurosporine,1997-11-12,1,A,2.00,298.0,92.9530201342282,2.0,"[8, 13]","[[36, 43], [149, 161]]",1.0,['STU']
+1,1b38,human cyclin-dependent kinase 2,1998-12-23,1,A,2.00,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",3.0,"['ACE', 'ATP', 'MG']"
+2,1b39,human cyclin-dependent kinase 2 phosphorylated on thr 160,1998-12-23,1,A,2.10,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",3.0,"['ACE', 'ATP', 'MG']"
+3,1buh,crystal structure of the human cdk2 kinase complex with cell cycle-regulatory protein ckshs1,1998-09-09,2,A,2.60,298.0,96.30872483221476,2.0,"[7, 4]","[[40, 46], [295, 298]]",0.0,[]
+4,1ckp,human cyclin dependent kinase 2 complexed with the inhibitor purvalanol b,1999-01-13,1,A,2.05,298.0,93.6241610738255,2.0,"[8, 11]","[[36, 43], [153, 163]]",2.0,"['EDO', 'PVB']"
+5,1di8,"the structure of cyclin-dependent kinase 2 (cdk2) in complex with 4-[3-hydroxyanilino]-6,7-dimethoxyquinazoline",2000-11-29,1,A,2.20,298.0,94.96644295302013,2.0,"[6, 9]","[[37, 42], [153, 161]]",1.0,['DTQ']
+6,1dm2,human cyclin-dependent kinase 2 complexed with the inhibitor hymenialdisine,2000-05-31,1,A,2.10,298.0,91.94630872483222,2.0,"[9, 15]","[[36, 44], [149, 163]]",2.0,"['EDO', 'HMD']"
+7,1e1v,human cyclin dependent kinase 2 complexed with the inhibitor nu2058,2001-05-10,1,A,1.95,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",2.0,"['ACE', 'CMG']"
+8,1e1x,human cyclin dependent kinase 2 complexed with the inhibitor nu6027,2001-05-10,1,A,1.85,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",2.0,"['ACE', 'NW1']"
+9,1e9h,thr 160 phosphorylated cdk2 - human cyclin a3 complex with the inhibitor indirubin-5-sulphonate bound,2001-10-11,2,A,2.50,295.0,99.32885906040269,1.0,[2],"[[296, 297]]",2.0,"['INR', 'TPO']"
+10,1f5q,crystal structure of murine gamma herpesvirus cyclin complexed to human cyclin dependent kinase 2,2000-12-27,2,A,2.50,298.0,99.32885906040269,1.0,[2],"[[10, 11]]",1.0,['CL']
+11,1fin,cyclin a-cyclin-dependent kinase 2 complex,1997-01-27,2,A,2.30,298.0,100.0,0.0,[],[],1.0,['ATP']
+12,1fq1,crystal structure of kinase associated phosphatase (kap) in complex with phospho-cdk2,2001-05-09,2,B,3.00,297.0,99.32885906040269,1.0,[2],"[[296, 297]]",3.0,"['ATP', 'MG', 'TPO']"
+13,1fvt,the structure of cyclin-dependent kinase 2 (cdk2) in complex with an oxindole inhibitor,2001-01-17,1,A,2.20,298.0,94.63087248322147,2.0,"[7, 9]","[[37, 43], [154, 162]]",1.0,['106']
+14,1fvv,the structure of cdk2/cyclin a in complex with an oxindole inhibitor,2001-01-17,2,A,2.80,298.0,100.0,0.0,[],[],1.0,['107']
+15,1g5s,crystal structure of human cyclin dependent kinase 2 (cdk2) in complex with the inhibitor h717,2001-11-02,1,A,2.61,298.0,92.28187919463086,2.0,"[9, 14]","[[37, 45], [149, 162]]",1.0,['I17']
+16,1gih,human cyclin dependent kinase 2 complexed with the cdk4 inhibitor,2002-02-06,1,A,2.80,298.0,92.61744966442953,2.0,"[8, 14]","[[37, 44], [150, 163]]",1.0,['1PU']
+17,1gii,human cyclin dependent kinase 2 complexed with the cdk4 inhibitor,2002-02-06,1,A,2.00,295.0,93.6241610738255,2.0,"[8, 11]","[[36, 43], [153, 163]]",1.0,['1PU']
+18,1gij,human cyclin dependent kinase 2 complexed with the cdk4 inhibitor,2002-02-06,1,A,2.20,295.0,91.61073825503355,2.0,"[11, 14]","[[37, 47], [150, 163]]",1.0,['2PU']
+19,1gy3,"pcdk2/cyclin a in complex with mgadp, nitrate and peptide substrate",2002-04-29,3,A,2.70,297.0,99.32885906040269,1.0,[2],"[[296, 297]]",5.0,"['ATP', 'GOL', 'MG', 'NO3', 'TPO']"
+20,1gz8,human cyclin dependent kinase 2 complexed with the inhibitor 2-amino-6-(3'-methyl-2'-oxo)butoxypurine,2003-06-12,1,A,1.30,297.0,97.31543624161074,2.0,"[7, 1]","[[37, 43], [177, 177]]",3.0,"['ACE', 'CSD', 'MBP']"
+21,1h00,"cdk2 in complex with a disubstituted 4, 6-bis anilino pyrimidine cdk4 inhibitor",2003-07-11,1,A,1.60,298.0,93.28859060402685,3.0,"[2, 8, 10]","[[13, 14], [36, 43], [152, 161]]",3.0,"['ACE', 'FAP', 'FCP']"
+22,1h01,"cdk2 in complex with a disubstituted 2, 4-bis anilino pyrimidine cdk4 inhibitor",2003-07-11,1,A,1.79,297.0,95.9731543624161,2.0,"[10, 2]","[[34, 43], [296, 297]]",4.0,"['FAL', 'FBL', 'GOL', 'KCX']"
+23,1h07,"cdk2 in complex with a disubstituted 4, 6-bis anilino pyrimidine cdk4 inhibitor",2003-07-11,1,A,1.85,298.0,95.63758389261746,3.0,"[7, 4, 2]","[[37, 43], [151, 154], [296, 297]]",3.0,"['ACE', 'MFP', 'MFQ']"
+24,1h08,"cdk2 in complex with a disubstituted 2, 4-bis anilino pyrimidine cdk4 inhibitor",2003-07-11,1,A,1.80,298.0,94.96644295302013,2.0,"[8, 7]","[[36, 43], [154, 160]]",4.0,"['ACE', 'BWP', 'BYP', 'GOL']"
+25,1h0v,human cyclin dependent protein kinase 2 in complex with the inhibitor 2-amino-6-[(r)-pyrrolidino-5'-yl]methoxypurine,2003-06-27,1,A,1.90,298.0,96.64429530201343,2.0,"[7, 3]","[[37, 43], [159, 161]]",1.0,['UN4']
+26,1h0w,human cyclin dependent protein kinase 2 in complex with the inhibitor 2-amino-6-[cyclohex-3-enyl]methoxypurine,2003-06-27,1,A,2.10,298.0,94.96644295302013,2.0,"[7, 8]","[[37, 43], [156, 163]]",1.0,['207']
+27,1h1p,structure of human thr160-phospho cdk2/cyclin a complexed with the inhibitor nu2058,2002-09-19,2,A,2.10,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",2.0,"['CMG', 'TPO']"
+28,1h1q,structure of human thr160-phospho cdk2/cyclin a complexed with the inhibitor nu6094,2002-09-19,2,A,2.50,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",2.0,"['2A6', 'TPO']"
+29,1h1r,structure of human thr160-phospho cdk2/cyclin a complexed with the inhibitor nu6086,2002-09-19,2,A,2.00,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",2.0,"['6CP', 'TPO']"
+30,1h1s,structure of human thr160-phospho cdk2/cyclin a complexed with the inhibitor nu6102,2002-09-19,2,A,2.00,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",2.0,"['4SP', 'TPO']"
+31,1h24,cdk2/cyclina in complex with a 9 residue recruitment peptide from e2f,2003-02-01,3,A,2.50,297.0,98.65771812080537,1.0,[5],"[[295, 299]]",1.0,['TPO']
+32,1h25,cdk2/cyclin a in complex with an 11-residue recruitment peptide from retinoblastoma-associated protein,2003-02-01,3,A,2.50,297.0,98.65771812080537,1.0,[5],"[[295, 299]]",1.0,['TPO']
+33,1h26,cdk2/cyclina in complex with an 11-residue recruitment peptide from p53,2003-02-01,3,A,2.24,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",1.0,['TPO']
+34,1h27,cdk2/cyclina in complex with an 11-residue recruitment peptide from p27,2003-02-01,3,A,2.20,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",1.0,['TPO']
+35,1h28,cdk2/cyclina in complex with an 11-residue recruitment peptide from p107,2003-02-01,3,A,2.80,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",1.0,['TPO']
+36,1hck,human cyclin-dependent kinase 2,1996-12-07,1,A,1.90,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['ATP', 'MG']"
+37,1hcl,human cyclin-dependent kinase 2,1996-12-07,1,A,1.80,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",0.0,[]
+38,1jst,phosphorylated cyclin-dependent kinase-2 bound to cyclin a,1997-01-11,2,A,2.60,297.0,100.0,0.0,[],[],3.0,"['ATP', 'MN', 'TPO']"
+39,1jsv,the structure of cyclin-dependent kinase 2 (cdk2) in complex with 4-[(6-amino-4-pyrimidinyl)amino]benzenesulfonamide,2001-08-29,1,A,1.96,298.0,96.30872483221476,1.0,[11],"[[36, 46]]",1.0,['U55']
+40,1jvp,crystal structure of human cdk2 (unphosphorylated) in complex with pkf049-365,2001-12-21,1,P,1.53,298.0,89.93288590604027,4.0,"[7, 5, 14, 4]","[[37, 43], [81, 85], [145, 158], [252, 255]]",1.0,['LIG']
+41,1ke5,"cdk2 complexed with n-methyl-4-{[(2-oxo-1,2-dihydro-3h-indol-3-ylidene)methyl]amino}benzenesulfonamide",2002-05-14,1,A,2.20,298.0,94.29530201342283,2.0,"[7, 10]","[[37, 43], [153, 162]]",1.0,['LS1']
+42,1ke6,"cyclin-dependent kinase 2 (cdk2) complexed with n-methyl-{4-[2-(7-oxo-6,7-dihydro-8h-[1,3]thiazolo[5,4-e]indol-8-ylidene)hydrazino]phenyl}methanesulfonamide",2002-05-14,1,A,2.00,298.0,93.95973154362416,2.0,"[7, 11]","[[37, 43], [153, 163]]",1.0,['LS2']
+43,1ke7,"cyclin-dependent kinase 2 (cdk2) complexed with 3-{[(2,2-dioxido-1,3-dihydro-2-benzothien-5-yl)amino]methylene}-5-(1,3-oxazol-5-yl)-1,3-dihydro-2h-indol-2-one",2002-05-14,1,A,2.00,298.0,94.29530201342283,2.0,"[7, 10]","[[37, 43], [153, 162]]",1.0,['LS3']
+44,1ke8,"cyclin-dependent kinase 2 (cdk2) complexed with 4-{[(2-oxo-1,2-dihydro-3h-indol-3-ylidene)methyl]amino}-n-(1,3-thiazol-2-yl)benzenesulfonamide",2002-05-14,1,A,2.00,298.0,94.63087248322147,2.0,"[7, 9]","[[37, 43], [154, 162]]",1.0,['LS4']
+45,1ke9,"cyclin-dependent kinase 2 (cdk2) complexed with 3-{[4-({[amino(imino)methyl]aminosulfonyl)anilino]methylene}-2-oxo-2,3-dihydro-1h-indole",2002-05-14,1,A,2.00,298.0,94.29530201342283,2.0,"[7, 10]","[[37, 43], [153, 162]]",1.0,['LS5']
+46,1ogu,structure of human thr160-phospho cdk2/cyclin a complexed with a 2-arylamino-4-cyclohexylmethyl-5-nitroso-6-aminopyrimidine inhibitor,2003-09-02,2,A,2.60,297.0,99.66442953020133,2.0,"[3, 1]","[[41, 43], [301, 301]]",3.0,"['SGM', 'ST8', 'TPO']"
+47,1oi9,structure of human thr160-phospho cdk2/cyclin a complexed with a 6-cyclohexylmethyloxy-2-anilino-purine inhibitor,2004-07-13,2,A,2.10,297.0,99.32885906040269,2.0,"[1, 2]","[[39, 39], [297, 298]]",4.0,"['MG', 'N20', 'SGM', 'TPO']"
+48,1oiq,imidazopyridines: a potent and selective class of cyclin-dependent kinase inhibitors identified through structure-based hybridisation,2003-09-04,1,A,2.31,298.0,88.59060402684564,4.0,"[4, 11, 3, 16]","[[12, 15], [36, 46], [73, 75], [149, 164]]",2.0,"['ACE', 'HDU']"
+49,1oir,imidazopyridines: a potent and selective class of cyclin-dependent kinase inhibitors identified through structure-based hybridisation,2003-09-04,1,A,1.91,297.0,95.9731543624161,2.0,"[10, 2]","[[34, 43], [296, 297]]",3.0,"['ACE', 'HDY', 'KCX']"
+50,1oit,imidazopyridines: a potent and selective class of cyclin-dependent kinase inhibitors identified through structure-based hybridisation,2003-09-04,1,A,1.60,297.0,91.61073825503355,3.0,"[2, 12, 11]","[[1, 2], [34, 45], [152, 162]]",2.0,"['ACE', 'HDT']"
+51,1oiu,structure of human thr160-phospho cdk2/cyclin a complexed with a 6-cyclohexylmethyloxy-2-anilino-purine inhibitor,2004-07-13,2,A,2.00,297.0,99.66442953020133,2.0,"[3, 1]","[[41, 43], [301, 301]]",4.0,"['MG', 'N76', 'SGM', 'TPO']"
+52,1oiy,structure of human thr160-phospho cdk2/cyclin a complexed with a 6-cyclohexylmethyloxy-2-anilino-purine inhibitor,2004-07-13,2,A,2.40,297.0,98.65771812080537,2.0,"[3, 2]","[[39, 41], [297, 298]]",4.0,"['MG', 'N41', 'SGM', 'TPO']"
+53,1okv,cyclin a binding groove inhibitor h-arg-arg-leu-ile-phe-nh2,2003-12-11,3,A,2.40,298.0,98.99328859060402,1.0,[3],"[[296, 298]]",1.0,['NH2']
+54,1okw,cyclin a binding groove inhibitor ac-arg-arg-leu-asn-(m-cl-phe)-nh2,2003-12-11,3,A,2.50,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",3.0,"['ACE', 'FCL', 'NH2']"
+55,1ol1,cyclin a binding groove inhibitor h-cit-cit-leu-ile-(p-f-phe)-nh2,2003-12-11,3,A,2.90,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",3.0,"['CIR', 'NH2', 'PFF']"
+56,1ol2,cyclin a binding groove inhibitor h-arg-arg-leu-asn-(p-f-phe)-nh2,2003-12-11,3,A,2.60,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",2.0,"['NH2', 'PFF']"
+57,1p2a,the structure of cyclin dependent kinase 2 (ckd2) with a trisubstituted naphthostyril inhibitor,2003-07-15,1,A,2.50,298.0,90.93959731543623,3.0,"[3, 10, 14]","[[13, 15], [38, 47], [150, 163]]",1.0,['5BN']
+58,1p5e,"the structure of phospho-cdk2/cyclin a in complex with the inhibitor 4,5,6,7-tetrabromobenzotriazole (tbs)",2003-07-01,2,A,2.22,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",2.0,"['TBS', 'TPO']"
+59,1pf8,crystal structure of human cyclin-dependent kinase 2 complexed with a nucleoside inhibitor,2003-12-23,1,A,2.51,297.0,100.0,0.0,[],[],1.0,['SU9']
+60,1pkd,the crystal structure of ucn-01 in complex with phospho-cdk2/cyclin a,2003-06-24,2,A,2.30,295.0,99.66442953020133,1.0,[2],"[[297, 298]]",2.0,"['TPO', 'UCN']"
+61,1pw2,apo structure of human cyclin-dependent kinase 2,2003-12-09,1,A,1.95,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",0.0,[]
+62,1pxi,"human cyclin dependent kinase 2 complexed with the inhibitor 4-(2,5-dichloro-thiophen-3-yl)-pyrimidin-2-ylamine",2003-12-09,1,A,1.95,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['CK1']
+63,1pxj,"human cyclin dependent kinase 2 complexed with the inhibitor 4-(2,4-dimethyl-thiazol-5-yl)-pyrimidin-2-ylamine",2003-12-09,1,A,2.30,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['CK2']
+64,1pxk,"human cyclin dependent kinase 2 complexed with the inhibitor n-[4-(2,4-dimethyl-thiazol-5-yl)pyrimidin-2-yl]-n'-hydroxyiminoformamide",2003-12-09,1,A,2.80,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",1.0,['CK3']
+65,1pxl,"human cyclin dependent kinase 2 complexed with the inhibitor [4-(2,4-dimethyl-thiazol-5-yl)-pyrimidin-2-yl]-(4-trifluoromethyl-phenyl)-amine",2003-12-09,1,A,2.50,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",1.0,['CK4']
+66,1pxm,"human cyclin dependent kinase 2 complexed with the inhibitor 3-[4-(2,4-dimethyl-thiazol-5-yl)-pyrimidin-2-ylamino]-phenol",2004-04-13,1,A,2.53,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",1.0,['CK5']
+67,1pxn,human cyclin dependent kinase 2 complexed with the inhibitor 4-[4-(4-methyl-2-methylamino-thiazol-5-yl)-pyrimidin-2-ylamino]-phenol,2004-04-13,1,A,2.50,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['CK6']
+68,1pxo,human cyclin dependent kinase 2 complexed with the inhibitor [4-(2-amino-4-methyl-thiazol-5-yl)-pyrimidin-2-yl]-(3-nitro-phenyl)-amine,2004-04-13,1,A,1.96,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['CK7']
+69,1pxp,"human cyclin dependent kinase 2 complexed with the inhibitor n-[4-(2,4-dimethyl-thiazol-5-yl)-pyrimidin-2-yl]-n',n'-dimethyl-benzene-1,4-diamine",2004-04-13,1,A,2.30,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['CK8']
+70,1pye,crystal structure of cdk2 with inhibitor,2004-07-13,1,A,2.00,298.0,89.26174496644296,4.0,"[3, 11, 2, 16]","[[13, 15], [36, 46], [74, 75], [147, 162]]",1.0,['PM1']
+71,1qmz,phosphorylated cdk2-cyclyin a-substrate peptide complex,1999-12-14,3,A,2.20,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",3.0,"['ATP', 'MG', 'TPO']"
+72,1r78,cdk2 complex with a 4-alkynyl oxindole inhibitor,2004-01-20,1,A,2.00,298.0,91.61073825503355,2.0,"[9, 16]","[[38, 46], [148, 163]]",1.0,['FMD']
+73,1urc,cyclin a binding groove inhibitor ace-arg-lys-leu-phe-gly,2003-10-31,3,A,2.60,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",1.0,['ACE']
+74,1urw,"cdk2 in complex with an imidazo[1,2-b]pyridazine",2004-04-23,1,A,1.60,298.0,91.94630872483222,3.0,"[2, 11, 11]","[[13, 14], [36, 46], [152, 162]]",2.0,"['ACE', 'I1P']"
+75,1v1k,"cdk2 in complex with a disubstituted 4, 6-bis anilino pyrimidine cdk4 inhibitor",2004-05-04,1,A,2.31,298.0,92.9530201342282,2.0,"[9, 12]","[[38, 46], [151, 162]]",2.0,"['3FP', 'ACE']"
+76,1vyw,structure of cdk2/cyclin a with pnu-292137,2004-06-10,2,A,2.30,298.0,101.34228187919463,0.0,[],[],2.0,"['292', 'SO4']"
+77,1vyz,structure of cdk2 complexed with pnu-181227,2004-06-17,1,A,2.21,298.0,93.6241610738255,2.0,"[11, 8]","[[36, 46], [154, 161]]",1.0,['N5B']
+78,1w0x,crystal structure of human cdk2 in complex with the inhibitor olomoucine.,2005-01-14,1,C,2.20,298.0,93.95973154362416,2.0,"[7, 11]","[[37, 43], [153, 163]]",1.0,['OLO']
+79,1w8c,co-crystal structure of 6-cyclohexylmethoxy-8-isopropyl-9h-purin-2- ylamine and monomeric cdk2,2006-08-30,1,A,2.05,297.0,97.31543624161074,2.0,"[7, 1]","[[37, 43], [177, 177]]",3.0,"['ACE', 'CSD', 'N69']"
+80,1w98,the structural basis of cdk2 activation by cyclin e,2005-02-02,2,A,2.15,296.0,100.0,1.0,[1],"[[299, 299]]",1.0,['TPO']
+81,1wcc,screening for fragment binding by x-ray crystallography,2005-01-27,1,A,2.20,298.0,94.96644295302013,2.0,"[4, 11]","[[37, 40], [153, 163]]",1.0,['CIG']
+82,1y8y,"crystal structure of human cdk2 complexed with a pyrazolo[1,5-a]pyrimidine inhibitor",2005-02-08,1,A,2.00,298.0,97.98657718120806,1.0,[6],"[[38, 43]]",1.0,['CT7']
+83,1y91,"crystal structure of human cdk2 complexed with a pyrazolo[1,5-a]pyrimidine inhibitor",2005-02-08,1,A,2.15,298.0,95.9731543624161,2.0,"[7, 5]","[[38, 44], [154, 158]]",1.0,['CT9']
+84,1ykr,crystal structure of cdk2 with an aminoimidazo pyridine inhibitor,2006-01-24,1,A,1.80,298.0,100.0,0.0,[],[],1.0,['628']
+85,2a0c,"human cdk2 in complex with olomoucine ii, a novel 2,6,9-trisubstituted purine cyclin-dependent kinase inhibitor",2006-01-24,1,X,1.95,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['CK9']
+86,2a4l,human cyclin-dependent kinase 2 in complex with roscovitine,2006-10-03,1,A,2.40,298.0,95.9731543624161,1.0,[12],"[[36, 47]]",1.0,['RRC']
+87,2b52,human cyclin dependent kinase 2 (cdk2) complexed with dph-042562,2005-10-11,1,A,1.88,298.0,94.96644295302013,2.0,"[4, 11]","[[37, 40], [150, 160]]",1.0,['D42']
+88,2b53,human cyclin dependent kinase 2 (cdk2) complexed with din-234325,2005-10-11,1,A,2.00,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['D23']
+89,2b54,human cyclin dependent kinase 2 (ckd2)complexed with din-232305,2005-10-11,1,A,1.85,298.0,100.0,0.0,[],[],1.0,['D05']
+90,2b55,human cyclin dependent kinase 2 (cdk2) complexed with indenopyraxole din-101312,2005-10-11,1,A,1.85,298.0,92.61744966442953,2.0,"[7, 15]","[[36, 42], [148, 162]]",1.0,['D31']
+91,2bhe,human cyclin dependent protein kinase 2 in complex with the inhibitor 5-bromo-indirubine,2005-03-09,1,A,1.90,298.0,91.94630872483222,2.0,"[9, 15]","[[36, 44], [149, 163]]",1.0,['BRY']
+92,2bhh,human cyclin dependent protein kinase 2 in complex with the inhibitor 4-hydroxypiperindinesulfonyl-indirubine,2005-03-09,1,A,2.60,298.0,91.94630872483222,2.0,"[9, 15]","[[36, 44], [149, 163]]",1.0,['RYU']
+93,2bkz,structure of cdk2-cyclin a with pha-404611,2006-03-08,2,A,2.60,298.0,101.34228187919463,0.0,[],[],2.0,"['SBC', 'SO4']"
+94,2bpm,structure of cdk2-cyclin a with pha-630529,2005-12-08,2,A,2.40,298.0,101.34228187919463,0.0,[],[],2.0,"['529', 'SO4']"
+95,2btr,structure of cdk2 complexed with pnu-198873,2005-11-09,1,A,1.85,298.0,92.28187919463086,2.0,"[11, 12]","[[36, 46], [150, 161]]",1.0,['U73']
+96,2bts,structure of cdk2 complexed with pnu-230032,2005-11-09,1,A,1.99,298.0,91.94630872483222,2.0,"[9, 15]","[[37, 45], [149, 163]]",1.0,['U32']
+97,2c4g,structure of cdk2-cyclin a with pha-533514,2005-11-23,2,A,2.70,298.0,101.00671140939596,1.0,[1],"[[302, 302]]",2.0,"['514', 'SO4']"
+98,2c5n,differential binding of inhibitors to active and inactive cdk2 provides insights for drug design,2006-03-01,2,A,2.10,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",1.0,['CK8']
+99,2c5o,differential binding of inhibitors to active and inactive cdk2 provides insights for drug design,2006-03-01,2,A,2.10,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",1.0,['CK2']
+100,2c5v,differential binding of inhibitors to active and inactive cdk2 provides insights for drug design,2006-03-01,3,A,2.90,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",4.0,"['ABA', 'CK4', 'NH2', 'PFF']"
+101,2c5x,differential binding of inhibitors to active and inactive cdk2 provides insights for drug design,2006-03-01,2,A,2.90,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",1.0,['MTW']
+102,2c5y,differential binding of inhibitors to active and inactive cdk2 provides insights for drug design,2006-03-01,1,A,2.25,298.0,97.31543624161074,2.0,"[7, 1]","[[36, 42], [298, 298]]",1.0,['MTW']
+103,2c68,crystal structure of the human cdk2 complexed with the triazolopyrimidine inhibitor,2005-12-07,1,A,1.95,298.0,97.31543624161074,2.0,"[6, 2]","[[38, 43], [296, 297]]",1.0,['CT6']
+104,2c69,crystal structure of the human cdk2 complexed with the triazolopyrimidine inhibitor,2005-12-07,1,A,2.10,298.0,97.98657718120806,1.0,[6],"[[38, 43]]",1.0,['CT8']
+105,2c6i,crystal structure of the human cdk2 complexed with the triazolopyrimidine inhibitor,2005-12-07,1,A,1.80,298.0,97.98657718120806,1.0,[6],"[[38, 43]]",1.0,['DT1']
+106,2c6k,crystal structure of the human cdk2 complexed with the triazolopyrimidine inhibitor,2005-12-07,1,A,1.90,298.0,97.98657718120806,1.0,[6],"[[38, 43]]",1.0,['DT2']
+107,2c6l,crystal structure of the human cdk2 complexed with the triazolopyrimidine inhibitor,2005-12-07,1,A,2.30,298.0,97.6510067114094,1.0,[7],"[[37, 43]]",1.0,['DT4']
+108,2c6m,crystal structure of the human cdk2 complexed with the triazolopyrimidine inhibitor,2005-12-07,1,A,1.90,298.0,97.31543624161074,2.0,"[6, 2]","[[38, 43], [296, 297]]",1.0,['DT5']
+109,2c6o,crystal structure of the human cdk2 complexed with the triazolopyrimidine inhibitor,2005-12-07,1,A,2.10,298.0,97.31543624161074,2.0,"[6, 2]","[[38, 43], [296, 297]]",1.0,['4SP']
+110,2c6t,crystal structure of the human cdk2 complexed with the triazolopyrimidine inhibitor,2005-12-07,2,A,2.61,297.0,99.32885906040269,1.0,[2],"[[296, 297]]",2.0,"['DT5', 'TPO']"
+111,2cch,the crystal structure of cdk2 cyclin a in complex with a substrate peptide derived from cdc modified with a gamma-linked atp analogue,2006-05-03,3,A,1.70,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",4.0,"['ATP', 'GOL', 'SO4', 'TPO']"
+112,2cci,crystal structure of phospho-cdk2 cyclin a in complex with a peptide containing both the substrate and recruitment sites of cdc6,2006-05-03,3,A,2.70,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",3.0,"['ATP', 'MG', 'TPO']"
+113,2cjm,mechanism of cdk inhibition by active site phosphorylation: cdk2 y15p t160p in complex with cyclin a structure,2006-04-24,2,A,2.30,296.0,96.30872483221476,2.0,"[5, 6]","[[37, 41], [293, 298]]",4.0,"['ATP', 'MG', 'PTR', 'TPO']"
+114,2clx,"4-arylazo-3,5-diamino-1h-pyrazole cdk inhibitors: sar study, crystal structure in complex with cdk2, selectivity, and cellular effects",2006-11-01,1,A,1.80,298.0,98.3221476510067,1.0,[5],"[[38, 42]]",1.0,['F18']
+115,2ds1,human cyclin dependent kinase 2 complexed with the cdk4 inhibitor,2007-06-19,1,A,2.00,295.0,97.31543624161074,1.0,[8],"[[36, 43]]",1.0,['1CD']
+116,2duv,structure of cdk2 with a 3-hydroxychromones,2007-01-27,1,A,2.20,298.0,91.2751677852349,2.0,"[13, 13]","[[36, 48], [151, 163]]",1.0,['371']
+117,2exm,human cdk2 in complex with isopentenyladenine,2005-12-27,1,A,1.80,298.0,100.0,0.0,[],[],1.0,['ZIP']
+118,2fvd,cyclin dependent kinase 2 (cdk2) with diaminopyrimidine inhibitor,2006-10-10,1,A,1.85,298.0,95.30201342281879,2.0,"[12, 2]","[[38, 49], [149, 150]]",1.0,['LIA']
+119,2g9x,structure of thr 160 phosphorylated cdk2/cyclin a in complex with the inhibitor nu6271,2006-05-23,2,A,2.50,297.0,100.33557046979867,0.0,[],[],2.0,"['NU5', 'TPO']"
+120,2i40,cdk2/cyclin a complexed with a thiophene carboxamide inhibitor,2006-10-10,2,A,2.80,298.0,97.6510067114094,3.0,"[3, 3, 1]","[[38, 40], [160, 162], [298, 298]]",1.0,['BLZ']
+121,2iw6,structure of human thr160-phospho cdk2-cyclin a complexed with a bisanilinopyrimidine inhibitor,2006-09-06,2,A,2.30,296.0,98.3221476510067,2.0,"[3, 3]","[[39, 41], [297, 299]]",4.0,"['MG', 'QQ2', 'SGM', 'TPO']"
+122,2iw8,structure of human thr160-phospho cdk2-cyclin a f82h-l83v-h84d mutant with an o6-cyclohexylmethylguanine inhibitor,2006-09-06,2,A,2.30,294.0,100.0,1.0,[1],"[[299, 299]]",3.0,"['4SP', 'SGM', 'TPO']"
+123,2iw9,structure of human thr160-phospho cdk2-cyclin a complexed with a bisanilinopyrimidine inhibitor,2006-09-06,2,A,2.00,296.0,98.65771812080537,2.0,"[4, 1]","[[39, 42], [299, 299]]",4.0,"['4SP', 'MG', 'SGM', 'TPO']"
+124,2j9m,crystal structure of cdk2 in complex with macrocyclic aminopyrimidine,2007-11-06,1,A,2.50,298.0,92.28187919463086,2.0,"[8, 15]","[[37, 44], [149, 163]]",1.0,['PY8']
+125,2jgz,crystal structure of phospho-cdk2 in complex with cyclin b,2007-05-22,2,A,2.90,287.0,96.97986577181209,1.0,[10],"[[290, 299]]",1.0,['TPO']
+126,2r3f,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.50,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",2.0,"['ACE', 'SC8']"
+127,2r3g,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.55,298.0,96.30872483221476,1.0,[11],"[[36, 46]]",2.0,"['ACE', 'SC9']"
+128,2r3h,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.50,298.0,96.97986577181209,1.0,[9],"[[36, 44]]",2.0,"['ACE', 'SCE']"
+129,2r3i,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.28,297.0,96.97986577181209,2.0,"[8, 1]","[[36, 43], [177, 177]]",3.0,"['ACE', 'CSD', 'SCF']"
+130,2r3j,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.65,297.0,93.28859060402685,3.0,"[8, 11, 1]","[[36, 43], [151, 161], [177, 177]]",3.0,"['ACE', 'CSD', 'SCJ']"
+131,2r3k,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.70,297.0,92.9530201342282,3.0,"[8, 12, 1]","[[36, 43], [151, 162], [177, 177]]",3.0,"['ACE', 'CSD', 'SCQ']"
+132,2r3l,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.65,297.0,92.28187919463086,3.0,"[7, 15, 1]","[[37, 43], [150, 164], [177, 177]]",3.0,"['ACE', 'CSD', 'SCW']"
+133,2r3m,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.70,297.0,93.28859060402685,3.0,"[8, 11, 1]","[[36, 43], [151, 161], [177, 177]]",3.0,"['ACE', 'CSD', 'SCX']"
+134,2r3n,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.63,297.0,92.28187919463086,3.0,"[8, 14, 1]","[[36, 43], [149, 162], [177, 177]]",3.0,"['ACE', 'CSD', 'SCZ']"
+135,2r3o,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.80,297.0,96.97986577181209,2.0,"[8, 1]","[[36, 43], [177, 177]]",3.0,"['2SC', 'ACE', 'CSD']"
+136,2r3p,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.66,297.0,96.97986577181209,2.0,"[8, 1]","[[36, 43], [177, 177]]",3.0,"['3SC', 'ACE', 'CSD']"
+137,2r3q,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.35,297.0,95.9731543624161,2.0,"[11, 1]","[[36, 46], [177, 177]]",3.0,"['5SC', 'ACE', 'CSD']"
+138,2r3r,crystal structure of cyclin-dependent kinase 2 with inhibitor,2008-01-22,1,A,1.47,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",2.0,"['6SC', 'ACE']"
+139,2r64,crystal structure of a 3-aminoindazole compound with cdk2,2008-09-09,1,A,2.30,298.0,93.6241610738255,2.0,"[8, 11]","[[36, 43], [153, 163]]",1.0,['740']
+140,2uue,replace: a strategy for iterative design of cyclin binding groove inhibitors,2007-03-27,3,A,2.06,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",4.0,"['GVC', 'MTZ', 'NH2', 'PFF']"
+141,2uzb,crystal structure of human cdk2 complexed with a thiazolidinone inhibitor,2007-06-26,2,A,2.70,297.0,99.32885906040269,1.0,[2],"[[296, 297]]",2.0,"['C75', 'TPO']"
+142,2uzd,crystal structure of human cdk2 complexed with a thiazolidinone inhibitor,2007-06-26,2,A,2.72,297.0,99.32885906040269,1.0,[2],"[[296, 297]]",2.0,"['C85', 'TPO']"
+143,2uze,crystal structure of human cdk2 complexed with a thiazolidinone inhibitor,2007-06-26,2,A,2.40,297.0,99.32885906040269,1.0,[2],"[[296, 297]]",2.0,"['C95', 'TPO']"
+144,2uzl,crystal structure of human cdk2 complexed with a thiazolidinone inhibitor,2007-06-26,2,A,2.40,297.0,99.32885906040269,1.0,[2],"[[296, 297]]",2.0,"['C94', 'TPO']"
+145,2uzn,crystal structure of human cdk2 complexed with a thiazolidinone inhibitor,2007-06-26,1,A,2.30,298.0,93.6241610738255,2.0,"[9, 10]","[[36, 44], [153, 162]]",1.0,['C96']
+146,2uzo,crystal structure of human cdk2 complexed with a thiazolidinone inhibitor,2007-06-26,1,A,2.30,298.0,97.31543624161074,2.0,"[6, 2]","[[38, 43], [296, 297]]",1.0,['C62']
+147,2v0d,crystal structure of human cdk2 complexed with a thiazolidinone inhibitor,2007-06-26,1,A,2.20,298.0,97.98657718120806,1.0,[6],"[[38, 43]]",2.0,"['C53', 'CL']"
+148,2v22,replace: a strategy for iterative design of cyclin binding groove inhibitors,2008-01-29,2,A,2.60,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",1.0,['C35']
+149,2vta,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design.",2008-08-05,1,A,2.00,298.0,93.28859060402685,2.0,"[9, 11]","[[37, 45], [153, 163]]",2.0,"['GOL', 'LZ1']"
+150,2vth,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h-pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design",2008-08-05,1,A,1.90,298.0,93.28859060402685,2.0,"[9, 11]","[[37, 45], [153, 163]]",2.0,"['GOL', 'LZ2']"
+151,2vti,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design.",2008-08-05,1,A,2.00,298.0,93.95973154362416,2.0,"[8, 10]","[[36, 43], [153, 162]]",1.0,['LZ3']
+152,2vtj,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design",2008-08-05,1,A,2.20,298.0,92.61744966442953,2.0,"[9, 13]","[[37, 45], [151, 163]]",2.0,"['GOL', 'LZ4']"
+153,2vtl,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design",2008-08-05,1,A,2.00,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",1.0,['LZ5']
+154,2vtm,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design.",2008-08-05,1,A,2.25,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",1.0,['LZM']
+155,2vtn,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design.",2008-08-05,1,A,2.20,298.0,91.94630872483222,2.0,"[8, 16]","[[37, 44], [148, 163]]",1.0,['LZ7']
+156,2vto,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design.",2008-08-05,1,A,2.19,298.0,94.96644295302013,2.0,"[7, 8]","[[37, 43], [153, 160]]",1.0,['LZ8']
+157,2vtp,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design.",2008-08-05,1,A,2.15,298.0,94.29530201342283,2.0,"[8, 9]","[[36, 43], [153, 161]]",1.0,['LZ9']
+158,2vtq,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design.",2008-08-05,1,A,1.90,298.0,91.94630872483222,2.0,"[9, 15]","[[37, 45], [148, 162]]",1.0,['LZA']
+159,2vtr,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design",2008-08-05,1,A,1.89,298.0,97.31543624161074,1.0,[8],"[[37, 44]]",1.0,['LZB']
+160,2vts,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design.",2008-08-05,1,A,1.90,298.0,94.63087248322147,2.0,"[8, 8]","[[37, 44], [153, 160]]",1.0,['LZC']
+161,2vtt,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design.",2008-08-05,1,A,1.68,298.0,91.2751677852349,2.0,"[11, 15]","[[36, 46], [149, 163]]",1.0,['LZD']
+162,2vu3,"identification of n-(4-piperidinyl)-4-(2,6-dichlorobenzoylamino)-1h- pyrazole-3-carboxamide (at7519), a novel cyclin dependent kinase inhibitor using fragment-based x-ray crystallography and structure based drug design.",2008-08-05,1,A,1.85,298.0,95.63758389261746,2.0,"[9, 4]","[[38, 46], [148, 151]]",1.0,['LZE']
+163,2vv9,cdk2 in complex with an imidazole piperazine,2008-08-05,1,A,1.90,298.0,93.6241610738255,2.0,"[6, 13]","[[38, 43], [150, 162]]",2.0,"['ACE', 'IM9']"
+164,2w05,"structure of cdk2 in complex with an imidazolyl pyrimidine, compound 5b",2008-10-14,1,A,1.90,298.0,92.61744966442953,2.0,"[9, 13]","[[37, 45], [149, 161]]",1.0,['FRT']
+165,2w06,"structure of cdk2 in complex with an imidazolyl pyrimidine, compound 5c",2008-09-23,1,A,2.04,298.0,94.63087248322147,2.0,"[7, 9]","[[37, 43], [153, 161]]",2.0,"['ACE', 'FRV']"
+166,2w17,"cdk2 in complex with the imidazole pyrimidine amide, compound (s)-8b",2008-11-04,1,A,2.15,298.0,93.28859060402685,4.0,"[1, 5, 1, 13]","[[13, 13], [39, 43], [74, 74], [150, 162]]",3.0,"['ACE', 'ACT', 'I19']"
+167,2w1h,"fragment-based discovery of the pyrazol-4-yl urea (at9283), a multi- targeted kinase inhibitor with potent aurora kinase activity",2009-01-27,1,A,2.15,298.0,94.96644295302013,2.0,"[4, 11]","[[37, 40], [153, 163]]",1.0,['L0F']
+168,2wev,"truncation and optimisation of peptide inhibitors of cdk2, cyclin a through structure guided design",2009-06-09,3,A,2.30,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",5.0,"['ACE', 'B3L', 'CK7', 'MEA', 'NH2']"
+169,2wfy,"truncation and optimisation of peptide inhibitors of cdk2, cyclin a through structure guided design",2009-06-09,3,A,2.53,298.0,98.99328859060402,1.0,[3],"[[296, 298]]",3.0,"['ACE', 'B3L', 'NH2']"
+170,2whb,"truncation and optimisation of peptide inhibitors of cdk2, cyclin a through structure guided design",2009-06-09,3,A,2.90,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",3.0,"['L3O', 'NH2', 'PFF']"
+171,2wih,structure of cdk2-cyclin a with pha-848125,2009-07-28,2,A,2.50,298.0,101.34228187919463,0.0,[],[],2.0,"['P48', 'SO4']"
+172,2wip,"structure of cdk2-cyclin a complexed with 8-anilino-1-methyl-4,5-dihydro- 1h-pyrazolo[4,3-h] quinazoline-3-carboxylic acid",2009-07-28,2,A,2.80,298.0,99.66442953020133,1.0,[1],"[[15, 15]]",2.0,"['P49', 'SO4']"
+173,2wma,structural and thermodynamic consequences of cyclization of peptide ligands for the recruitment site of cyclin a,2010-09-01,3,A,2.80,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",1.0,['TPO']
+174,2wmb,structural and thermodynamic consequences of cyclization of peptide ligands for the recruitment site of cyclin a,2010-09-01,3,A,2.60,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",2.0,"['MG', 'TPO']"
+175,2wpa,"optimisation of 6,6-dimethyl pyrrolo 3,4-c pyrazoles: identification of pha-793887, a potent cdk inhibitor suitable for intravenous dosing",2010-02-23,2,A,2.51,298.0,101.34228187919463,0.0,[],[],2.0,"['889', 'SO4']"
+176,2wxv,"structure of cdk2-cyclin a with a pyrazolo(4,3-h) quinazoline-3- carboxamide inhibitor",2010-02-23,2,A,2.60,298.0,101.34228187919463,0.0,[],[],2.0,"['SO4', 'WXV']"
+177,2x1n,"truncation and optimisation of peptide inhibitors of cdk2, cyclin a through structure guided design",2010-02-16,3,A,2.75,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",4.0,"['ACE', 'NH2', 'PFF', 'X1N']"
+178,2xmy,discovery and characterisation of 2-anilino-4-(thiazol-5-yl) pyrimidine transcriptional cdk inhibitors as anticancer agents,2010-11-10,1,A,1.90,298.0,98.99328859060402,1.0,[3],"[[40, 42]]",1.0,['CDK']
+179,2xnb,discovery and characterisation of 2-anilino-4-(thiazol-5-yl) pyrimidine transcriptional cdk inhibitors as anticancer agents,2010-11-10,1,A,1.85,298.0,99.32885906040269,1.0,[2],"[[39, 40]]",1.0,['Y8L']
+180,3bht,structure of phosphorylated thr160 cdk2/cyclin a in complex with the inhibitor meriolin 3,2008-02-12,2,A,2.00,297.0,100.0,1.0,[2],"[[41, 42]]",4.0,"['MFR', 'MG', 'SGM', 'TPO']"
+181,3bhu,structure of phosphorylated thr160 cdk2/cyclin a in complex with the inhibitor meriolin 5,2008-02-12,2,A,2.30,297.0,100.0,1.0,[2],"[[41, 42]]",3.0,"['MG', 'MHR', 'TPO']"
+182,3bhv,structure of phosphorylated thr160 cdk2/cyclin a in complex with the inhibitor variolin b,2008-02-12,2,A,2.10,297.0,100.0,1.0,[2],"[[41, 42]]",4.0,"['MG', 'SGM', 'TPO', 'VAR']"
+183,3ddp,structure of phosphorylated thr160 cdk2/cyclin a in complex with the inhibitor cr8,2008-07-22,2,A,2.70,297.0,100.0,1.0,[1],"[[299, 299]]",2.0,"['RC8', 'TPO']"
+184,3ddq,structure of phosphorylated thr160 cdk2/cyclin a in complex with the inhibitor roscovitine,2008-07-22,2,A,1.80,297.0,99.66442953020133,1.0,[2],"[[40, 41]]",3.0,"['RRC', 'SGM', 'TPO']"
+185,3dog,structure of thr 160 phosphorylated cdk2/cyclin a in complex with the inhibitor n-&-n1,2008-09-30,2,A,2.70,297.0,100.0,1.0,[1],"[[39, 39]]",3.0,"['NNN', 'SGM', 'TPO']"
+186,3eid,cdk2/cyclina complexed with a pyrazolopyridazine inhibitor,2008-10-21,2,A,3.15,298.0,97.98657718120806,3.0,"[3, 2, 1]","[[38, 40], [161, 162], [298, 298]]",1.0,['PO5']
+187,3ej1,cdk2/cyclina complexed with a pyrazolopyridazine inhibitor,2008-10-21,2,A,3.22,298.0,98.99328859060402,1.0,[3],"[[38, 40]]",1.0,['5BP']
+188,3eoc,cdk2/cyclina complexed with a imidazo triazin-2-amine,2008-11-04,2,A,3.20,298.0,98.99328859060402,1.0,[3],"[[38, 40]]",1.0,['T2A']
+189,3ezr,cdk-2 with indazole inhibitor 17 bound at its active site,2009-02-03,1,A,1.90,298.0,91.61073825503355,2.0,"[7, 18]","[[37, 43], [147, 164]]",1.0,['EZR']
+190,3ezv,cdk-2 with indazole inhibitor 9 bound at its active site,2009-02-03,1,A,1.99,298.0,92.9530201342282,2.0,"[7, 14]","[[37, 43], [149, 162]]",1.0,['EZV']
+191,3f5x,cdk-2-cyclin complex with indazole inhibitor 9 bound at its active site,2009-02-03,2,A,2.40,298.0,99.66442953020133,1.0,[1],"[[272, 272]]",3.0,"['EZV', 'GOL', 'SO4']"
+192,3fz1,crystal structure of a benzthiophene inhibitor bound to human cyclin-dependent kinase-2 (cdk-2),2009-04-07,1,A,1.90,298.0,95.30201342281879,2.0,"[7, 7]","[[37, 43], [154, 160]]",1.0,['B98']
+193,3ig7,novel cdk-5 inhibitors - crystal structure of inhibitor efp with cdk-2,2009-09-08,1,A,1.80,298.0,93.28859060402685,2.0,"[8, 12]","[[36, 43], [153, 164]]",2.0,"['ACE', 'EFP']"
+194,3igg,novel cdk-5 inhibitors - crystal structure of inhibitor efq with cdk-2,2009-09-08,1,A,1.80,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",2.0,"['ACE', 'EFQ']"
+195,3le6,the structure of cyclin dependent kinase 2 (ckd2) with a pyrazolobenzodiazepine inhibitor,2010-11-17,1,A,2.00,298.0,94.96644295302013,3.0,"[9, 2, 4]","[[36, 44], [73, 74], [295, 298]]",1.0,['2BZ']
+196,3lfn,"crystal structure of cdk2 with sar57, an aminoindazole type inhibitor",2010-03-02,1,A,2.28,298.0,95.63758389261746,2.0,"[4, 9]","[[37, 40], [152, 160]]",1.0,['A27']
+197,3lfq,"crystal structure of cdk2 with sar60, an aminoindazole type inhibitor",2010-03-02,1,A,2.03,298.0,96.97986577181209,1.0,[9],"[[37, 45]]",1.0,['A28']
+198,3lfs,"crystal structure of cdk2 with sar37, an aminoindazole type inhibitor",2010-03-02,1,A,2.40,298.0,97.31543624161074,1.0,[8],"[[37, 44]]",1.0,['A07']
+199,3my5,cdk2/cyclina in complex with drb,2010-09-29,2,A,2.10,297.0,99.66442953020133,1.0,[3],"[[40, 42]]",4.0,"['FMT', 'RFZ', 'SGM', 'TPO']"
+200,3ns9,crystal structure of cdk2 in complex with inhibitor bs-194,2010-12-08,1,A,1.78,298.0,96.97986577181209,2.0,"[2, 7]","[[1, 2], [36, 42]]",1.0,['NS9']
+201,3pj8,"structure of cdk2 in complex with a pyrazolo[4,3-d]pyrimidine bioisostere of roscovitine.",2011-04-06,1,A,1.96,298.0,96.64429530201343,2.0,"[3, 8]","[[38, 40], [156, 163]]",1.0,['404']
+202,3pxf,cdk2 in complex with two molecules of 8-anilino-1-naphthalene sulfonate,2011-02-16,1,A,1.80,298.0,101.34228187919463,0.0,[],[],2.0,"['2AN', 'EDO']"
+203,3pxq,cdk2 in complex with 3 molecules of 8-anilino-1-naphthalene sulfonate,2011-02-16,1,A,1.90,298.0,100.0,1.0,[4],"[[41, 44]]",2.0,"['2AN', 'EDO']"
+204,3pxr,apo cdk2 crystallized from jeffamine,2011-02-16,1,A,2.00,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['EDO']
+205,3pxy,cdk2 in complex with inhibitor jws648,2011-02-16,1,A,1.80,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['JWS', 'PO4']"
+206,3pxz,cdk2 ternary complex with jws648 and ans,2011-02-16,1,A,1.70,298.0,101.34228187919463,0.0,[],[],2.0,"['2AN', 'JWS']"
+207,3py0,cdk2 in complex with inhibitor su9516,2011-02-16,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",3.0,"['EDO', 'PO4', 'SU9']"
+208,3py1,cdk2 ternary complex with su9516 and ans,2011-02-16,1,A,2.05,298.0,101.34228187919463,0.0,[],[],3.0,"['2AN', 'EDO', 'SU9']"
+209,3qhr,structure of a pcdk2/cyclina transition-state mimic,2011-05-25,3,A,2.17,295.0,100.0,1.0,[2],"[[298, 299]]",6.0,"['ADP', 'CL', 'GOL', 'MG', 'MGF', 'TPO']"
+210,3qhw,structure of a pcdk2/cyclina transition-state mimic,2011-05-25,3,A,1.91,295.0,100.0,1.0,[2],"[[298, 299]]",6.0,"['ADP', 'CL', 'DTU', 'MG', 'MGF', 'TPO']"
+211,3ql8,cdk2 in complex with inhibitor jws-6-260,2012-08-08,1,A,1.90,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X01']"
+212,3qqf,cdk2 in complex with inhibitor l1,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X07']"
+213,3qqg,cdk2 in complex with inhibitor l2-5,2012-08-08,1,A,1.90,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",3.0,"['EDO', 'PO4', 'X06']"
+214,3qqh,cdk2 in complex with inhibitor l2-2,2012-08-08,1,A,1.87,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",3.0,"['EDO', 'PO4', 'X0A']"
+215,3qqj,cdk2 in complex with inhibitor l2,2012-08-08,1,A,1.70,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",3.0,"['EDO', 'PO4', 'X11']"
+216,3qqk,cdk2 in complex with inhibitor l4,2012-10-31,1,A,1.86,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X02']"
+217,3qql,cdk2 in complex with inhibitor l3,2012-08-08,1,A,1.85,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['X03']
+218,3qrt,cdk2 in complex with inhibitor nsk-mc2-55,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X14']"
+219,3qru,cdk2 in complex with inhibitor nsk-mc1-12,2012-08-08,1,A,1.95,298.0,98.99328859060402,1.0,[3],"[[38, 40]]",2.0,"['EDO', 'X19']"
+220,3qtq,cdk2 in complex with inhibitor rc-1-137,2012-10-31,1,A,1.80,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X35']"
+221,3qtr,cdk2 in complex with inhibitor rc-1-148,2012-10-31,1,A,1.85,298.0,94.63087248322147,2.0,"[8, 8]","[[37, 44], [155, 162]]",1.0,['X36']
+222,3qts,cdk2 in complex with inhibitor rc-2-12,2012-10-31,1,A,1.90,298.0,94.63087248322147,2.0,"[8, 8]","[[37, 44], [155, 162]]",1.0,['X46']
+223,3qtu,cdk2 in complex with inhibitor rc-2-132,2012-10-31,1,A,1.82,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['X44']
+224,3qtw,cdk2 in complex with inhibitor rc-2-13,2012-10-31,1,A,1.85,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X3A']"
+225,3qtx,cdk2 in complex with inhibitor rc-2-35,2012-10-31,1,A,1.95,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['X43']
+226,3qtz,cdk2 in complex with inhibitor rc-2-36,2012-10-31,1,A,2.00,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X42']"
+227,3qu0,cdk2 in complex with inhibitor rc-2-38,2012-10-31,1,A,1.95,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X40']"
+228,3qwj,cdk2 in complex with inhibitor kvr-1-142,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X6A']"
+229,3qwk,cdk2 in complex with inhibitor kvr-1-150,2012-08-08,1,A,1.85,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X62']"
+230,3qx2,cdk2 in complex with inhibitor kvr-1-190,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X63']"
+231,3qx4,cdk2 in complex with inhibitor kvr-1-78,2012-08-08,1,A,1.92,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X4B']"
+232,3qxo,cdk2 in complex with inhibitor kvr-1-84,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X65']"
+233,3qxp,cdk2 in complex with inhibitor rc-3-89,2012-10-31,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X64']"
+234,3qzf,cdk2 in complex with inhibitor jws-6-52,2012-08-08,1,A,2.00,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['X66']
+235,3qzg,cdk2 in complex with inhibitor jws-6-76,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X67']"
+236,3qzh,cdk2 in complex with inhibitor kvr-1-124,2012-08-08,1,A,1.95,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X69']"
+237,3qzi,cdk2 in complex with inhibitor kvr-1-126,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X72']"
+238,3r1q,cdk2 in complex with inhibitor kvr-1-102,2012-08-08,1,A,1.85,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X75']"
+239,3r1s,cdk2 in complex with inhibitor kvr-1-127,2012-08-08,1,A,1.80,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X73']"
+240,3r1y,cdk2 in complex with inhibitor kvr-1-134,2012-08-08,1,A,1.80,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X76']"
+241,3r28,cdk2 in complex with inhibitor kvr-1-140,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'XA0']"
+242,3r6x,cdk2 in complex with inhibitor kvr-1-158,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X84']"
+243,3r71,cdk2 in complex with inhibitor kvr-1-162,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X86']"
+244,3r73,cdk2 in complex with inhibitor kvr-1-164,2012-08-08,1,A,1.70,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X87']"
+245,3r7e,cdk2 in complex with inhibitor kvr-1-67,2012-08-08,1,A,1.90,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X88']"
+246,3r7i,cdk2 in complex with inhibitor kvr-1-74,2012-08-08,1,A,1.85,298.0,94.63087248322147,2.0,"[8, 8]","[[37, 44], [155, 162]]",2.0,"['EDO', 'X9I']"
+247,3r7u,cdk2 in complex with inhibitor kvr-1-75,2012-08-08,1,A,1.75,298.0,94.63087248322147,2.0,"[8, 8]","[[37, 44], [155, 162]]",2.0,"['EDO', 'X96']"
+248,3r7v,cdk2 in complex with inhibitor kvr-1-9,2012-08-08,1,A,1.95,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'Z02']"
+249,3r7y,cdk2 in complex with inhibitor kvr-2-88,2012-08-08,1,A,1.90,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'Z04']"
+250,3r83,cdk2 in complex with inhibitor kvr-2-92,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'Z14']"
+251,3r8l,cdk2 in complex with inhibitor l3-4,2012-08-08,1,A,1.90,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['Z30']
+252,3r8m,cdk2 in complex with inhibitor l3-3,2012-08-08,1,A,1.80,298.0,95.9731543624161,2.0,"[4, 8]","[[37, 40], [154, 161]]",2.0,"['PO4', 'Z19']"
+253,3r8p,cdk2 in complex with inhibitor nsk-mc1-6,2012-08-08,1,A,1.80,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['Z46']
+254,3r8u,cdk2 in complex with inhibitor rc-1-132,2012-10-31,1,A,2.00,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['Z31']
+255,3r8v,cdk2 in complex with inhibitor rc-1-135,2012-10-31,1,A,1.90,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['Z62']
+256,3r8z,cdk2 in complex with inhibitor rc-1-136,2012-10-31,1,A,1.85,298.0,97.31543624161074,2.0,"[4, 4]","[[37, 40], [156, 159]]",1.0,['Z63']
+257,3r9d,cdk2 in complex with inhibitor rc-2-135,2012-10-31,1,A,1.95,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['X6B']
+258,3r9h,cdk2 in complex with inhibitor rc-2-142,2012-10-31,1,A,2.10,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['Z67']
+259,3r9n,cdk2 in complex with inhibitor rc-2-21,2012-10-31,1,A,1.75,298.0,94.63087248322147,2.0,"[8, 8]","[[37, 44], [155, 162]]",1.0,['Z68']
+260,3r9o,cdk2 in complex with inhibitor rc-2-143,2012-10-31,1,A,1.90,298.0,94.63087248322147,2.0,"[8, 8]","[[37, 44], [155, 162]]",1.0,['Z71']
+261,3rah,cdk2 in complex with inhibitor rc-2-22,2012-10-31,1,A,1.75,298.0,94.63087248322147,2.0,"[8, 8]","[[37, 44], [155, 162]]",1.0,['O1Z']
+262,3rai,cdk2 in complex with inhibitor kvr-1-160,2012-08-08,1,A,1.70,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['EDO', 'X85']"
+263,3rak,cdk2 in complex with inhibitor rc-2-32,2012-10-31,1,A,1.75,298.0,92.9530201342282,2.0,"[8, 13]","[[37, 44], [150, 162]]",1.0,['03Z']
+264,3ral,cdk2 in complex with inhibitor rc-2-34,2012-10-31,1,A,1.75,298.0,92.9530201342282,2.0,"[8, 13]","[[37, 44], [150, 162]]",1.0,['04Z']
+265,3rjc,cdk2 in complex with inhibitor l4-12,2012-10-31,1,A,1.85,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['06Z']
+266,3rk5,cdk2 in complex with inhibitor rc-2-72,2012-10-31,1,A,2.00,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['07Z']
+267,3rk7,cdk2 in complex with inhibitor rc-2-71,2012-10-31,1,A,1.80,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['08Z', 'EDO']"
+268,3rk9,cdk2 in complex with inhibitor rc-2-74,2012-10-31,1,A,1.85,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['09Z']
+269,3rkb,cdk2 in complex with inhibitor rc-2-73,2012-10-31,1,A,2.00,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['12Z', 'EDO']"
+270,3rm6,cdk2 in complex with inhibitor kvr-2-80,2012-08-08,1,A,1.60,298.0,98.3221476510067,2.0,"[1, 4]","[[15, 15], [37, 40]]",2.0,"['18Z', 'EDO']"
+271,3rm7,cdk2 in complex with inhibitor kvr-1-91,2012-08-08,1,A,1.85,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['19Z', 'EDO']"
+272,3rmf,cdk2 in complex with inhibitor rc-2-33,2012-10-31,1,A,1.75,298.0,93.28859060402685,2.0,"[7, 13]","[[38, 44], [150, 162]]",1.0,['20Z']
+273,3rni,cdk2 in complex with inhibitor rc-3-86,2012-10-31,1,A,1.95,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['21Z']
+274,3roy,cdk2 in complex with inhibitor kvr-1-154,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['22Z', 'EDO']"
+275,3rpo,cdk2 in complex with inhibitor kvr-1-156,2012-08-08,1,A,1.75,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['24Z', 'EDO']"
+276,3rpr,cdk2 in complex with inhibitor rc-2-49,2012-10-31,1,A,1.75,298.0,94.63087248322147,2.0,"[8, 8]","[[37, 44], [155, 162]]",1.0,['25Z']
+277,3rpv,cdk2 in complex with inhibitor rc-2-88,2012-10-31,1,A,1.80,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['26Z', 'EDO']"
+278,3rpy,cdk2 in complex with inhibitor rc-2-40,2012-10-31,1,A,1.90,298.0,92.9530201342282,2.0,"[8, 13]","[[37, 44], [150, 162]]",1.0,['27Z']
+279,3rzb,cdk2 in complex with inhibitor rc-2-23,2012-10-31,1,A,1.90,298.0,94.63087248322147,2.0,"[8, 8]","[[37, 44], [155, 162]]",1.0,['02Z']
+280,3s00,cdk2 in complex with inhibitor l4-14,2012-10-31,1,A,1.80,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['Z60']
+281,3s0o,cdk2 in complex with inhibitor rc-1-138,2012-10-31,1,A,2.00,298.0,98.3221476510067,2.0,"[3, 2]","[[38, 40], [147, 148]]",1.0,['50Z']
+282,3s1h,cdk2 in complex with inhibitor rc-2-39,2012-10-31,1,A,1.75,298.0,92.9530201342282,2.0,"[8, 13]","[[37, 44], [150, 162]]",1.0,['56Z']
+283,3s2p,crystal structure of cdk2 with a 2-aminopyrimidine compound,2011-07-20,1,A,2.30,298.0,93.6241610738255,2.0,"[8, 11]","[[36, 43], [153, 163]]",1.0,['PMU']
+284,3sqq,cdk2 in complex with inhibitor rc-3-96,2012-10-31,1,A,1.85,298.0,96.64429530201343,2.0,"[4, 6]","[[37, 40], [151, 156]]",2.0,"['99Z', 'EDO']"
+285,3sw4,crystal structure of the cdk2 in complex with thiazolylpyrimidine inhibitor,2012-08-01,1,A,1.70,298.0,93.6241610738255,2.0,"[9, 10]","[[36, 44], [154, 163]]",3.0,"['18K', 'ACE', 'ACT']"
+286,3sw7,crystal structure of the cdk2 in complex with thiazolylpyrimidine inhibitor,2012-08-01,1,A,1.80,298.0,93.28859060402685,2.0,"[7, 13]","[[38, 44], [150, 162]]",2.0,"['19K', 'ACE']"
+287,3ti1,cdk2 in complex with sunitinib,2012-08-22,1,A,1.99,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['B49', 'EDO']"
+288,3tiy,cdk2 in complex with nsc 35676,2012-08-22,1,A,1.84,298.0,98.3221476510067,2.0,"[1, 4]","[[1, 1], [37, 40]]",2.0,"['EDO', 'TIY']"
+289,3tiz,cdk2 in complex with nsc 111848,2012-08-22,1,A,2.02,298.0,98.3221476510067,2.0,"[1, 4]","[[1, 1], [37, 40]]",2.0,"['3TI', 'EDO']"
+290,3tnw,structure of cdk2/cyclin a in complex with can508,2012-02-15,2,A,2.00,297.0,99.32885906040269,1.0,[3],"[[39, 41]]",3.0,"['F18', 'NA', 'TPO']"
+291,3uli,human cyclin dependent kinase 2 (cdk2) bound to azabenzimidazole derivative,2013-08-14,1,A,2.00,298.0,95.9731543624161,2.0,"[5, 7]","[[39, 43], [155, 161]]",1.0,['1N3']
+292,3unj,cdk2 in complex with inhibitor yl1-038-31,2012-01-25,1,A,1.90,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['0BX', 'PO4']"
+293,3unk,cdk2 in complex with inhibitor yl5-083,2012-01-25,1,A,2.10,298.0,98.99328859060402,1.0,[3],"[[37, 39]]",2.0,"['0BY', 'PO4']"
+294,3wbl,crystal structure of cdk2 in complex with pyrazolopyrimidine inhibitor,2013-10-30,1,A,2.00,298.0,94.96644295302013,3.0,"[1, 5, 9]","[[25, 25], [38, 42], [154, 162]]",2.0,"['ACT', 'PDY']"
+295,4acm,cdk2 in complex with 3-amino-6-(4-{[2-(dimethylamino)ethyl]sulfamoyl}-phenyl)-n-pyridin-3-ylpyrazine-2-carboxamide,2012-05-16,1,A,1.63,298.0,92.9530201342282,3.0,"[7, 2, 12]","[[37, 43], [73, 74], [151, 162]]",3.0,"['7YG', 'ACE', 'GOL']"
+296,4bck,structure of cdk2 in complex with cyclin a and a 2-amino-4-heteroaryl- pyrimidine inhibitor,2013-03-06,2,A,2.05,297.0,100.33557046979867,1.0,[1],"[[300, 300]]",3.0,"['SGM', 'T3E', 'TPO']"
+297,4bcm,structure of cdk2 in complex with cyclin a and a 2-amino-4-heteroaryl- pyrimidine inhibitor,2013-03-06,3,A,2.45,297.0,99.32885906040269,2.0,"[3, 2]","[[41, 43], [299, 300]]",3.0,"['SGM', 'T7Z', 'TPO']"
+298,4bcn,structure of cdk2 in complex with cyclin a and a 2-amino-4-heteroaryl- pyrimidine inhibitor,2013-03-06,3,A,2.10,297.0,99.66442953020133,1.0,[2],"[[40, 41]]",3.0,"['SO4', 'T9N', 'TPO']"
+299,4bco,structure of cdk2 in complex with cyclin a and a 2-amino-4-heteroaryl- pyrimidine inhibitor,2013-01-09,2,A,2.05,297.0,100.33557046979867,0.0,[],[],4.0,"['SGM', 'SO4', 'T6Q', 'TPO']"
+300,4bcp,structure of cdk2 in complex with cyclin a and a 2-amino-4-heteroaryl- pyrimidine inhibitor,2013-04-17,2,A,2.26,297.0,100.33557046979867,0.0,[],[],4.0,"['SGM', 'SO4', 'T3C', 'TPO']"
+301,4bcq,structure of cdk2 in complex with cyclin a and a 2-amino-4-heteroaryl- pyrimidine inhibitor,2013-01-09,3,A,2.40,297.0,98.3221476510067,2.0,"[2, 3]","[[10, 11], [296, 298]]",2.0,"['TJF', 'TPO']"
+302,4bgh,crystal structure of cdk2 in complex with pan-cdk inhibitor,2013-09-04,1,A,1.95,298.0,92.28187919463086,2.0,"[9, 14]","[[36, 44], [150, 163]]",1.0,['3I6']
+303,4bzd,structure of cdk2 in complex with a benzimidazopyrimidine,2014-08-13,1,A,1.83,298.0,92.9530201342282,3.0,"[1, 6, 14]","[[14, 14], [38, 43], [149, 162]]",3.0,"['ACE', 'ACT', 'D6I']"
+304,4cfm,structure-based design of c8-substituted o6-cyclohexylmethoxyguanine cdk1 and 2 inhibitors.,2014-12-10,2,A,2.85,297.0,99.66442953020133,1.0,[2],"[[297, 298]]",2.0,"['4QE', 'TPO']"
+305,4cfn,structure-based design of c8-substituted o6-cyclohexylmethoxyguanine cdk1 and 2 inhibitors.,2013-12-18,2,A,2.20,297.0,99.66442953020133,2.0,"[3, 1]","[[41, 43], [301, 301]]",3.0,"['DTT', 'JYM', 'TPO']"
+306,4cfu,structure-based design of c8-substituted o6-cyclohexylmethoxyguanine cdk1 and 2 inhibitors.,2014-12-10,3,A,2.20,297.0,100.67114093959732,1.0,[2],"[[43, 44]]",3.0,"['2WC', 'MG', 'TPO']"
+307,4cfv,structure-based design of c8-substituted o6-cyclohexylmethoxyguanine cdk1 and 2 inhibitors.,2014-12-10,2,A,2.00,297.0,101.00671140939596,0.0,[],[],3.0,"['75X', 'MG', 'TPO']"
+308,4cfw,structure-based design of c8-substituted o6-cyclohexylmethoxyguanine cdk1 and 2 inhibitors.,2013-12-18,2,A,2.45,297.0,100.67114093959732,0.0,[],[],2.0,"['SQ9', 'TPO']"
+309,4cfx,structure-based design of c8-substituted o6-cyclohexylmethoxyguanine cdk1 and 2 inhibitors.,2014-12-10,2,A,3.50,297.0,100.33557046979867,0.0,[],[],2.0,"['G6T', 'TPO']"
+310,4d1x,cdk2 in complex with luciferin,2015-03-18,1,A,2.10,298.0,91.94630872483222,3.0,"[2, 11, 11]","[[1, 2], [36, 46], [154, 164]]",1.0,['ESJ']
+311,4d1z,cdk2 in complex with a luciferin derivate,2015-03-18,1,A,1.85,298.0,86.57718120805369,5.0,"[6, 12, 2, 17, 3]","[[1, 6], [36, 47], [73, 74], [148, 164], [296, 298]]",1.0,['WG8']
+312,4ek3,crystal structure of apo cdk2,2013-05-01,1,A,1.34,298.0,96.30872483221476,2.0,"[9, 2]","[[36, 44], [296, 297]]",1.0,['ACE']
+313,4ek4,crystal structure of the cdk2 in complex with aminopyrazole inhibitor,2013-05-01,1,A,1.26,298.0,96.30872483221476,2.0,"[9, 2]","[[36, 44], [296, 297]]",3.0,"['1CK', 'ACE', 'NA']"
+314,4ek5,crystal structure of the cdk2 in complex with aminopyrazole inhibitor,2013-05-01,1,A,1.60,298.0,96.97986577181209,1.0,[9],"[[36, 44]]",2.0,"['03K', 'ACE']"
+315,4ek8,crystal structure of the cdk2 in complex with thiazolylpyrimidine inhibitor,2013-05-01,1,A,1.70,298.0,93.95973154362416,2.0,"[9, 9]","[[36, 44], [153, 161]]",2.0,"['16K', 'ACE']"
+316,4eoi,"thr 160 phosphorylated cdk2 k89d, q131e - human cyclin a3 complex with the inhibitor ro3306",2013-02-06,2,A,2.00,295.0,98.99328859060402,1.0,[4],"[[39, 42]]",4.0,"['1RO', 'DMS', 'SGM', 'TPO']"
+317,4eoj,"thr 160 phosphorylated cdk2 h84s, q85m, k89d - human cyclin a3 complex with atp",2013-02-06,2,A,1.65,294.0,99.32885906040269,1.0,[4],"[[40, 43]]",4.0,"['ATP', 'MG', 'SGM', 'TPO']"
+318,4eok,"thr 160 phosphorylated cdk2 h84s, q85m, k89d - human cyclin a3 complex with the inhibitor nu6102",2013-02-06,2,A,2.57,293.0,98.65771812080537,2.0,"[4, 1]","[[39, 42], [299, 299]]",3.0,"['4SP', 'SGM', 'TPO']"
+319,4eol,"thr 160 phosphorylated cdk2 h84s, q85m, k89d - human cyclin a3 complex with the inhibitor ro3306",2013-02-06,2,A,2.40,293.0,98.99328859060402,3.0,"[2, 1, 1]","[[39, 40], [96, 96], [299, 299]]",4.0,"['1RO', 'MG', 'SGM', 'TPO']"
+320,4eom,"thr 160 phosphorylated cdk2 h84s, q85m, q131e - human cyclin a3 complex with atp",2013-02-06,2,A,2.10,293.0,99.66442953020133,2.0,"[2, 1]","[[40, 41], [300, 300]]",3.0,"['ATP', 'MG', 'TPO']"
+321,4eon,"thr 160 phosphorylated cdk2 h84s, q85m, q131e - human cyclin a3 complex with the inhibitor ro3306",2013-02-06,2,A,2.40,294.0,100.67114093959732,0.0,[],[],3.0,"['1RO', 'MG', 'TPO']"
+322,4eoo,thr 160 phosphorylated cdk2 q131e - human cyclin a3 complex with atp,2013-02-06,2,A,2.10,295.0,98.99328859060402,2.0,"[4, 1]","[[40, 43], [300, 300]]",4.0,"['ATP', 'MG', 'SGM', 'TPO']"
+323,4eop,thr 160 phosphorylated cdk2 q131e - human cyclin a3 complex with the inhibitor ro3306,2013-02-06,2,A,1.99,295.0,100.0,2.0,"[2, 1]","[[42, 43], [301, 301]]",4.0,"['1RO', 'MG', 'SGM', 'TPO']"
+324,4eoq,thr 160 phosphorylated cdk2 wt - human cyclin a3 complex with atp,2013-02-06,2,A,2.15,296.0,99.32885906040269,2.0,"[3, 1]","[[40, 42], [300, 300]]",4.0,"['ATP', 'MG', 'SGM', 'TPO']"
+325,4eor,thr 160 phosphorylated cdk2 wt - human cyclin a3 complex with the inhibitor nu6102,2013-02-06,2,A,2.20,296.0,98.65771812080537,2.0,"[4, 1]","[[39, 42], [299, 299]]",2.0,"['4SP', 'TPO']"
+326,4eos,thr 160 phosphorylated cdk2 wt - human cyclin a3 complex with the inhibitor ro3306,2013-02-06,2,A,2.57,296.0,99.66442953020133,2.0,"[3, 1]","[[42, 44], [301, 301]]",2.0,"['1RO', 'TPO']"
+327,4erw,cdk2 in complex with staurosporine,2012-08-22,1,A,2.00,297.0,97.98657718120806,2.0,"[5, 1]","[[38, 42], [177, 177]]",3.0,"['EDO', 'OCS', 'STU']"
+328,4ez3,cdk2 in complex with nsc 134199,2012-08-22,1,A,2.00,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",2.0,"['0S0', 'EDO']"
+329,4ez7,cdk2 in complex with staurosporine and 2 molecules of 8-anilino-1-naphthalene sulfonic acid,2012-08-22,1,A,2.49,298.0,101.34228187919463,0.0,[],[],3.0,"['2AN', 'EDO', 'STU']"
+330,4fkg,crystal structure of the cdk2 in complex with aminopyrazole inhibitor,2013-05-08,1,A,1.51,298.0,95.9731543624161,2.0,"[9, 3]","[[36, 44], [154, 156]]",2.0,"['4CK', 'ACE']"
+331,4fki,crystal structure of the cdk2 in complex with aminopyrazole inhibitor,2013-05-08,1,A,1.60,298.0,96.30872483221476,2.0,"[8, 3]","[[37, 44], [154, 156]]",2.0,"['09K', 'ACE']"
+332,4fkj,crystal structure of the cdk2 in complex with aminopyrazole inhibitor,2013-05-08,1,A,1.63,298.0,93.28859060402685,2.0,"[9, 11]","[[36, 44], [152, 162]]",3.0,"['11K', 'ACE', 'ACT']"
+333,4fkl,crystal structure of the cdk2 in complex with thiazolylpyrimidine inhibitor,2013-05-08,1,A,1.26,298.0,97.31543624161074,1.0,[8],"[[36, 43]]",2.0,"['ACE', 'CK2']"
+334,4fko,crystal structure of the cdk2 in complex with thiazolylpyrimidine inhibitor,2013-05-08,1,A,1.55,298.0,97.6510067114094,1.0,[7],"[[38, 44]]",3.0,"['20K', 'ACE', 'ACT']"
+335,4fkp,crystal structure of the cdk2 in complex with oxindole inhibitor,2013-05-08,1,A,1.60,298.0,93.6241610738255,2.0,"[9, 10]","[[36, 44], [153, 162]]",3.0,"['ACE', 'LS5', 'NA']"
+336,4fkq,crystal structure of the cdk2 in complex with oxindole inhibitor,2013-05-08,1,A,1.75,298.0,94.96644295302013,2.0,"[6, 9]","[[38, 43], [154, 162]]",3.0,"['42K', 'ACE', 'GOL']"
+337,4fkr,crystal structure of the cdk2 in complex with oxindole inhibitor,2013-05-08,1,A,1.90,298.0,94.63087248322147,2.0,"[7, 9]","[[38, 44], [154, 162]]",3.0,"['45K', 'ACE', 'GOL']"
+338,4fks,crystal structure of the cdk2 in complex with oxindole inhibitor,2013-05-08,1,A,1.55,298.0,92.28187919463086,3.0,"[9, 12, 2]","[[36, 44], [151, 162], [296, 297]]",2.0,"['46K', 'ACE']"
+339,4fkt,crystal structure of the cdk2 in complex with oxindole inhibitor,2013-05-08,1,A,1.60,298.0,93.28859060402685,3.0,"[9, 9, 2]","[[36, 44], [153, 161], [296, 297]]",2.0,"['48K', 'ACE']"
+340,4fku,crystal structure of the cdk2 in complex with oxindole inhibitor,2013-05-08,1,A,1.47,298.0,98.3221476510067,1.0,[5],"[[38, 42]]",3.0,"['60K', 'ACE', 'GOL']"
+341,4fkv,crystal structure of the cdk2 in complex with oxindole inhibitor,2013-05-08,1,A,1.70,298.0,94.63087248322147,2.0,"[5, 11]","[[38, 42], [151, 161]]",3.0,"['61K', 'ACE', 'GOL']"
+342,4fkw,crystal structure of the cdk2 in complex with oxindole inhibitor,2013-05-08,1,A,1.80,298.0,93.95973154362416,2.0,"[5, 13]","[[38, 42], [150, 162]]",3.0,"['62K', 'ACE', 'GOL']"
+343,4fx3,crystal structure of the cdk2/cyclin a complex with oxindole inhibitor,2013-05-15,2,A,2.75,298.0,100.0,0.0,[],[],2.0,"['60K', 'DTT']"
+344,4gcj,cdk2 in complex with inhibitor rc-3-89,2012-10-31,1,A,1.42,298.0,102.01342281879195,0.0,[],[],2.0,"['EDO', 'X64']"
+345,4i3z,structure of pcdk2/cyclina bound to adp and 2 magnesium ions,2012-12-26,2,A,2.05,295.0,99.32885906040269,1.0,[2],"[[296, 297]]",5.0,"['ADP', 'CL', 'GOL', 'MG', 'TPO']"
+346,4ii5,structure of pcdk2/cyclina bound to adp and 1 magnesium ion,2013-01-23,2,A,2.15,297.0,99.32885906040269,1.0,[2],"[[296, 297]]",4.0,"['ADP', 'GOL', 'MG', 'TPO']"
+347,4kd1,cdk2 in complex with dinaciclib,2013-09-18,1,A,1.70,298.0,100.0,0.0,[],[],2.0,"['1QK', 'EDO']"
+348,4lyn,"crystal structure of cyclin-dependent kinase 2 (cdk2-wt) complex with (2s)-n-(5-(((5-tert-butyl-1,3-oxazol-2-yl)methyl)sulfanyl)-1,3-thiazol-2-yl)-2-phenylpropanamide",2013-10-02,1,A,2.00,298.0,96.30872483221476,1.0,[11],"[[153, 163]]",1.0,['1YG']
+349,4nj3,modulating the interaction between cdk2 and cyclin a with a quinoline-based inhibitor,2013-11-27,1,A,1.85,297.0,92.9530201342282,3.0,"[8, 12, 1]","[[38, 45], [150, 161], [177, 177]]",3.0,"['2KD', 'ACE', 'CSD']"
+350,4rj3,cdk2 with egfr inhibitor compound 8,2014-11-26,1,A,1.63,297.0,96.30872483221476,2.0,"[8, 3]","[[34, 41], [296, 298]]",3.0,"['3QS', 'ACT', 'ALY']"
+351,5a14,human cdk2 with type ii inhibitor,2015-07-22,1,A,2.00,298.0,95.30201342281879,3.0,"[2, 10, 2]","[[39, 40], [154, 163], [296, 297]]",2.0,"['ACE', 'LQ5']"
+352,5and,crystal structure of cdk2 in complex with 2-imidazol-1-yl-1h- benzimidazole processed with the crystaldirect automated mounting and cryo-cooling technology,2016-04-13,1,A,2.30,298.0,91.61073825503355,4.0,"[1, 9, 11, 4]","[[1, 1], [36, 44], [153, 163], [295, 298]]",1.0,['5JE']
+353,5ane,crystal structure of cdk2 in complex with 6-methoxy-7h-purine processed with the crystaldirect automated mounting and cryo-cooling technology,2016-04-13,1,A,1.70,298.0,98.65771812080537,1.0,[4],"[[37, 40]]",1.0,['SZL']
+354,5ani,crystal structure of cdk2 in complex with 6-chloro-7h-purine processed with the crystaldirect automated mounting and cryo-cooling technology,2016-04-13,1,A,1.90,298.0,93.95973154362416,3.0,"[1, 9, 8]","[[1, 1], [37, 45], [155, 162]]",1.0,['ES4']
+355,5anj,crystal structure of cdk2 in complex with n-(9h-purin-6-yl)thiophene- 2-carboxamide processed with the crystaldirect automated mounting and cryo-cooling technology,2016-04-13,1,A,1.60,298.0,97.6510067114094,2.0,"[2, 5]","[[1, 2], [158, 162]]",1.0,['ZXC']
+356,5ank,"crystal structure of cdk2 in complex with 2,4,6-trioxo-1-phenyl- hexahydropyrimidine-5-carboxamide processed with the crystaldirect automated mounting and cryo-cooling technology",2016-04-13,1,A,1.90,298.0,91.61073825503355,3.0,"[9, 4, 12]","[[37, 45], [72, 75], [153, 164]]",1.0,['RJI']
+357,5ano,crystal structure of cdk2 processed with the crystaldirect automated mounting and cryo-cooling technology,2016-04-13,1,A,1.70,298.0,92.9530201342282,2.0,"[10, 11]","[[36, 45], [152, 162]]",0.0,[]
+358,5cyi,cdk2/cyclin a covalent complex with 6-(cyclohexylmethoxy)-n-(4-(vinylsulfonyl)phenyl)-9h-purin-2-amine (nu6300),2015-09-16,2,A,2.00,297.0,100.33557046979867,0.0,[],[],2.0,"['55S', 'TPO']"
+359,5d1j,"crystal structure of cyclin-dependent kinase 2 (cdk2-wt) complex with n-[5-[[[5-(1,1-dimethylethyl)-2-oxazolyl] methyl]thio]-2-thiazolyl]-4-piperidinecarboxamide (bms-387032)",2015-08-12,1,A,1.80,298.0,88.9261744966443,3.0,"[2, 14, 17]","[[13, 14], [35, 48], [147, 163]]",1.0,['56H']
+360,5fp5,structure of cyclin-dependent kinase 2 with small-molecule ligand 4- fluorobenzoic acid (at222) in an alternate binding site.,2015-12-09,1,A,2.16,298.0,88.59060402684564,5.0,"[1, 11, 3, 16, 3]","[[14, 14], [36, 46], [73, 75], [149, 164], [296, 298]]",2.0,"['1Y6', 'ACE']"
+361,5fp6,"structure of cyclin-dependent kinase 2 with small-molecule ligand 3-(4,7-dichloro-1h-indol-3-yl)prop-2-yn-1-ol (at17833) in an alternate binding site.",2015-12-23,1,A,1.85,298.0,93.28859060402685,2.0,"[16, 4]","[[148, 163], [295, 298]]",1.0,['MFZ']
+362,5iev,crystal structure of bay 1000394 (roniciclib) bound to cdk2,2016-04-27,1,A,2.03,298.0,95.30201342281879,2.0,"[5, 9]","[[38, 42], [154, 162]]",1.0,['R0N']
+363,5iex,"crystal structure of (r,s)-s-{4-[(5-bromo-4-{[(2r,3r)-2-hydroxy-1-methylpropyl]oxy}- pyrimidin-2-yl)amino]phenyl}-s-cyclopropylsulfoximide bound to cdk2",2016-04-27,1,A,2.03,298.0,95.63758389261746,2.0,"[5, 8]","[[38, 42], [156, 163]]",1.0,['6AF']
+364,5iey,crystal structure of a cdk inhibitor bound to cdk2,2016-04-27,1,A,1.66,298.0,95.9731543624161,2.0,"[5, 7]","[[38, 42], [155, 161]]",1.0,['6AE']
+365,5if1,crystal structure apo cdk2/cyclin a,2016-04-27,2,A,2.61,298.0,100.0,0.0,[],[],0.0,[]
+366,5jq5,crystal structure of cdk2 in complex with inhibitor icec0942,2017-02-08,1,A,1.94,298.0,96.30872483221476,2.0,"[2, 9]","[[1, 2], [37, 45]]",2.0,"['ACT', 'I74']"
+367,5jq8,crystal structure of cdk2 in complex with inhibitor icec0943,2017-02-08,1,A,1.94,298.0,93.28859060402685,3.0,"[2, 9, 9]","[[1, 2], [36, 44], [153, 161]]",1.0,['I73']
+368,5k4j,crystal structure of cdk2 in complex with compound 22,2016-07-06,1,A,1.60,298.0,94.63087248322147,2.0,"[7, 10]","[[38, 44], [153, 162]]",1.0,['6QB']
+369,5l2w,the x-ray co-crystal structure of human cdk2/cycline and dinaciclib.,2016-08-24,2,A,2.80,297.0,100.0,1.0,[1],"[[299, 299]]",3.0,"['1QK', 'GOL', 'TPO']"
+370,5lmk,structure of phopsho-cdk2-cyclin a in complex with an atp-competitive inhibitor,2017-01-25,3,A,2.40,297.0,99.66442953020133,1.0,[2],"[[40, 41]]",4.0,"['6ZK', 'MG', 'SGM', 'TPO']"
+371,5nev,cdk2/cyclin a in complex with compound 73,2017-03-29,2,A,2.97,297.0,99.32885906040269,1.0,[3],"[[297, 299]]",2.0,"['72L', 'TPO']"
+372,5oo0,cdk2(wt) covalent adduct with d28 at c177,2018-03-14,1,A,1.60,298.0,96.64429530201343,3.0,"[1, 7, 2]","[[1, 1], [37, 43], [296, 297]]",1.0,['9YZ']
+373,5oo1,"cdk2(f80c, c177a) covalent adduct with c37 at f80c",2018-08-29,1,A,2.00,296.0,93.28859060402685,2.0,"[3, 17]","[[1, 3], [147, 163]]",1.0,['9Z2']
+374,5oo3,"cdk2(f80c, c177a) with covalent ligand at f80c",2018-08-29,1,A,1.73,296.0,95.9731543624161,3.0,"[1, 7, 4]","[[1, 1], [38, 44], [295, 298]]",1.0,['9ZB']
+375,5osj,cdk2(wt) with covalent adduct at c177,2018-03-14,1,A,1.83,298.0,97.98657718120806,3.0,"[1, 3, 2]","[[1, 1], [39, 41], [296, 297]]",1.0,['AAK']
+376,5osm,"cdk2(f80c, c177a) with covalent adduct at c80",2018-03-14,1,A,1.77,296.0,97.98657718120806,2.0,"[8, 2]","[[41, 48], [300, 301]]",1.0,['AEQ']
+377,5uq1,crystal structure of human cdk2-spy1 complex,2017-07-05,2,A,3.20,298.0,96.64429530201343,3.0,"[2, 6, 2]","[[1, 2], [22, 27], [296, 297]]",0.0,[]
+378,5uq2,crystal structure of human cdk2-spy1 complex,2017-07-05,2,A,2.70,298.0,99.32885906040269,1.0,[2],"[[296, 297]]",0.0,[]
+379,6gub,cdk2/cyclina in complex with flavopiridol,2018-12-05,2,A,2.52,297.0,98.65771812080537,2.0,"[3, 2]","[[39, 41], [297, 298]]",2.0,"['F9Z', 'TPO']"
+380,6guc,cdk2/cyclina in complex with su9516,2018-12-05,2,A,2.00,297.0,97.98657718120806,2.0,"[5, 2]","[[37, 41], [297, 298]]",2.0,"['SU9', 'TPO']"
+381,6gue,cdk2/cyclina in complex with azd5438,2018-12-05,3,C,1.99,297.0,96.97986577181209,3.0,"[5, 3, 2]","[[226, 230], [243, 245], [297, 298]]",2.0,"['FB8', 'TPO']"
+382,6guf,cdk2/cyclina in complex with cgp74514a,2018-12-05,2,A,2.65,297.0,99.32885906040269,1.0,[3],"[[39, 41]]",2.0,"['23D', 'TPO']"
+383,6guh,cdk2 in complex with azd5438,2018-12-05,1,A,1.50,298.0,95.30201342281879,2.0,"[8, 8]","[[40, 47], [151, 158]]",2.0,"['EDO', 'FB8']"
+384,6guk,cdk2 in complex with cgp74514a,2018-12-05,1,A,1.30,298.0,93.28859060402685,2.0,"[10, 10]","[[37, 46], [154, 163]]",1.0,['FC8']
+385,6gva,"cdk2/cyclin a2 in complex with pyrazolo[4,3-d]pyrimidine inhibitor lgr4455",2019-05-01,2,A,2.15,297.0,96.64429530201343,2.0,"[2, 8]","[[39, 40], [291, 298]]",8.0,"['BR', 'CL', 'EDO', 'FCQ', 'PG4', 'PGE', 'SGM', 'TPO']"
+386,6q3b,cdk2 in complex with fraglite2,2019-03-20,1,A,1.11,298.0,94.96644295302013,2.0,"[7, 8]","[[38, 44], [155, 162]]",1.0,['PYZ']
+387,6q3c,cdk2 in complex with fraglite1,2019-03-20,1,A,1.29,297.0,96.64429530201343,3.0,"[1, 8, 1]","[[1, 1], [37, 44], [177, 177]]",2.0,"['BYZ', 'OCS']"
+388,6q3f,cdk2 in complex with fraglite2,2019-03-20,1,A,1.18,297.0,97.98657718120806,2.0,"[9, 1]","[[40, 48], [181, 181]]",2.0,"['HEW', 'OCS']"
+389,6q48,cdk2 in complex with fraglite7,2019-03-20,1,A,1.03,298.0,93.95973154362416,3.0,"[8, 8, 2]","[[38, 45], [154, 161], [296, 297]]",2.0,"['DMS', 'HHQ']"
+390,6q49,cdk2 in complex with fraglite6,2019-03-20,1,A,1.00,298.0,96.30872483221476,2.0,"[6, 5]","[[38, 43], [157, 161]]",2.0,"['DMS', 'HGQ']"
+391,6q4a,cdk2 in complex with fraglite14,2019-03-20,1,A,1.13,298.0,97.6510067114094,2.0,"[6, 1]","[[39, 44], [126, 126]]",1.0,['HGW']
+392,6q4b,cdk2 in complex with fraglite13,2019-03-20,1,A,1.12,298.0,97.6510067114094,1.0,[7],"[[38, 44]]",1.0,['HHN']
+393,6q4c,cdk2 in complex with fraglite16,2019-03-20,1,A,1.73,298.0,98.3221476510067,1.0,[7],"[[40, 46]]",1.0,['HH8']
+394,6q4d,cdk2 in complex with fraglite31,2019-03-20,1,A,1.07,298.0,96.64429530201343,3.0,"[7, 1, 2]","[[38, 44], [177, 177], [296, 297]]",1.0,['HHT']
+395,6q4e,cdk2 in complex with fraglite33,2019-03-20,1,A,1.06,298.0,95.30201342281879,2.0,"[7, 8]","[[39, 45], [155, 162]]",2.0,"['DMS', 'HH5']"
+396,6q4f,cdk2 in complex with fraglite32,2019-03-20,1,A,1.21,297.0,97.6510067114094,3.0,"[7, 1, 1]","[[40, 46], [126, 126], [179, 179]]",2.0,"['26D', 'OCS']"
+397,6q4g,cdk2 in complex with fraglite37,2019-03-20,1,A,0.98,297.0,94.63087248322147,2.0,"[6, 10]","[[39, 44], [154, 163]]",1.0,['HJK']
+398,6q4h,cdk2 in complex with fraglite36,2019-03-20,1,A,1.00,298.0,97.6510067114094,2.0,"[6, 2]","[[40, 45], [155, 156]]",2.0,"['DMS', 'HGH']"
+399,6q4i,cdk2 in complex with fraglite35,2019-03-20,1,A,1.11,297.0,96.64429530201343,2.0,"[7, 3]","[[38, 44], [153, 155]]",2.0,"['DMS', 'HGK']"
+400,6q4j,cdk2 in complex with fraglite34,2019-03-20,1,A,1.05,298.0,96.97986577181209,2.0,"[8, 2]","[[39, 46], [155, 156]]",2.0,"['DMS', 'HHB']"
+401,6q4k,cdk2 in complex with fraglite38,2019-03-20,1,A,1.06,298.0,97.6510067114094,2.0,"[7, 1]","[[39, 45], [125, 125]]",2.0,"['EDO', 'HHW']"
