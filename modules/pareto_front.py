@@ -1,3 +1,7 @@
+import numpy as np 
+import pandas as pd  
+import matplotlib.pyplot as plt
+
 class Pareto:
     def __init__(self, df_scores, methods, minimize = True):
         self.methods = methods
