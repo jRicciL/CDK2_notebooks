@@ -1,0 +1,27 @@
+Minimize all atoms, minimizacion del solvente
+   System minimization:
+&cntrl
+   imin=1,
+   ntmin=1,     ! metodo de minimizacion, 1 steepest decent to onjugate gradients
+   nmropt=0,    ! no hacer el análisi NMR
+   drms=0.1,    ! criterio de convergencia para el gradiente de energía
+   maxcyc=50000, ! maximo numero de ciclos para la minimizacion
+   ncyc=2500,   ! cuando ntmin=NCYC, indica el paso para cambiar de SD a CG
+   ntx=1,       ! #para leerlas coordenadas iniciales, vel y boxsize del inpcrd. 1=para comenzar
+   irest=0,     ! #Flag para reiniciar una simulacion; 0= no reiniciar 
+   ntpr=100,    ! Intervalo de pasos para gardar informacion
+   ntwr=100,    ! Intervalo de pasos para guardar un restart
+   iwrap=0,     ! cuando =1, realiza un wrap en favor de la visualizacion de las mol dentro del box, no tiene efecto sobre la dinamica
+   ntf=1,       ! Tipo de evaluacion de fuerzas, =1 calcula la interaccion total
+   ntb=1,       ! Controla el tipo de simulacion y el PME; =1 NVT =2 NPT
+   cut=10.0,    ! cutoff
+   nsnb=20,     ! frecuencia para actualizar lso valores de las fuerzas no enlazantes
+   ntxo=1,      ! formato ASCII para el .rst7
+   igb=0,       !
+   ibelly=0,    !
+   ntr=1,        ! activa la restricción en base a una referencia
+   restraintmask='!:WAT & !:ETA' ! minimizacion del solvente
+   restraint_wt=500.0, ! peso de la restriccion (constante del resorte en kcal/mol)
+&end
+ /
+
