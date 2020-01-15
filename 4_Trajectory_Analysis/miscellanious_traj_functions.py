@@ -37,7 +37,7 @@ def get_sup_points_projected_mds(MDS_ref_object, traj_reference,
         MDS_ref_object (MDS object): cMDS object.
         traj_reference (pytraj.trajectory): pytraj Trajectory object with m frames and sliced atoms
         traj_out_of_sample: pytraj Trajectory object with n frames sliced atoms
-        ref (int):  number of conformation inside traj_reference to use 
+        ref (int):  number of conformations inside traj_reference to use 
                     as reference to superpose traj_out_of_sample
         n_vects (int): Number of mds eigenvectors to return
     Returs:
