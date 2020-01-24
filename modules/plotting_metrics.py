@@ -20,6 +20,7 @@ class PlotMetric:
                 y_pred_dict[key] = -1 * y_pred
 
         self.color_palette = color_palette
+        self.available_metrics = ('roc_auc', 'pr_auc')
     
     # ROC
     def _get_roc(self, y_pred):
@@ -59,31 +60,11 @@ class PlotMetric:
             colors_array = [colors[i] for i in y_true]
             sns.palplot(sns.color_palette(colors_array))
             plt.title('\n' + key + '\n', fontsize=100)
+
+    # Formating metrics
+    def format_metric_results(self, metric_name='roc_auc'):
+        if metric_name not in self.available_metrics:
+            raise(F'Metric {metric_name} is not available. ' + 'Available metrics are: {self.available_metrics}')
     
     
-
-class PlotMetric():
-    def __init__(self, EvalClf):
-        if type(EvalClf) is dict:
-            self.cfl_dictionary = EvalMetric
-
-    def plotActiveDistribution(self, colors = {1: '#e74c3c', 0: '#FCD988'}):
-        order = np.argsort(y_pred)
-        y_pred_ord = y_pred[order]
-        y_true = y_true[order]
-        colors_array = [colors[i] for i in y_true]
-        sns.palplot(sns.color_palette(colors_array))
-        plt.title('\n' + name + '\n', fontsize=100)
-        return
-
-    def formatMetric(self, metric, metricName):
-        if type(metricName) is not str:
-            raise('Please give the name of the metric to be used.')
-        
-    def plot_roc_auc(self):
-        inverted_input = np.negative(predicted_values)
-        fpr, tpr, thresholds = roc_curve(true_values, inverted_input)
-        auc = roc_auc_score( y_true = true_values, y_score = inverted_input)
-        plt.plot(fpr, tpr, label= label + ' AUC = %0.2f' % auc, lw = 3, linestyle = linestyle)
-        
     
