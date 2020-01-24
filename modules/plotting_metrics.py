@@ -104,21 +104,53 @@ class PlotMetric:
         df_efs = df_efs.round(rounded)
         return df_efs
 
-    def _get_ref_auc(self, y_pred, method = 'normalized'):
+    def _get_ref_auc(self, y_pred, method):
         methods = ('relative', 'absolute', 'normalized')
         method = method.lower()
         if method not in methods:
             raise AttributeError(F'method value, {method} is not available.\nAvailable methods are:\n{methods}')
-        y_true = self.y_true
-        fractions = np.linspace(0.0, 1, len(y_true) - 2 )
+        fractions = np.linspace(0.0, 1, len(self.y_true) - 2 )
         efs = self._get_ef(y_pred = y_pred, method = method, fractions = fractions)
         efs_auc = auc(fractions, efs)
         return efs_auc
 
+    def _add_plot_ef(self, y_pred, label, method = 'normalized', **kwargs):
+        fractions = np.linspace(0.0, 1, len(self.y_true) - 2 )
+        names = {'relative': 'REF', 'absolute': 'EF', 'normalized': 'NEF'}
+        efs = self._get_ef(y_pred = y_pred, method = method, fractions = fractions)
+        efs_auc = auc(fractions, efs)
+        label = label + F' AUC-{names[method]}' + ' = %0.2f' % efs_auc
+        plt.plot(fractions, efs, label = label, **kwargs)
+
+    def plot_ef_auc(self, title, method = 'normalized', keys_to_omit = [], key_to_plot = None,
+                     fontsize='x-small', showplot = True, **kwargs):
+        sns.color_palette(self.color_palette)
+        
+        for key, y_pred in self.y_pred_dict.items():
+            if key in keys_to_omit:
+                continue
+            if type(key_to_plot) is str and key_to_plot in self.y_pred_dict.keys():
+                key = key_to_plot
+                y_pred = self.y_pred_dict[key]
+                self._add_plot_ef(y_pred, method = method, label = key, **kwargs)
+                break
+            self._add_plot_ef(y_pred, method = method, label = key, **kwargs)
+        if showplot:
+            plt.legend(fontsize=fontsize)
+            if method == 'absolute':
+                plt.plot([self.R_a, self.R_a], [0 , 1/self.R_a], 'k--', c = 'grey')
+                plt.plot([0, 1], [1, 1], 'k--', c = 'grey')
+            plt.xlabel("Ranking Fraction")
+            plt.ylabel("Enrichment Factor")
+            #plt.ylim(0, 1.1)
+            plt.grid(linestyle='--', linewidth='0.8')
+            plt.title(title)
+            plt.show()
+
     def _add_plot_pr(self, y_pred, label, **kwargs):
         precision, recall, thresholds = self._get_pr(y_pred)
-        auc = self._get_pr_auc(y_pred)
-        plt.plot(recall, precision, label = label + ' AUC-PR = %0.2f' % auc, **kwargs)
+        auc_pr = self._get_pr_auc(y_pred)
+        plt.plot(recall, precision, label = label + ' AUC-PR = %0.2f' % auc_pr, **kwargs)
 
     def plot_pr_auc(self, title, keys_to_omit = [], key_to_plot = None,
                      fontsize='x-small', showplot = True, **kwargs):
