@@ -45,46 +45,52 @@ class PlotMetric:
         return pr_auc
 
     # Enrichment Factor
-    def _get_ef(y_true, y_pred, fractions = [0.005, 0.01, 0.02, 0.05], 
-                   decreasing = True, relative = False):
-    N = len(y_true)
-    n = sum(y_true == 1)
-    if decreasing:
+    def _get_ef(self, y_pred, fractions, method):
+        N = self.N
+        n = self.n
         order = np.argsort(y_pred)
-    else:
-        order = np.argsort(- y_pred)
-    y_pred_ord = y_pred[order]
-    y_true_ord = y_true[order]
-    
-    efs = []
-    N_s_floor = [np.floor(N * f) for f in fractions]
-    n_s = 0
-    for n_mol in range(N):
-        if n_mol > (N_s_floor[0]) and n_mol > 0:
-            N_s = n_mol
-            if relative: ef_i = (100 * n_s) / min(N_s, n)
-            else: ef_i = (N * n_s) / (n * N_s)
-            efs.append(ef_i)
-            N_s_floor.pop(0)
-        active = y_true_ord[n_mol]
-        if active:
-            n_s += 1
-    # Checks if
-    if N_s_floor and N_s_floor[0] == N:
-        if relative: 
-            ef_i = (100 * n) / n
-            efs.append(ef_i)
-        else: efs.append(1.0)
-    return efs
+        y_pred_ord = y_pred[order]
+        y_true = self.y_true
+        y_true_ord = y_true[order]
+        
+        efs = []
+        N_s_floor = [np.floor(N * f) for f in fractions]
+        n_s = 0
+        for n_mol in range(N):
+            if n_mol > (N_s_floor[0]) and n_mol > 0:
+                N_s = n_mol
 
-def get_ref_auc(y_true, y_pred):
-    if not np.array_equal(y_true, y_true.astype(bool)):
-        assert 'y_true array must be binary'
-    fractions = np.linspace(0.0, 1, len(y_true) - 2 )
-    efs = get_EF(y_true = y_true, y_pred = y_pred, 
-                 fractions = fractions, relative = True)
-    efs_auc = auc(fractions, efs)
-    return efs_auc
+                if relative: ef_i = (100 * n_s) / min(N_s, n)
+                else: ef_i = (N * n_s) / (n * N_s)
+                efs.append(ef_i)
+                N_s_floor.pop(0)
+            active = y_true_ord[n_mol]
+            if active:
+                n_s += 1
+        # Checks if
+        if N_s_floor and N_s_floor[0] == N:
+            if relative: 
+                ef_i = 100
+            else: 
+                ef_i = 1
+            efs.append(ef_i)
+        return efs
+
+    def _get_ref_auc(self, y_pred, method, fractions = [0.005, 0.01, 0.02, 0.05]):
+
+        methods = ('relative', 'absolute', 'normalized')
+        method = method.lower()
+        if method not in methods:
+            raise AttributeError(F'method value, {method} is not available.\nAvailable methods are:\n{methods}')
+
+        y_true = self.y_true
+        if not np.array_equal(y_true, y_true.astype(bool)):
+            assert 'y_true array must be binary'
+        fractions = np.linspace(0.0, 1, len(y_true) - 2 )
+        efs = self._get_ef(y_pred = y_pred, 
+                    method = method, fractions = fractions)
+        efs_auc = auc(fractions, efs)
+        return efs_auc
 
     def _add_plot_pr(self, y_pred, label, **kwargs):
         precision, recall, thresholds = self._get_pr(y_pred)
