@@ -10,6 +10,8 @@ class PlotMetric:
     def __init__(self, y_true, y_pred_dict, decreasing = False, color_palette = 'Paired'):
         if type(y_true) is not np.ndarray:
             raise ValueError('y_true should be a numpy array with values 1 = active and 0 = inactive')
+        if not np.array_equal(y_true, y_true.astype(bool)):
+            assert 'y_true array must be binary'
         self.y_true = y_true
         self.N = len(y_true)
         self.n = len(y_true[y_true == 1])
@@ -24,7 +26,9 @@ class PlotMetric:
 
         self.color_palette = color_palette
         self.available_metrics = {'roc_auc': self._get_roc_auc,
-                                        'pr_auc': self._get_pr_auc}
+                                  'pr_auc': self._get_pr_auc,
+                                  'ref_auc': self._get_ref_auc,
+                                  'ef': self.get_efs}
     
     # ROC
     def _get_roc(self, y_pred):
@@ -48,47 +52,66 @@ class PlotMetric:
     def _get_ef(self, y_pred, fractions, method):
         N = self.N
         n = self.n
-        order = np.argsort(y_pred)
-        y_pred_ord = y_pred[order]
-        y_true = self.y_true
-        y_true_ord = y_true[order]
+        order = np.argsort(- y_pred)
+        y_true_ord = self.y_true[order]
         
         efs = []
+        if type(fractions) is np.ndarray:
+            fractions = fractions.tolist()
+        # Fractions mus be ordered
+        fractions.sort()
+        # Get the N_s values
         N_s_floor = [np.floor(N * f) for f in fractions]
+        # If the fraction 1.0 is not in fractions we need to add it
+        if fractions[-1] != 1:
+            N_s_floor.append(N)
+        # if 0 is given in the fractions:
+        if N_s_floor[0] == 0:
+            efs.append(0)
+            N_s_floor.pop(0)
+        # start the counting of actives at 0
         n_s = 0
         for n_mol in range(N):
-            if n_mol > (N_s_floor[0]) and n_mol > 0:
+            if n_mol > N_s_floor[0] and n_mol > 0:
                 N_s = n_mol
-
-                if relative: ef_i = (100 * n_s) / min(N_s, n)
-                else: ef_i = (N * n_s) / (n * N_s)
+                if method == 'relative':
+                    ef_i = (100 * n_s) / min(N_s, n)
+                elif method == 'absolute':
+                    ef_i = (N * n_s) / (n * N_s)
+                elif method == 'normalized':
+                    ef_i = n_s / min(N_s, n)
                 efs.append(ef_i)
                 N_s_floor.pop(0)
             active = y_true_ord[n_mol]
             if active:
                 n_s += 1
-        # Checks if
-        if N_s_floor and N_s_floor[0] == N:
-            if relative: 
+        if fractions[-1] == 1 and N_s_floor[0] == N:
+            if method == 'relative': 
                 ef_i = 100
             else: 
                 ef_i = 1
             efs.append(ef_i)
         return efs
+    
+    def get_efs(self, method, fractions = [0.005, 0.01, 0.02, 0.05], rounded = 2):
+        ef_results = {}
+        for key, y_pred in self.y_pred_dict.items():
+            ef_results[key] = self._get_ef(y_pred, method = method, fractions = fractions)
+        names = {'relative': 'REF', 'absolute': 'EF', 'normalized': 'NEF'}
+        row_names_ef = [F'{names[method]} at {i*100}%' for i in fractions]
+        df_efs = pd.DataFrame(ef_results, index = row_names_ef)
+        df_efs["#ligs at X%"] = [np.floor(i* self.N) for i in fractions]
+        df_efs = df_efs.round(rounded)
+        return df_efs
 
-    def _get_ref_auc(self, y_pred, method, fractions = [0.005, 0.01, 0.02, 0.05]):
-
+    def _get_ref_auc(self, y_pred, method = 'normalized'):
         methods = ('relative', 'absolute', 'normalized')
         method = method.lower()
         if method not in methods:
             raise AttributeError(F'method value, {method} is not available.\nAvailable methods are:\n{methods}')
-
         y_true = self.y_true
-        if not np.array_equal(y_true, y_true.astype(bool)):
-            assert 'y_true array must be binary'
         fractions = np.linspace(0.0, 1, len(y_true) - 2 )
-        efs = self._get_ef(y_pred = y_pred, 
-                    method = method, fractions = fractions)
+        efs = self._get_ef(y_pred = y_pred, method = method, fractions = fractions)
         efs_auc = auc(fractions, efs)
         return efs_auc
 
@@ -161,14 +184,14 @@ class PlotMetric:
 
     # Formating metrics
     def format_metric_results(self, metric_name='roc_auc', 
-                              rounded = 3, transposed = True):
+                              rounded = 3, transposed = True, *kwargs):
         if metric_name not in self.available_metrics:
             raise ValueError(F'Metric {metric_name} is not available. ' + 
                   F'Available metrics are:\n{self.available_metrics.keys()}')
         metric = self.available_metrics[metric_name]
         dic_results = {}
         for key, y_pred in self.y_pred_dict.items():
-            dic_results[key] = metric(y_pred)
+            dic_results[key] = metric(y_pred, *kwargs)
         df = pd.DataFrame(dic_results, index = [metric_name.upper().replace('_', ' ')])
         df = df.T if transposed else df
         return df.round(rounded)
