@@ -11,6 +11,9 @@ class PlotMetric:
         if type(y_true) is not np.ndarray:
             raise ValueError('y_true should be a numpy array with values 1 = active and 0 = inactive')
         self.y_true = y_true
+        self.N = len(y_true)
+        self.n = len(y_true[y_true == 1])
+        self.R_a = n/N
 
         if type(y_pred_dict) is not dict or len(y_pred_dict) < 1:
              raise ValueError('y_pred_dict should be a dictionary with key = "Cfl name" and value = np.array with predicted values')
@@ -21,7 +24,7 @@ class PlotMetric:
 
         self.color_palette = color_palette
         self.available_metrics = {'roc_auc': self._get_roc_auc,
-                                        'pr_auc': None}
+                                        'pr_auc': self._get_pr_auc}
     
     # ROC
     def _get_roc(self, y_pred):
@@ -37,15 +40,80 @@ class PlotMetric:
         return precision, recall, thresholds
     # PR-AUC
     def _get_pr_auc(self, y_pred):
-        precision, recall, thresholds = _get_pr(y_true = self.y_true, y_pred = y_pred)
+        precision, recall, thresholds = self._get_pr(y_pred = y_pred)
         pr_auc = auc(recall, precision)
         return pr_auc
+
+    # Enrichment Factor
+    def _get_ef(y_true, y_pred, fractions = [0.005, 0.01, 0.02, 0.05], 
+                   decreasing = True, relative = False):
+    N = len(y_true)
+    n = sum(y_true == 1)
+    if decreasing:
+        order = np.argsort(y_pred)
+    else:
+        order = np.argsort(- y_pred)
+    y_pred_ord = y_pred[order]
+    y_true_ord = y_true[order]
+    
+    efs = []
+    N_s_floor = [np.floor(N * f) for f in fractions]
+    n_s = 0
+    for n_mol in range(N):
+        if n_mol > (N_s_floor[0]) and n_mol > 0:
+            N_s = n_mol
+            if relative: ef_i = (100 * n_s) / min(N_s, n)
+            else: ef_i = (N * n_s) / (n * N_s)
+            efs.append(ef_i)
+            N_s_floor.pop(0)
+        active = y_true_ord[n_mol]
+        if active:
+            n_s += 1
+    # Checks if
+    if N_s_floor and N_s_floor[0] == N:
+        if relative: 
+            ef_i = (100 * n) / n
+            efs.append(ef_i)
+        else: efs.append(1.0)
+    return efs
+
+def get_ref_auc(y_true, y_pred):
+    if not np.array_equal(y_true, y_true.astype(bool)):
+        assert 'y_true array must be binary'
+    fractions = np.linspace(0.0, 1, len(y_true) - 2 )
+    efs = get_EF(y_true = y_true, y_pred = y_pred, 
+                 fractions = fractions, relative = True)
+    efs_auc = auc(fractions, efs)
+    return efs_auc
 
     def _add_plot_pr(self, y_pred, label, **kwargs):
         precision, recall, thresholds = self._get_pr(y_pred)
         auc = self._get_pr_auc(y_pred)
         plt.plot(recall, precision, label = label + ' AUC-PR = %0.2f' % auc, **kwargs)
 
+    def plot_pr_auc(self, title, keys_to_omit = [], key_to_plot = None,
+                     fontsize='x-small', showplot = True, **kwargs):
+        sns.color_palette(self.color_palette)
+        
+        for key, y_pred in self.y_pred_dict.items():
+            if key in keys_to_omit:
+                continue
+            if type(key_to_plot) is str and key_to_plot in self.y_pred_dict.keys():
+                key = key_to_plot
+                y_pred = self.y_pred_dict[key]
+                self._add_plot_pr(y_pred, label = key, **kwargs)
+                break
+            self._add_plot_pr(y_pred, label = key, **kwargs)
+        if showplot:
+            plt.legend(fontsize=fontsize)
+            no_skill = self.R_a
+            plt.plot([0, 1], [no_skill, no_skill], 'k--')
+            plt.xlabel("Recall")
+            plt.ylabel("Precision")
+            plt.ylim(0, 1.1)
+            plt.grid(linestyle='--', linewidth='0.8')
+            plt.title(title)
+            plt.show()
 
     # Plotting functions
     def _add_plot_roc(self, y_pred, label, **kwargs):
@@ -56,6 +124,7 @@ class PlotMetric:
     def plot_roc_auc(self, title, keys_to_omit = [], key_to_plot = None,
                      fontsize='small', showplot = True, **kwargs):
         sns.color_palette(self.color_palette)
+        
         for key, y_pred in self.y_pred_dict.items():
             if key in keys_to_omit:
                 continue
@@ -94,7 +163,7 @@ class PlotMetric:
         dic_results = {}
         for key, y_pred in self.y_pred_dict.items():
             dic_results[key] = metric(y_pred)
-        df = pd.DataFrame(dic_results, index = [metric_name])
+        df = pd.DataFrame(dic_results, index = [metric_name.upper().replace('_', ' ')])
         df = df.T if transposed else df
         return df.round(rounded)
     
