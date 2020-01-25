@@ -3,11 +3,14 @@ import numpy as np
 import pandas as pd 
 import seaborn as sns 
 import matplotlib.pyplot as plt
+import pylab
+
+
 # Metric imported from other libraries
 from sklearn.metrics import roc_curve, roc_auc_score, precision_recall_curve, auc
 
 class PlotMetric:
-    def __init__(self, y_true, y_pred_dict, decreasing = False, color_palette = 'Paired'):
+    def __init__(self, y_true, y_pred_dict, decreasing = True, color_palette = 'Dark2', figsize = (7,7)):
         if type(y_true) is not np.ndarray:
             raise ValueError('y_true should be a numpy array with values 1 = active and 0 = inactive')
         if not np.array_equal(y_true, y_true.astype(bool)):
@@ -15,20 +18,22 @@ class PlotMetric:
         self.y_true = y_true
         self.N = len(y_true)
         self.n = len(y_true[y_true == 1])
-        self.R_a = n/N
+        self.R_a = self.n/self.N
 
         if type(y_pred_dict) is not dict or len(y_pred_dict) < 1:
              raise ValueError('y_pred_dict should be a dictionary with key = "Cfl name" and value = np.array with predicted values')
         self.y_pred_dict = y_pred_dict
         if decreasing:
             for key, y_pred in y_pred_dict.items():
-                y_pred_dict[key] = -1 * y_pred
+                self.y_pred_dict[key] = -1 * y_pred
 
         self.color_palette = color_palette
         self.available_metrics = {'roc_auc': self._get_roc_auc,
                                   'pr_auc': self._get_pr_auc,
                                   'ref_auc': self._get_ref_auc,
                                   'ef': self.get_efs}
+        pylab.rcParams['figure.figsize'] = figsize
+        sns.set( context = 'talk', style = 'white', palette = color_palette)
     
     # ROC
     def _get_roc(self, y_pred):
@@ -104,48 +109,71 @@ class PlotMetric:
         df_efs = df_efs.round(rounded)
         return df_efs
 
-    def _get_ref_auc(self, y_pred, method):
-        methods = ('relative', 'absolute', 'normalized')
-        method = method.lower()
-        if method not in methods:
-            raise AttributeError(F'method value, {method} is not available.\nAvailable methods are:\n{methods}')
-        fractions = np.linspace(0.0, 1, len(self.y_true) - 2 )
+    def _get_ref_auc(self, y_pred, method, max_chi = 1):
+        fractions = np.linspace(0.0, max_chi, len(self.y_true) - 2 )
         efs = self._get_ef(y_pred = y_pred, method = method, fractions = fractions)
         efs_auc = auc(fractions, efs)
         return efs_auc
 
-    def _add_plot_ef(self, y_pred, label, method = 'normalized', **kwargs):
+    def _add_plot_ef(self, y_pred, label, max_chi, max_num_of_ligands, method = 'normalized',  **kwargs):
         fractions = np.linspace(0.0, 1, len(self.y_true) - 2 )
         names = {'relative': 'REF', 'absolute': 'EF', 'normalized': 'NEF'}
         efs = self._get_ef(y_pred = y_pred, method = method, fractions = fractions)
+        # Calculate max # of ranked values to show
+        if max_num_of_ligands is not None and max_chi == 1:
+            n_rankers = max_num_of_ligands
+            fractions = range(n_rankers)
+            efs = efs[:n_rankers]
+        else:
+            n_rankers = int(np.ceil(max_chi*len(fractions)))
+            fractions = fractions[:n_rankers]
+            efs =  efs[:n_rankers]
         efs_auc = auc(fractions, efs)
-        label = label + F' AUC-{names[method]}' + ' = %0.2f' % efs_auc
+        if method == 'absolute':
+            label = label + F' {names[method]}'
+        else:
+            label = label + F' {names[method]}-AUC' + ' = %0.2f' % efs_auc
         plt.plot(fractions, efs, label = label, **kwargs)
 
-    def plot_ef_auc(self, title, method = 'normalized', keys_to_omit = [], key_to_plot = None,
-                     fontsize='x-small', showplot = True, **kwargs):
+    def plot_ef_auc(self, title, method = 'normalized', 
+                    max_chi = 1, max_num_of_ligands = None,
+                    keys_to_omit = [], key_to_plot = None,
+                     fontsize='x-small', showplot = True, show_by_itself=True, **kwargs):
+
+        methods = ('relative', 'absolute', 'normalized')
+        method = method.lower()
+        if method not in methods:
+            raise AttributeError(F'method value, {method} is not available.\nAvailable methods are:\n{methods}')
         sns.color_palette(self.color_palette)
-        
+
+        if method == 'absolute' and max_num_of_ligands is not None:
+            raise AttributeError(F'arguments method="absolute" and "max_num_of_ligands" can not be applied together.')
         for key, y_pred in self.y_pred_dict.items():
             if key in keys_to_omit:
                 continue
             if type(key_to_plot) is str and key_to_plot in self.y_pred_dict.keys():
                 key = key_to_plot
                 y_pred = self.y_pred_dict[key]
-                self._add_plot_ef(y_pred, method = method, label = key, **kwargs)
+                self._add_plot_ef(y_pred, method = method, label = key, 
+                                    max_chi = max_chi, max_num_of_ligands = max_num_of_ligands, **kwargs)
                 break
-            self._add_plot_ef(y_pred, method = method, label = key, **kwargs)
+            self._add_plot_ef(y_pred, method = method, label = key, 
+                                    max_chi = max_chi, max_num_of_ligands = max_num_of_ligands, **kwargs)
         if showplot:
             plt.legend(fontsize=fontsize)
             if method == 'absolute':
                 plt.plot([self.R_a, self.R_a], [0 , 1/self.R_a], 'k--', c = 'grey')
                 plt.plot([0, 1], [1, 1], 'k--', c = 'grey')
-            plt.xlabel("Ranking Fraction")
+            if max_num_of_ligands is not None and max_chi == 1:
+                plt.xlabel("# ligands at ranking top")
+            else:
+                plt.xlabel("Ranking Fraction")
             plt.ylabel("Enrichment Factor")
             #plt.ylim(0, 1.1)
             plt.grid(linestyle='--', linewidth='0.8')
             plt.title(title)
-            plt.show()
+            if show_by_itself:
+                plt.show()
 
     def _add_plot_pr(self, y_pred, label, **kwargs):
         precision, recall, thresholds = self._get_pr(y_pred)
@@ -153,7 +181,7 @@ class PlotMetric:
         plt.plot(recall, precision, label = label + ' AUC-PR = %0.2f' % auc_pr, **kwargs)
 
     def plot_pr_auc(self, title, keys_to_omit = [], key_to_plot = None,
-                     fontsize='x-small', showplot = True, **kwargs):
+                     fontsize='x-small', showplot = True, show_by_itself=True, **kwargs):
         sns.color_palette(self.color_palette)
         
         for key, y_pred in self.y_pred_dict.items():
@@ -174,7 +202,8 @@ class PlotMetric:
             plt.ylim(0, 1.1)
             plt.grid(linestyle='--', linewidth='0.8')
             plt.title(title)
-            plt.show()
+            if show_by_itself:
+                plt.show()
 
     # Plotting functions
     def _add_plot_roc(self, y_pred, label, **kwargs):
@@ -183,7 +212,7 @@ class PlotMetric:
         plt.plot(fpr, tpr, label = label + ' AUC-ROC = %0.2f' % auc, **kwargs)
         
     def plot_roc_auc(self, title, keys_to_omit = [], key_to_plot = None,
-                     fontsize='small', showplot = True, **kwargs):
+                     fontsize='small', showplot = True, show_by_itself=True, **kwargs):
         sns.color_palette(self.color_palette)
         
         for key, y_pred in self.y_pred_dict.items():
@@ -202,7 +231,8 @@ class PlotMetric:
             plt.ylabel("TPR (sensitivity)")
             plt.grid(linestyle='--', linewidth='0.8')
             plt.title(title)
-            plt.show()
+            if show_by_itself:
+                plt.show()
         
     # Plotting distributions
     def plot_actives_distribution(self, colors = {1: '#e74c3c', 0: '#FCD988'}):
