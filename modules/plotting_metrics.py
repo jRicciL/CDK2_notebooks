@@ -62,7 +62,7 @@ class PlotMetric:
             f_k = f_k / n
         return ranking_pos, f_k
 
-    def _get_ac_auc(self, y_pred, normalized):
+    def _get_ac_auc(self, y_pred, normalized = True):
         k, f_k = self._get_ac(y_pred = y_pred, normalized = normalized)
         auac = auc(k, f_k)
         return auac
