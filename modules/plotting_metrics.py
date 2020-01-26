@@ -29,7 +29,7 @@ class PlotMetric:
 
         self.color_palette = color_palette
         self.available_metrics = {'roc_auc': self._get_roc_auc,
-                                  #'auac': self.get_auac,
+                                  'auac': self._get_ac_auc,
                                   'pr_auc': self._get_pr_auc,
                                   'ref_auc': self._get_ref_auc,
                                   'ef': self.get_efs}
@@ -62,9 +62,9 @@ class PlotMetric:
             f_k = f_k / n
         return ranking_pos, f_k
 
-    _get_ac_auc(self, y_pred, normalized = True):
-        k, f_k = _get_ac(self, y_pred, normalized = normalized)
-        auac = auc(k, fk)
+    def _get_ac_auc(self, y_pred, normalized):
+        k, f_k = self._get_ac(y_pred = y_pred, normalized = normalized)
+        auac = auc(k, f_k)
         return auac
 
     # Precision and Recall
@@ -161,7 +161,7 @@ class PlotMetric:
 
     def plot_ef_auc(self, title, method = 'normalized', 
                     max_chi = 1, max_num_of_ligands = None,
-                    keys_to_omit = [], key_to_plot = None,
+                    keys_to_omit = [], key_to_plot = None, key_to_fade = None,
                      fontsize='x-small', showplot = True, show_by_itself=True, **kwargs):
 
         methods = ('relative', 'absolute', 'normalized')
@@ -174,6 +174,12 @@ class PlotMetric:
             raise AttributeError(F'arguments method="absolute" and "max_num_of_ligands" can not be applied together.')
         for key, y_pred in self.y_pred_dict.items():
             if key in keys_to_omit:
+                continue
+            if key_to_fade == key:
+                self._add_plot_ef(y_pred, method = method, label = key, 
+                        max_chi = max_chi, max_num_of_ligands = max_num_of_ligands,
+                        linestyle = '--', 
+                        linewidth = 1.5, **kwargs)
                 continue
             if type(key_to_plot) is str and key_to_plot in self.y_pred_dict.keys():
                 key = key_to_plot
@@ -204,12 +210,16 @@ class PlotMetric:
         auc_pr = self._get_pr_auc(y_pred)
         plt.plot(recall, precision, label = label + ' AUC-PR = %0.2f' % auc_pr, **kwargs)
 
-    def plot_pr_auc(self, title, keys_to_omit = [], key_to_plot = None,
+    def plot_pr_auc(self, title, keys_to_omit = [], key_to_plot = None, key_to_fade = None,
                      fontsize='x-small', showplot = True, show_by_itself=True, **kwargs):
         sns.color_palette(self.color_palette)
         
         for key, y_pred in self.y_pred_dict.items():
             if key in keys_to_omit:
+                continue
+            if key_to_fade == key:
+                self._add_plot_pr(y_pred, label = key, linestyle = '--', 
+                        linewidth = 1.5, **kwargs)
                 continue
             if type(key_to_plot) is str and key_to_plot in self.y_pred_dict.keys():
                 key = key_to_plot
@@ -235,12 +245,16 @@ class PlotMetric:
         auc = self._get_roc_auc(y_pred)
         plt.plot(fpr, tpr, label = label + ' AUC-ROC = %0.2f' % auc, **kwargs)
         
-    def plot_roc_auc(self, title, keys_to_omit = [], key_to_plot = None,
+    def plot_roc_auc(self, title, keys_to_omit = [], key_to_plot = None, key_to_fade = None,
                      fontsize='small', showplot = True, show_by_itself=True, **kwargs):
         sns.color_palette(self.color_palette)
         
         for key, y_pred in self.y_pred_dict.items():
             if key in keys_to_omit:
+                continue
+            if key_to_fade == key:
+                self._add_plot_roc(y_pred, label = key, linestyle = '--', 
+                        linewidth = 1.5, **kwargs)
                 continue
             if type(key_to_plot) is str and key_to_plot in self.y_pred_dict.keys():
                 key = key_to_plot
@@ -261,14 +275,18 @@ class PlotMetric:
     def _add_plot_ac(self, y_pred, label, normalized = True, **kwargs):
         k, f_k = self._get_ac(y_pred = y_pred, normalized = normalized)
         auc_ac = self._get_ac_auc(y_pred = y_pred, normalized = normalized)
-        plt.plot(k, f_k , label = label + ' AUAC = %0.2f' % auc_pr, **kwargs)
+        plt.plot(k, f_k , label = label + ' AUAC = %0.2f' % auc_ac, **kwargs)
 
-    def plot_auac(self, title, keys_to_omit = [], key_to_plot = None, normalized = True,
+    def plot_auac(self, title, keys_to_omit = [], key_to_plot = None, key_to_fade = None, normalized = True,
                      fontsize='small', showplot = True, show_by_itself=True, **kwargs):
         sns.color_palette(self.color_palette)
         
         for key, y_pred in self.y_pred_dict.items():
             if key in keys_to_omit:
+                continue
+            if key_to_fade == key:
+                self._add_plot_ac(y_pred, label = key, normalized = normalized,
+                linestyle = '--', linewidth = 1.5, **kwargs)
                 continue
             if type(key_to_plot) is str and key_to_plot in self.y_pred_dict.keys():
                 key = key_to_plot
@@ -315,4 +333,4 @@ class PlotMetric:
         df = df.T if transposed else df
         return df.round(rounded)
     
-    
+#def plot_grid(list_of_plots, metric_to_plot, )
