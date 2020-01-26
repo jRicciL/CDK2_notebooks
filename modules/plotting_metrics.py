@@ -29,6 +29,7 @@ class PlotMetric:
 
         self.color_palette = color_palette
         self.available_metrics = {'roc_auc': self._get_roc_auc,
+                                  #'auac': self.get_auac,
                                   'pr_auc': self._get_pr_auc,
                                   'ref_auc': self._get_ref_auc,
                                   'ef': self.get_efs}
@@ -42,6 +43,29 @@ class PlotMetric:
     # ROC-AUC
     def _get_roc_auc(self, y_pred):
         return(roc_auc_score(y_true = self.y_true, y_score = y_pred))
+
+    # Accumulation Curve
+    def _get_ac(self, y_pred, normalized):
+        N = self.N
+        n = self.n
+        order = np.argsort(- y_pred)
+        y_true_ord = self.y_true[order]
+        ranking_pos = np.linspace(0, N, N + 1)
+        n_counter = 0
+        f_k = np.zeros(N + 1)
+        for i, k in enumerate(y_true_ord):
+            if k: # If is active
+                n_counter += 1
+            f_k[i + 1] = n_counter
+        if normalized:
+            ranking_pos = ranking_pos / N
+            f_k = f_k / n
+        return ranking_pos, f_k
+
+    _get_ac_auc(self, y_pred, normalized = True):
+        k, f_k = _get_ac(self, y_pred, normalized = normalized)
+        auac = auc(k, fk)
+        return auac
 
     # Precision and Recall
     def _get_pr(self, y_pred):
@@ -233,11 +257,44 @@ class PlotMetric:
             plt.title(title)
             if show_by_itself:
                 plt.show()
+
+    def _add_plot_ac(self, y_pred, label, normalized = True, **kwargs):
+        k, f_k = self._get_ac(y_pred = y_pred, normalized = normalized)
+        auc_ac = self._get_ac_auc(y_pred = y_pred, normalized = normalized)
+        plt.plot(k, f_k , label = label + ' AUAC = %0.2f' % auc_pr, **kwargs)
+
+    def plot_auac(self, title, keys_to_omit = [], key_to_plot = None, normalized = True,
+                     fontsize='small', showplot = True, show_by_itself=True, **kwargs):
+        sns.color_palette(self.color_palette)
+        
+        for key, y_pred in self.y_pred_dict.items():
+            if key in keys_to_omit:
+                continue
+            if type(key_to_plot) is str and key_to_plot in self.y_pred_dict.keys():
+                key = key_to_plot
+                y_pred = self.y_pred_dict[key]
+                self._add_plot_ac(y_pred, label = key, normalized = normalized, **kwargs)
+                break
+            self._add_plot_ac(y_pred, label = key, normalized = normalized, **kwargs)
+        if showplot:
+            plt.legend(fontsize=fontsize)
+            if normalized:
+                x_label = 'Normalized ranking positions (x = k/N)'
+                y_label = 'Normalized num. of actives (Fa(x))'
+            else:
+                x_label = 'Ranking positions (k)'
+                y_label = 'Num. of actives (Fa(k))'
+            plt.xlabel(x_label)
+            plt.ylabel(y_label)
+            plt.grid(linestyle='--', linewidth='0.8')
+            plt.title(title)
+            if show_by_itself:
+                plt.show()
         
     # Plotting distributions
     def plot_actives_distribution(self, colors = {1: '#e74c3c', 0: '#FCD988'}):
         for key, y_pred in self.y_pred_dict.items():
-            order = np.argsort(y_pred)
+            order = np.argsort(-y_pred)
             y_pred_ord = y_pred[order]
             y_true = self.y_true[order]
             colors_array = [colors[i] for i in y_true]
