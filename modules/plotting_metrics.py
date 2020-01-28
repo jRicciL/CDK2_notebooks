@@ -156,7 +156,7 @@ class PlotMetric:
         if method == 'absolute':
             label = label + F' {names[method]}'
         else:
-            label = label + F' {names[method]}-AUC' + ' = %0.2f' % efs_auc
+            label = label + F' {names[method]}-AUC' + ' = %0.3f' % efs_auc
         plt.plot(fractions, efs, label = label, **kwargs)
 
     def plot_ef_auc(self, title, method = 'normalized', 
@@ -208,7 +208,7 @@ class PlotMetric:
     def _add_plot_pr(self, y_pred, label, **kwargs):
         precision, recall, thresholds = self._get_pr(y_pred)
         auc_pr = self._get_pr_auc(y_pred)
-        plt.plot(recall, precision, label = label + ' AUC-PR = %0.2f' % auc_pr, **kwargs)
+        plt.plot(recall, precision, label = label + ' AUC-PR = %0.3f' % auc_pr, **kwargs)
 
     def plot_pr_auc(self, title, keys_to_omit = [], key_to_plot = None, key_to_fade = None,
                      fontsize='x-small', showplot = True, show_by_itself=True, **kwargs):
@@ -243,7 +243,7 @@ class PlotMetric:
     def _add_plot_roc(self, y_pred, label, **kwargs):
         fpr, tpr, thresholds = self._get_roc(y_pred)
         auc = self._get_roc_auc(y_pred)
-        plt.plot(fpr, tpr, label = label + ' AUC-ROC = %0.2f' % auc, **kwargs)
+        plt.plot(fpr, tpr, label = label + ' AUC-ROC = %0.3f' % auc, **kwargs)
         
     def plot_roc_auc(self, title, keys_to_omit = [], key_to_plot = None, key_to_fade = None,
                      fontsize='small', showplot = True, show_by_itself=True, **kwargs):
@@ -275,7 +275,7 @@ class PlotMetric:
     def _add_plot_ac(self, y_pred, label, normalized = True, **kwargs):
         k, f_k = self._get_ac(y_pred = y_pred, normalized = normalized)
         auc_ac = self._get_ac_auc(y_pred = y_pred, normalized = normalized)
-        plt.plot(k, f_k , label = label + ' AUAC = %0.2f' % auc_ac, **kwargs)
+        plt.plot(k, f_k , label = label + ' AUAC = %0.3f' % auc_ac, **kwargs)
 
     def plot_auac(self, title, keys_to_omit = [], key_to_plot = None, key_to_fade = None, normalized = True,
                      fontsize='small', showplot = True, show_by_itself=True, **kwargs):
