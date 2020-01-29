@@ -29,6 +29,7 @@ class PlotMetric:
 
         self.color_palette = color_palette
         self.available_metrics = {'roc_auc': self._get_roc_auc,
+                                  'p_roc': self._get_pRoc_auc,
                                   'auac': self._get_ac_auc,
                                   'pr_auc': self._get_pr_auc,
                                   'ref_auc': self._get_ref_auc,
@@ -38,8 +39,45 @@ class PlotMetric:
     
     # ROC
     def _get_roc(self, y_pred):
-        fpr, tpr, thresholds = roc_curve(y_true = self.y_true, y_score = y_pred)
-        return fpr, tpr, thresholds
+        N = self.N
+        n = self.n
+        order = np.argsort(- y_pred)
+        y_true_ord = self.y_true[order]
+        
+        # Claculo de  TPR
+        tpr = np.zeros(N)
+        fpr = np.zeros(N)
+        
+        n_actives = 0
+        n_inactives = 0
+        for i, active in enumerate(y_true_ord):
+            if active:
+                n_actives += 1
+            else:
+                n_inactives += 1
+            tpr[i] = n_actives
+            fpr[i] = n_inactives
+            
+        # Normalizamos los valores
+        if n_actives > 0:
+            tpr = tpr/n_actives
+        if n_inactives > 0:
+            fpr = fpr/n_inactives
+        # The we insert 0 at the begining of the lsits
+        fpr = np.insert(fpr, 0, 0)
+        tpr = np.insert(tpr, 0, 0)
+        return fpr, tpr
+    
+    def _get_pRoc(self, y_pred):
+        fpr, tpr = self._get_roc(y_pred = y_pred)
+        # Clark correction suggest to change fpr(i) by (1/N) if fpr(i) = 0
+        p_fpr = [(- np.log10(1/i)) if i != 0 else - np.log10(self.N) for i in fpr]
+        return p_fpr, tpr
+
+    def _get_pRoc_auc(self, y_pred):
+        p_fpr, tpr = self._get_pRoc(y_pred = y_pred)
+        return(auc(p_fpr, tpr))
+    
     # ROC-AUC
     def _get_roc_auc(self, y_pred):
         return(roc_auc_score(y_true = self.y_true, y_score = y_pred))
@@ -239,9 +277,42 @@ class PlotMetric:
             if show_by_itself:
                 plt.show()
 
+    # pROC
+    def _add_plot_pRoc(self, y_pred, label, **kwargs):
+        fpr, tpr = self._get_pRoc(y_pred)
+        auc = self._get_pRoc_auc(y_pred)
+        plt.plot(fpr, tpr, label = label + ' AUC-pROC = %0.3f' % auc, **kwargs)
+        
+    def plot_pRoc_auc(self, title, keys_to_omit = [], key_to_plot = None, key_to_fade = None,
+                     fontsize='small', showplot = True, show_by_itself=True, **kwargs):
+        sns.color_palette(self.color_palette)
+        
+        for key, y_pred in self.y_pred_dict.items():
+            if key in keys_to_omit:
+                continue
+            if key_to_fade == key:
+                self._add_plot_pRoc(y_pred, label = key, linestyle = '--', 
+                        linewidth = 1.5, **kwargs)
+                continue
+            if type(key_to_plot) is str and key_to_plot in self.y_pred_dict.keys():
+                key = key_to_plot
+                y_pred = self.y_pred_dict[key]
+                self._add_plot_pRoc(y_pred, label = key, **kwargs)
+                break
+            self._add_plot_pRoc(y_pred, label = key, **kwargs)
+        if showplot:
+            plt.legend(fontsize=fontsize)
+            #plt.plot([0, 1], [0, 1], 'k--', c = 'gray')
+            plt.xlabel("pFPR (log10(1 - specificity))")
+            plt.ylabel("TPR (sensitivity)")
+            plt.grid(linestyle='--', linewidth='0.8')
+            plt.title(title)
+            if show_by_itself:
+                plt.show()
+
     # Plotting functions
     def _add_plot_roc(self, y_pred, label, **kwargs):
-        fpr, tpr, thresholds = self._get_roc(y_pred)
+        fpr, tpr = self._get_roc(y_pred)
         auc = self._get_roc_auc(y_pred)
         plt.plot(fpr, tpr, label = label + ' AUC-ROC = %0.3f' % auc, **kwargs)
         
