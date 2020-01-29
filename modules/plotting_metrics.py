@@ -194,7 +194,7 @@ class PlotMetric:
         if method == 'absolute':
             label = label + F' {names[method]}'
         else:
-            label = label + F' {names[method]}-AUC' + ' = %0.3f' % efs_auc
+            label = label + F' {names[method]}-AUC' + ' = %0.2f' % efs_auc
         plt.plot(fractions, efs, label = label, **kwargs)
 
     def plot_ef_auc(self, title, method = 'normalized', 
@@ -236,7 +236,7 @@ class PlotMetric:
                 plt.xlabel("# ligands at ranking top")
             else:
                 plt.xlabel("Ranking Fraction")
-            plt.ylabel("Enrichment Factor")
+            plt.ylabel(F"Enrichment Factor ({method[:3].capitalize()}.)")
             #plt.ylim(0, 1.1)
             plt.grid(linestyle='--', linewidth='0.8')
             plt.title(title)
