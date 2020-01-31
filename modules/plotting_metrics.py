@@ -63,9 +63,10 @@ class PlotMetric:
             tpr = tpr/n_actives
         if n_inactives > 0:
             fpr = fpr/n_inactives
-        # The we insert 0 at the begining of the lsits
+        # The we insert 0 at the begining of the list
         fpr = np.insert(fpr, 0, 0)
         tpr = np.insert(tpr, 0, 0)
+        #fpr, tpr, _ = roc_curve(self.y_true, y_pred)
         return fpr, tpr
     
     def _get_pRoc(self, y_pred):
@@ -373,6 +374,7 @@ class PlotMetric:
             else:
                 x_label = 'Ranking positions (k)'
                 y_label = 'Num. of actives (Fa(k))'
+            plt.plot([0, 1], [1, 1], 'k--', c = 'grey')
             plt.xlabel(x_label)
             plt.ylabel(y_label)
             plt.grid(linestyle='--', linewidth='0.8')

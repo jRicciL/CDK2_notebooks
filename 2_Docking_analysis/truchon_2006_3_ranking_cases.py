@@ -10,7 +10,7 @@ def get_three_ranking_cases(true_values, sufix = '', include_optimal = False, de
     case_1 = np.zeros(N)
     for i, active in enumerate(true_values):
         if active:
-            case_1[i] = -3 if i < n/2 else -1
+            case_1[i] = -3 if i <= n/2 else -1
         else:
             case_1[i] = -2
             
