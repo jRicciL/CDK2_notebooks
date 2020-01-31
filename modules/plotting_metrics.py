@@ -43,11 +43,9 @@ class PlotMetric:
         n = self.n
         order = np.argsort(- y_pred)
         y_true_ord = self.y_true[order]
-        
         # Claculo de  TPR
         tpr = np.zeros(N)
         fpr = np.zeros(N)
-        
         n_actives = 0
         n_inactives = 0
         for i, active in enumerate(y_true_ord):
@@ -57,7 +55,6 @@ class PlotMetric:
                 n_inactives += 1
             tpr[i] = n_actives
             fpr[i] = n_inactives
-            
         # Normalizamos los valores
         if n_actives > 0:
             tpr = tpr/n_actives
@@ -69,6 +66,11 @@ class PlotMetric:
         #fpr, tpr, _ = roc_curve(self.y_true, y_pred)
         return fpr, tpr
     
+    # ROC-AUC
+    def _get_roc_auc(self, y_pred):
+        return(roc_auc_score(y_true = self.y_true, y_score = y_pred))
+
+    # pROC
     def _get_pRoc(self, y_pred):
         fpr, tpr = self._get_roc(y_pred = y_pred)
         # Clark correction suggest to change fpr(i) by (1/N) if fpr(i) = 0
@@ -78,10 +80,6 @@ class PlotMetric:
     def _get_pRoc_auc(self, y_pred):
         p_fpr, tpr = self._get_pRoc(y_pred = y_pred)
         return(auc(p_fpr, tpr))
-    
-    # ROC-AUC
-    def _get_roc_auc(self, y_pred):
-        return(roc_auc_score(y_true = self.y_true, y_score = y_pred))
 
     # Accumulation Curve
     def _get_ac(self, y_pred, normalized):
