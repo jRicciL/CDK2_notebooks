@@ -22,11 +22,15 @@ class PlotMetric:
         self.N = len(y_true)
         self.n = len(y_true[y_true == 1])
         self.R_a = self.n/self.N
-        self.y_pred_dict = y_pred_dict
-        if decreasing:
-            for key, y_pred in y_pred_dict.items():
-                self.y_pred_dict[key] = -1 * y_pred
+        self.y_pred_dict = y_pred_dict.copy()
 
+        # We make sure that preds are numpy arrays
+        for key, y_pred in self.y_pred_dict.items():
+            if decreasing:
+                self.y_pred_dict[key] = -1 * np.array(y_pred)
+            else:
+                self.y_pred_dict[key] = np.array(y_pred)
+        
         self.color_palette = color_palette
         self.available_metrics = {'roc_auc': self._get_roc_auc,
                                   'p_roc': self._get_pRoc_auc,
