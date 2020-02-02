@@ -6,8 +6,6 @@ import matplotlib.pyplot as plt
 import pylab
 import warnings
 
-
-
 # Metric imported from other libraries
 from sklearn.metrics import roc_curve, roc_auc_score, precision_recall_curve, auc
 
@@ -17,13 +15,13 @@ class PlotMetric:
             raise ValueError('y_true should be a numpy array with values 1 = active and 0 = inactive')
         if not np.array_equal(y_true, y_true.astype(bool)):
             assert 'y_true array must be binary'
+        if type(y_pred_dict) is not dict or len(y_pred_dict) < 1:
+             raise ValueError('y_pred_dict should be a dictionary with key = "Cfl name" and value = np.array with predicted values')
+
         self.y_true = y_true
         self.N = len(y_true)
         self.n = len(y_true[y_true == 1])
         self.R_a = self.n/self.N
-
-        if type(y_pred_dict) is not dict or len(y_pred_dict) < 1:
-             raise ValueError('y_pred_dict should be a dictionary with key = "Cfl name" and value = np.array with predicted values')
         self.y_pred_dict = y_pred_dict
         if decreasing:
             for key, y_pred in y_pred_dict.items():
@@ -40,6 +38,11 @@ class PlotMetric:
                                   'bedroc': self._bedroc_score}
         pylab.rcParams['figure.figsize'] = figsize
         sns.set( context = 'talk', style = 'white', palette = color_palette)
+
+    def get_metrics_report(self, omit = None):
+        pass
+        #if type(omit) == str and omit in self.available_metrics
+        # TODO
     
     # ROC
     def _get_roc(self, y_pred):
@@ -174,7 +177,7 @@ class PlotMetric:
         df_efs = df_efs.round(rounded)
         return df_efs.T
 
-    def _get_ref_auc(self, y_pred, method, max_chi = 1):
+    def _get_ref_auc(self, y_pred, method = 'normalized', max_chi = 1):
         fractions = np.linspace(0.0, max_chi, len(self.y_true) - 2 )
         efs = self._get_ef(y_pred = y_pred, method = method, fractions = fractions)
         efs_auc = auc(fractions, efs)
@@ -480,14 +483,14 @@ class PlotMetric:
 
     # Formating metrics
     def format_metric_results(self, metric_name='roc_auc', 
-                              rounded = 3, transposed = True, *kwargs):
+                              rounded = 3, transposed = True, **kwargs):
         if metric_name not in self.available_metrics:
             raise ValueError(F'Metric {metric_name} is not available. ' + 
                   F'Available metrics are:\n{self.available_metrics.keys()}')
         metric = self.available_metrics[metric_name]
         dic_results = {}
         for key, y_pred in self.y_pred_dict.items():
-            dic_results[key] = metric(y_pred, *kwargs)
+            dic_results[key] = metric(y_pred, **kwargs)
         df = pd.DataFrame(dic_results, index = [metric_name.upper().replace('_', ' ')])
         df = df.T if transposed else df
         return df.round(rounded)
