@@ -4,6 +4,11 @@ def get_three_ranking_cases(true_values, sufix = '', include_optimal = False, de
     '''Returns a dictionary of three ranking cases. Each value of the dictionary is 
     a numpy array of N scores which value depends on the case it belongs.
     '''
+    if type(true_values) is not np.ndarray:
+        raise ValueError('y_true should be a numpy array with values 1 = active and 0 = inactive')
+    if not np.array_equal(true_values, true_values.astype(bool)):
+        assert 'y_true array must be binary'
+
     n = len(true_values[true_values == 1])
     N = len(true_values)
     
