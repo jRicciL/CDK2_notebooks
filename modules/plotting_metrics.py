@@ -12,13 +12,18 @@ from sklearn.metrics import roc_curve, roc_auc_score, precision_recall_curve, au
 class PlotMetric:
     def __init__(self, y_true, y_pred_dict, decreasing = True, color_palette = 'Dark2', figsize = (7,7)):
         if type(y_true) is not np.ndarray:
-            raise ValueError('y_true should be a numpy array with values 1 = active and 0 = inactive')
+            try: 
+               self.y_true = np.array(y_true)
+            except ValueError:
+                print('y_true should be a numpy array with values 1 = active and 0 = inactive')
+        else:
+            self.y_true = y_true
         if not np.array_equal(y_true, y_true.astype(bool)):
             assert 'y_true array must be binary'
         if type(y_pred_dict) is not dict or len(y_pred_dict) < 1:
              raise ValueError('y_pred_dict should be a dictionary with key = "Cfl name" and value = np.array with predicted values')
 
-        self.y_true = y_true
+        
         self.N = len(y_true)
         self.n = len(y_true[y_true == 1])
         self.R_a = self.n/self.N
