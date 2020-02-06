@@ -482,7 +482,7 @@ class PlotMetric:
         
     # Plotting distributions
     def plot_actives_distribution(self, colors = {1: '#e74c3c', 0: '#FCD988'}, 
-    max_position_to_plot = 250, add_to_title = ''):
+    max_position_to_plot = 200, add_to_title = '', show_num_actives = False):
         for key, y_pred in self.y_pred_dict.items():
             order = np.argsort(-y_pred)
             y_pred_ord = y_pred[order]
@@ -490,7 +490,9 @@ class PlotMetric:
             title = F'\n{add_to_title} {key} \n'
             if self.N > max_position_to_plot:
                 y_true = y_true[:max_position_to_plot]
-                title =  F'\n{add_to_title} {key} [first {max_position_to_plot} positions]\n'
+                # Get number of actives up to that position
+                n_actives = (y_true[y_true == 1]).sum()
+                title =  F'\n{add_to_title} {key} [first {max_position_to_plot} positions, {n_actives} actives found]\n'
             colors_array = [colors[i] for i in y_true]
 
             sns.palplot(sns.color_palette(colors_array))
