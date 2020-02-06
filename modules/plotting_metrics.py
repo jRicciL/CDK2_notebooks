@@ -481,18 +481,20 @@ class PlotMetric:
                 plt.show()
         
     # Plotting distributions
-    def plot_actives_distribution(self, colors = {1: '#e74c3c', 0: '#FCD988'}, max_position_to_plot = 250):
+    def plot_actives_distribution(self, colors = {1: '#e74c3c', 0: '#FCD988'}, 
+    max_position_to_plot = 250, add_to_title = ''):
         for key, y_pred in self.y_pred_dict.items():
             order = np.argsort(-y_pred)
             y_pred_ord = y_pred[order]
             y_true = self.y_true[order]
-            # 
+            title = F'\n{add_to_title} {key} \n'
             if self.N > max_position_to_plot:
-                y_true = y_true[:max_position_to_plot]  
+                y_true = y_true[:max_position_to_plot]
+                title =  F'\n{add_to_title} {key} [first {max_position_to_plot} positions]\n'
             colors_array = [colors[i] for i in y_true]
 
             sns.palplot(sns.color_palette(colors_array))
-            plt.title('\n' + key + '\n', fontsize=100)
+            plt.title(title, fontsize=100)
             plt.show()
 
     # Formating metrics
