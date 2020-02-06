@@ -481,8 +481,7 @@ class PlotMetric:
                 plt.show()
         
     # Plotting distributions
-    def plot_actives_distribution(self, colors = {1: '#e74c3c', 0: '#FCD988'}, 
-                                    max_position_to_plot = 250):
+    def plot_actives_distribution(self, colors = {1: '#e74c3c', 0: '#FCD988'}, max_position_to_plot = 250):
         for key, y_pred in self.y_pred_dict.items():
             order = np.argsort(-y_pred)
             y_pred_ord = y_pred[order]
@@ -492,17 +491,8 @@ class PlotMetric:
                 y_true = y_true[:max_position_to_plot]  
             colors_array = [colors[i] for i in y_true]
 
-            max_cutoff = 150
-            if self.N > max_cutoff:
-                n_splits = int(np.ceil(self.N/max_cutoff))
-                #assert n_splits > 6, 'Too many values to plot, use a cutoff (max_position_to_plot).'
-                for s in range(n_splits):
-                    start = s*max_cutoff
-                    end = (s + 1)*max_cutoff -1
-                    sns.palplot(sns.color_palette(colors_array[start:end]))
-            else:
-                sns.palplot(sns.color_palette(colors_array))
-            #plt.title('\n' + key + '\n', fontsize=100)
+            sns.palplot(sns.color_palette(colors_array))
+            plt.title('\n' + key + '\n', fontsize=100)
             plt.show()
 
     # Formating metrics
