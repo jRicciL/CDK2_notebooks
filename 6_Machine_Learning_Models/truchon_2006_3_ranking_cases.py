@@ -1,6 +1,6 @@
 import numpy as np
 
-def get_three_ranking_cases(true_values, sufix = '', include_optimal = False, decreasing = True):
+def get_three_ranking_cases(true_values, sufix = '', include_optimal = False):
     '''Returns a dictionary of three ranking cases. Each value of the dictionary is 
     a numpy array of N scores which value depends on the case it belongs.
     '''
@@ -11,11 +11,13 @@ def get_three_ranking_cases(true_values, sufix = '', include_optimal = False, de
 
     n = len(true_values[true_values == 1])
     N = len(true_values)
-    
+
     case_1 = np.zeros(N)
+    n_actives = 0
     for i, active in enumerate(true_values):
         if active:
-            case_1[i] = -3 if i <= n/2 else -1
+            n_actives += 1
+            case_1[i] = -3 if n_actives <= n/2 else -1
         else:
             case_1[i] = -2
             
