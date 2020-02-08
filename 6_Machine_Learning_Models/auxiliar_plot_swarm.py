@@ -29,9 +29,11 @@ def boxplot_metrics(data, title, color_by = 'Method'):
 def plot_swarm_metrics(data, title, filter_regex, hue = None, hue_name = None, ylim = (0.3, 1),
                       cmap = 'Dark2', legend = True, **kwargs):
     data = data.filter(regex = filter_regex, axis = 1)
+    n_cols = len(data.columns)
     data = data.melt(var_name='Var', value_name = 'Values')
     data['Method'] = data['Var'].apply(lambda x: x.split('-')[0])
-    if hue is not None: data[hue_name] = np.tile(hue, 4)
+    if hue is not None:
+        data[hue_name] = np.tile(hue, n_cols)
     ax = sns.swarmplot(data = data, x = 'Method', y = 'Values', s = 5,  
                   hue = hue_name, palette = cmap, **kwargs)
     if not legend: ax.legend_.remove()
