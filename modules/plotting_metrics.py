@@ -301,13 +301,14 @@ class PlotMetric:
             plt.legend(fontsize=fontsize)
             if method == 'absolute':
                 plt.plot([self.R_a, self.R_a], [0 , 1/self.R_a], 'k--', c = 'grey')
-                plt.plot([0, 1], [1, 1], 'k--', c = 'grey')
+                #plt.plot([0, 1], [1, 1], 'k--', c = 'grey')
+            else: plt.ylim(0, 1.1)
             if max_num_of_ligands is not None and max_chi == 1:
                 plt.xlabel("# ligands at ranking top")
             else:
                 plt.xlabel("Ranking Fraction")
             plt.ylabel(F"Enrichment Factor ({method[:3].capitalize()}.)")
-            #plt.ylim(0, 1.1)
+            
             plt.grid(linestyle='--', linewidth='0.8')
             plt.title(title)
             if show_by_itself:
@@ -492,7 +493,7 @@ class PlotMetric:
                 y_true = y_true[:max_position_to_plot]
                 # Get number of actives up to that position
                 n_actives = (y_true[y_true == 1]).sum()
-                title =  F'\n{add_to_title} {key} [first {max_position_to_plot} positions, {n_actives} actives found]\n'
+                title =  F'\n{add_to_title} {key} [first {max_position_to_plot} positions, {n_actives}/{self.n} actives found]\n'
             colors_array = [colors[i] for i in y_true]
 
             sns.palplot(sns.color_palette(colors_array))
