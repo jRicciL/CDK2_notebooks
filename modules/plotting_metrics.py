@@ -502,7 +502,7 @@ class PlotMetric:
 
     # Formating metrics
     def format_metric_results(self, metric_name='roc_auc', 
-                              rounded = 3, transposed = True, **kwargs):
+                              rounded = 3, transposed = True, as_dataframe = True, **kwargs):
         if metric_name not in self.available_metrics:
             raise ValueError(F'Metric {metric_name} is not available. ' + 
                   F'Available metrics are:\n{self.available_metrics.keys()}')
@@ -510,8 +510,11 @@ class PlotMetric:
         dic_results = {}
         for key, y_pred in self.y_pred_dict.items():
             dic_results[key] = metric(y_pred, **kwargs)
-        df = pd.DataFrame(dic_results, index = [metric_name.upper().replace('_', ' ')])
-        df = df.T if transposed else df
-        return df.round(rounded)
-    
+        if as_dataframe:
+            df = pd.DataFrame(dic_results, index = [metric_name.upper().replace('_', ' ')])
+            df = df.T if transposed else df
+            return df.round(rounded)
+        else:
+            return dic_results
+
 #def plot_grid(list_of_plots, metric_to_plot, )
