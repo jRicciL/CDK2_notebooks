@@ -1,0 +1,77 @@
+/*This file contains any manual css for this page that needs to override the global styles.
+This is only required when different pages style the same element differently. This is just
+a hack to deal with our current css styles and no new styling should be added in this file.*/
+
+#ipython-main-app {
+    position: relative;
+}
+#jupyter-main-app {
+    position: relative;
+}
+
+.CodeMirror-matchingbracket { text-decoration: underline; color: #c67100 !important;}
+
+div.CodeMirror-selected {background: #3a3432 !important;}
+
+.CodeMirror-lines{
+	background-color: #222222;
+}
+
+.cm-em .cm-link{
+	color: #f558ff;
+}
+
+.cm-s-ipython .CodeMirror-cursor {border-left: 1px solid #807d7c !important;}
+
+.cm-string{
+	color: #FFDC7D !important;
+}
+
+.cm-variable{
+	color: #dddddd !important;
+}
+
+.cm-variable-2{
+	font-style: italic;
+	color: #a68bf9 !important;
+}
+
+.cm-operator{
+	color: #ff723c !important;
+}
+
+.cm-builtin{
+	font-style: italic;
+	color: #00fdb7 !important;
+}
+
+.cm-def{
+	font-weight: bold;
+    color: #18a9a9 !important;
+}
+
+.cm-comment{
+	color : #8e8067 !important;
+}
+
+.cm-keyword{
+	font-style: italic;
+	color: #ff6f60 !important;
+}
+
+.cm-number{
+	color: #1ebcd6 !important;
+}
+
+.CodeMirror-lines{
+	color: #dddddd !important;
+}
+
+.cm-header{
+	color: white !important;
+}
+
+@media (min-width: 1200px)
+.container {
+    width: 1300px;
+}
