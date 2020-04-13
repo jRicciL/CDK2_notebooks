@@ -10,7 +10,7 @@ cmp = sns.set_palette('Dark2')
 sns.set(context = "talk", font_scale=0.9, style = 'white', palette = cmp)
 
 # Plot with holoviews
-def boxplot_metrics(data, title, color_by = 'Method'):
+def boxplot_metrics(data, title, color_by = 'Method', palette = 'Set3', invert_xaxis = True):
     data = data.melt(var_name='Variables', value_name='Metric Value')
     data['Method'] = data['Variables'].apply(lambda x: x.split('-')[0])
     data['Ranking'] = data['Variables'].apply(lambda x: x.split('-')[1])
@@ -18,8 +18,8 @@ def boxplot_metrics(data, title, color_by = 'Method'):
     boxwhisker = hv.BoxWhisker(data, ['Metric', 'Ranking', 'Method' ], 
                                'Metric Value', label = title)
     boxwhisker.opts(show_legend = False, width=900, height = 500, 
-                    box_fill_color = color_by, cmap='Set3', ylim=(0, 1),
-                    xrotation=45, invert_xaxis = True, toolbar='above')
+                    box_fill_color = color_by, cmap=palette, ylim=(0, 1),
+                    xrotation=45, invert_xaxis = invert_xaxis, toolbar='above')
     f = hv.render(boxwhisker, backend='bokeh')
     f.toolbar.logo = None
     f.grid.grid_line_color = 'lightgrey'
