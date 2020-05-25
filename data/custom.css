@@ -71,7 +71,11 @@ div.CodeMirror-selected {background: #3a3432 !important;}
 	color: white !important;
 }
 
-@media (min-width: 1200px)
 .container {
-    width: 1300px;
+    max-width: 1400px;
+    width: 90%;
+}
+
+div#notebook {
+    background-color: #999;
 }
