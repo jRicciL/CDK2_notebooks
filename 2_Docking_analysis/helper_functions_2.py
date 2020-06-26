@@ -4,12 +4,12 @@ import numpy as np
 from rdkit import Chem
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set(style='white', context='talk')
+sns.set(style='white', context='talk', font_scale=0.8)
 
 
 
-def violin_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='', 
-                       split=False, palette="Spectral", linewidth=1.8, **kwargs):
+def violin_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='', figsize=(12,4),
+                       split_by_activity=False, palette="Spectral", linewidth=1.8, **kwargs):
     df_ = pd.DataFrame()
     # Create the dataset
     names_ = []
@@ -28,23 +28,23 @@ def violin_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='',
                     list(zip([name]*length, a, activity)),
                     columns = ['Database', 'Feature', 'Activity']))
 
-    plt.figure(figsize=(18,6))
-    if split:
+    plt.figure(figsize=figsize)
+    if split_by_activity:
         _ = sns.violinplot(x='Database', y='Feature', hue = 'Activity', linewidth=linewidth,
-                           data=df_, palette=palette, bw=.15, split=split, **kwargs)
+                           data=df_, palette=palette, bw=.15, split=split_by_activity, **kwargs)
     else:
         _ = sns.violinplot(x='Database', y='Feature', linewidth=linewidth,
                            data=df_, palette=palette, bw=.15, **kwargs) 
 
     # plotting
-    plt.xticks([0,1,2,3], labels=names_)
+    plt.xticks(np.arange(len(names_)), labels=names_)
     plt.ylabel(ylabel, weight='bold')
     plt.xlabel(xlabel, weight='bold')
     plt.title(title, weight='bold')
     plt.grid(c='lightgrey')
 
-def swarm_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='', 
-                       split=False, palette="Spectral", linewidth=1.8, **kwargs):
+def swarm_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='', figsize=(12,4),
+                       split_by_activity=False, palette="Spectral", linewidth=1.8, **kwargs):
     df_ = pd.DataFrame()
     # Create the dataset
     names_ = []
@@ -63,8 +63,8 @@ def swarm_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='',
                     list(zip([name]*length, a, activity)),
                     columns = ['Database', 'Feature', 'Activity']))
 
-    plt.figure(figsize=(18,6))
-    if split:
+    plt.figure(figsize=figsize)
+    if split_by_activity:
         _ = sns.swarmplot(x='Database', y='Feature', hue = 'Activity',
                            data=df_, palette=palette, **kwargs)
     else:
@@ -72,7 +72,7 @@ def swarm_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='',
                            data=df_, palette=palette,  **kwargs) 
 
     # plotting
-    plt.xticks([0,1,2,3], labels=names_)
+    plt.xticks(np.arange(len(names_)), labels=names_)
     plt.ylabel(ylabel, weight='bold')
     plt.xlabel(xlabel, weight='bold')
     plt.title(title, weight='bold')
@@ -110,12 +110,17 @@ from itertools import combinations
 from rdkit.DataStructs import FingerprintSimilarity
 from rdkit import DataStructs
 
-def compare_lig_db(fp, lig_datasets, method = 'tanimoto'):
+def compare_lig_db(fp, lig_datasets, method = 'tanimoto', same = None, same_db = ''):
     '''
         Compares pairwise similarity between molecules from two given sets.
     '''
     matched_ligands = {}
-    for key_i, key_j in combinations(lig_datasets.keys(), 2):
+    if same:
+        combs = (same_db, same_db)
+    else:
+        combs = combinations(lig_datasets.keys(), 2)
+    
+    for key_i, key_j in combs:
         print('\n' + '='*20)
         print(key_i, '\t', key_j)
         print('='*20)
@@ -126,18 +131,22 @@ def compare_lig_db(fp, lig_datasets, method = 'tanimoto'):
         matched = []
         for k in d_i.index:
             for p in d_j.index:
-                fp_sim = FingerprintSimilarity(
-                    d_i.loc[k, fp], 
-                    d_j.loc[p, fp], metric=DataStructs.TanimotoSimilarity)
+                try:
+                    fp_sim = FingerprintSimilarity(
+                        d_i.loc[k, fp], 
+                        d_j.loc[p, fp], metric=DataStructs.TanimotoSimilarity)
 
-                if fp_sim >= 0.90:
-                    # Add to the list
-                    matched.append( {'match_mols': (d_i.loc[k, 'mol_rdk'], 
-                                               d_j.loc[p, 'mol_rdk']), 
-                                     'match_names': (k, p),
-                                     'tanimoto': fp_sim} )
-                if fp_sim >= 0.98:
-                    print(k, '\t', p)
+                    if fp_sim >= 0.90:
+                        # Add to the list
+                        matched.append( {'match_mols': (d_i.loc[k, 'mol_rdk'], 
+                                                   d_j.loc[p, 'mol_rdk']), 
+                                         'match_names': (k, p),
+                                         'tanimoto': fp_sim} )
+                    if fp_sim >= 0.98:
+                        print(k, '\t', p)
+                except AttributeError as e:
+                    print(e, k, '\t', p)
+                    break
         # add to the dict
         matched_ligands[F'{key_i}-{key_j}'] = matched
     return matched_ligands
