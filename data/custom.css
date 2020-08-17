@@ -14,7 +14,7 @@ a hack to deal with our current css styles and no new styling should be added in
 div.CodeMirror-selected {background: #3a3432 !important;}
 
 .CodeMirror-lines{
-	background-color: #222222;
+	background-color: #2d2d2d;
 }
 
 .cm-em .cm-link{
@@ -24,11 +24,14 @@ div.CodeMirror-selected {background: #3a3432 !important;}
 .cm-s-ipython .CodeMirror-cursor {border-left: 1px solid #807d7c !important;}
 
 .cm-string{
-	color: #FFDC7D !important;
+	color: #F5ca80 !important;
 }
 
 .cm-variable{
-	color: #dddddd !important;
+	color: #dcc7a7 !important;
+}
+.cm-property{
+	color: #b0b97c !important;
 }
 
 .cm-variable-2{
@@ -55,12 +58,12 @@ div.CodeMirror-selected {background: #3a3432 !important;}
 }
 
 .cm-keyword{
-	font-style: italic;
-	color: #ff6f60 !important;
+	#font-style: italic;
+	color: #f17063 !important;
 }
 
 .cm-number{
-	color: #1ebcd6 !important;
+	color: #5db1bf !important;
 }
 
 .CodeMirror-lines{
