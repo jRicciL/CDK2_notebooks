@@ -1,6 +1,7 @@
 from rdkit import Chem
 from rdkit.Chem import AllChem
 import pandas as pd
+from glob import glob
 
 def load_molecules_from_dir(list_of_sdf_files):
     '''Function to load molecules from sdf files using rdkit'''

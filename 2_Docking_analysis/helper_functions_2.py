@@ -209,7 +209,7 @@ def create_fig_bokeh(desc, source_act, source_inact, col_library_map,
           x_axis_label='First Dimension', y_axis_label='Second Dimension',
           tools='pan,box_select,wheel_zoom,reset')
     # Add hovertool 
-    
+
     f.renderers.extend([vline, hline])
     # Add glyphs
     # Plot inactives
@@ -227,7 +227,8 @@ def create_fig_bokeh(desc, source_act, source_inact, col_library_map,
     for library in library_names:
         data = ColumnDataSource(df_.loc[df_['library'] == library, :])
         f.triangle(x= desc + f'_{kind_dr}_x', y= desc + f'_{kind_dr}_y',
-               color=col_library_map, legend_label=library,
+               color=col_library_map,
+               legend_label=library,
                nonselection_fill_color=col_library_map,
                nonselection_fill_alpha=0.05,
                size=8, line_color='black', line_width=0.5,
