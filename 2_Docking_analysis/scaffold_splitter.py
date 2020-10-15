@@ -67,7 +67,7 @@ def scaffold_splitter(scaffold_series, test_size=0.2, stratify=None):
         # Start filling train_inds, valid_inds, test_inds with active indices
         train_inds, valid_inds, test_inds = act_train_inds, act_valid_inds, act_test_inds
         
-        # As actives have been dispached, we should subtract its length from the data_len
+        # As actives have been dispatched, we should subtract its length from the data_len
 #     train_cutoff = train_cutoff# + len(train_inds)
     
     
@@ -91,6 +91,7 @@ def scaffold_splitter(scaffold_series, test_size=0.2, stratify=None):
             test_inds += scff_set
         else:
             train_inds += scff_set
+            
     return train_inds, valid_inds, test_inds
     
     
@@ -111,16 +112,18 @@ def train_test_scaffold_split(X, y, scaffold_series, test_size=0.2, stratify=Non
         stratify: None or pandas Series
             Series object with target values to stratify on into Train and Test sets.
         
-    Retunrs:
+    Returns:
     --------
         X_train, X_test: pandas DataFrame.
             Train and Test X subset accordingly to the Scaffold Splitting.
         y_train, y_test: pandas Series.
             Train and Test target values.
     '''
+    
+    
 
     assert (X.index == scaffold_series.index).all(), 'Index should be the same between X and rdk_mols_series'
-    assert len(X) == len(y), 'Numer of observations in X and y is not the same.'
+    assert len(X) == len(y), 'Number of observations in X and y is not the same.'
     
     train_inds, _, test_inds = scaffold_splitter(scaffold_series,
                                     test_size=test_size, stratify=stratify)
