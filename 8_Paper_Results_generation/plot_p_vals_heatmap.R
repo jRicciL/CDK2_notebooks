@@ -2,6 +2,10 @@ library(PMCMR)
 library(reshape2)
 library(ggplot2)
 
+p_labels = c("p < 0.001", "p < 0.01", 'p < 0.05', 'NS')
+names(p_labels) <- p_labels
+p_colors = c('#1965DB', "#078EE1",  "#27E4C2", '#FB992A')
+names(p_colors) <- p_labels
 
 plot_p_vals_heatmap <- function(df_R) {
     df_melt <- df_R %>%
@@ -13,12 +17,12 @@ plot_p_vals_heatmap <- function(df_R) {
     p_values <- p_values[rev(rownames(p_values)), ]
 
     m_p_values <- melt(p_values, na.rm = TRUE)
-    m_p_values$cutoffs <- cut(m_p_values$value, breaks=c(-Inf, 0.001, 0.01, 0.05, Inf), right=FALSE)
+    m_p_values$cutoffs <- cut(m_p_values$value, breaks=c(-Inf, 0.001, 0.01, 0.05, Inf), right=TRUE, labels=p_labels)
 
     ggplot(data = m_p_values, aes(x=Var1, y=Var2, fill=cutoffs)) + 
       geom_tile(color='white', size=1) +
-       scale_fill_manual(labels = c("p < 0.001", "p < 0.01", 'p < 0.05', 'NS'), 
-                         values = c('#1965DB', "#078EE1",  "#27E4C2",'#FB992A'),
+       scale_fill_manual(labels = p_labels, 
+                         values = p_colors,
                         name='Significance') + 
        geom_text(aes(family="Trebuchet MS", Var1, Var2, label = round(value, 4)), color = "black", size = 3) +
        theme(text=element_text(family="Trebuchet MS"), 

@@ -6,15 +6,17 @@ library(dplyr)
 library('gghalves')
 # library('DescTools')
 library("scales")
+library(matrixStats)
 
 # lb <- function(x) { MedianCI(x, 0.95)['lwr.ci'] }
 lb <- function(x) { median(x) - 1.57*IQR(x)/sqrt(length(x)) }
 # ub <- function(x) { MedianCI(x, 0.95)['upr.ci'] }
 ub <- function(x) { median(x) + 1.57*IQR(x)/sqrt(length(x)) }
 
-plot_swarm_box <- function(df, cbbPalette, decreasing_order = TRUE) {
+plot_swarm_box <- function(df, cbbPalette, decreasing_order = TRUE, y_label='AUC-ROC', 
+                           y_min=0.4, y_max=1, dot_size=8, bin_width=0.001, base_h_line=0.5) {
     
-    names_order <- names(sort(colMeans(df), decreasing = decreasing_order))
+    names_order <- names(sort(apply(df, 2, FUN=median), decreasing = decreasing_order))
     df <- df[, names_order]
     
     df_melted <- df %>%
@@ -34,8 +36,8 @@ plot_swarm_box <- function(df, cbbPalette, decreasing_order = TRUE) {
            mapping = aes(x = method, 
                          y = score, 
                          fill = method)) + 
-      geom_hline(yintercept= 0.5, linetype="dashed", color="#444444") +
-      geom_half_violin(scale = "area", trim = F, side='r', width=1.2,
+      geom_hline(yintercept= base_h_line, linetype="dashed", color="#444444") +
+      geom_half_violin(scale = "area", trim = TRUE, side='r', width=1.2,
                        alpha=0.25, position = position_nudge(x = 0.05)) +
       geom_boxplot(notch=TRUE, width=0.3, , outlier.size=1, position = position_nudge(x = -0.14)) +
       theme(text=element_text(family="Trebuchet MS")) + 
@@ -50,9 +52,9 @@ plot_swarm_box <- function(df, cbbPalette, decreasing_order = TRUE) {
       geom_point(data = sumld, aes(x = method, y = median), colour='white',
                     position = position_nudge(x = -0.14), size = 1, stroke=0.1) +
       geom_dotplot(binaxis = "y", 
-                   dotsize = 8, 
+                   dotsize = dot_size, 
                    stackdir = "up", 
-                   binwidth = 0.001, 
+                   binwidth = bin_width, 
                    alpha = 0.9,
                    stroke=0.5,
                    position = position_nudge(0.08)) +
@@ -65,11 +67,20 @@ plot_swarm_box <- function(df, cbbPalette, decreasing_order = TRUE) {
               panel.grid.major.x = element_blank()
              ) + 
           labs(x = "Methods (ML/CS)", 
-               y = "AUC-ROC") +
-      scale_y_continuous(breaks = seq(0.4, 1.0, 0.1)) +  
+               y = y_label) +
+      scale_y_continuous(breaks = seq(y_min, y_max, 0.1), limits = c(y_min, y_max)) +  
     #   scale_fill_brewer(palette = "") +
-      scale_fill_manual(values=rev(cbbPalette))
+      scale_fill_manual(values=cbbPalette)
 }
+
+
+add_ref_values <- function(text, value, color='#888888', y_add=0.01, x=1, size=2.3) {
+        list(
+            geom_hline(yintercept= value, linetype="dashed", color=color, size=0.3),
+            geom_text(aes(x=x, y= value + y_add), label=text, color=color, family="Trebuchet MS", size=size, fontface='plain')
+        )
+    }
+
 
 library(tidyverse)
 library(extrafont)
@@ -77,13 +88,13 @@ library(ggthemes)
 library(plyr)
 
 
-plot_lines <- function(df, cbbPalette) {
+plot_lines <- function(df, cbbPalette, y_label='AUC-ROC', y_min=0.4, y_max=1, base_h_line=0.5, x_label="Percentage of shuffled labels (%)") {
 
     ggplot(data = df, 
            mapping = aes(x = index, 
                          y = mean, 
                          color = method)) + 
-        geom_hline(yintercept= 0.5, 
+        geom_hline(yintercept= base_h_line, 
                    linetype="dashed", color="#333333") +
         geom_line(size=1) + 
         theme(text=element_text(family="Trebuchet MS")) + 
@@ -93,7 +104,7 @@ plot_lines <- function(df, cbbPalette) {
                  position=position_dodge(0.05)) +
         geom_point(color='black', size=2.2, stroke=0.5)+
         geom_point(size=1.5, stroke=0.5)+
-        scale_y_continuous(breaks = seq(0.4, 1.0, 0.1)) +
+        scale_y_continuous(breaks = seq(y_min, y_max, 0.1), limits = c(y_min, y_max)) + 
         theme(panel.border = element_rect(colour = "black", fill=NA, size=1),
              panel.background = element_rect(fill = "white",
                                         colour = "white",
@@ -102,6 +113,6 @@ plot_lines <- function(df, cbbPalette) {
                   panel.grid.minor.y = element_line(size = 0.05, linetype = 'solid', colour = "darkgrey"),
                   panel.grid.major.x = element_blank()
              ) + 
-                  labs(x = "Percentage of shuffled labels (%)", y = "AUC-ROC") +
+                  labs(x = x_label, y = y_label) +
         scale_color_manual(values=rev(cbbPalette), name='Method')
     }
