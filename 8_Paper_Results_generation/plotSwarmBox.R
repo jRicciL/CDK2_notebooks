@@ -88,7 +88,8 @@ library(ggthemes)
 library(plyr)
 
 
-plot_lines <- function(df, cbbPalette, y_label='AUC-ROC', y_min=0.4, y_max=1, base_h_line=0.5, x_label="Percentage of shuffled labels (%)") {
+plot_lines <- function(df, cbbPalette, y_label='AUC-ROC', y_min=0.4, y_max=1, switch_x=TRUE, line_size=1,
+                       base_h_line=0.5, x_label="Percentage of shuffled labels (%)") {
 
     ggplot(data = df, 
            mapping = aes(x = index, 
@@ -96,9 +97,9 @@ plot_lines <- function(df, cbbPalette, y_label='AUC-ROC', y_min=0.4, y_max=1, ba
                          color = method)) + 
         geom_hline(yintercept= base_h_line, 
                    linetype="dashed", color="#333333") +
-        geom_line(size=1) + 
+        geom_line(size=line_size) + 
         theme(text=element_text(family="Trebuchet MS")) + 
-        scale_x_reverse() +
+        {if(switch_x)scale_x_reverse()} +
         geom_errorbar(aes(ymin=mean-std, 
                           ymax=mean+std), width=1.5, size=1,
                  position=position_dodge(0.05)) +
