@@ -88,8 +88,9 @@ library(ggthemes)
 library(plyr)
 
 
-plot_lines <- function(df, cbbPalette, y_label='AUC-ROC', y_min=0.4, y_max=1, switch_x=TRUE, line_size=1,
-                       base_h_line=0.5, x_label="Percentage of shuffled labels (%)") {
+plot_lines <- function(df, cbbPalette, y_label='AUC-ROC', y_min=0.4, y_max=1, switch_x=TRUE, 
+                       line_size=1, point_size=2.2, error_dodge=0.05, error_width=1.5, error_size=1,
+                       base_h_line=0.5, x_label="Percentage of shuffled labels (%)", title='') {
 
     ggplot(data = df, 
            mapping = aes(x = index, 
@@ -100,11 +101,11 @@ plot_lines <- function(df, cbbPalette, y_label='AUC-ROC', y_min=0.4, y_max=1, sw
         geom_line(size=line_size) + 
         theme(text=element_text(family="Trebuchet MS")) + 
         {if(switch_x)scale_x_reverse()} +
-        geom_errorbar(aes(ymin=mean-std, 
-                          ymax=mean+std), width=1.5, size=1,
-                 position=position_dodge(0.05)) +
-        geom_point(color='black', size=2.2, stroke=0.5)+
-        geom_point(size=1.5, stroke=0.5)+
+        geom_errorbar(aes(ymin=mean-std, ymax=mean+std), width=error_width, size=error_size, position=position_dodge(error_dodge)) +
+        geom_errorbar(aes(ymin=mean-std, ymax=mean+std), width=error_width, size=error_size, position=position_dodge(error_dodge)) +
+        geom_point(color='black', size=point_size + 1, stroke=0.5)+
+        geom_point(size=point_size, stroke=0.5)+
+        ggtitle(title) +
         scale_y_continuous(breaks = seq(y_min, y_max, 0.1), limits = c(y_min, y_max)) + 
         theme(panel.border = element_rect(colour = "black", fill=NA, size=1),
              panel.background = element_rect(fill = "white",
