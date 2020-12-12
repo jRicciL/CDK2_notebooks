@@ -94,9 +94,14 @@ class PlotMetric:
         p_fpr = [(- np.log10(1/i)) if i != 0 else - np.log10(self.N) for i in fpr]
         return p_fpr, tpr
 
-    def _get_pRoc_auc(self, y_pred):
+    def _get_pRoc_auc(self, y_pred, normalized=True):
         p_fpr, tpr = self._get_pRoc(y_pred = y_pred)
-        return(auc(p_fpr, tpr))
+        # I suggest to normalize the value by using the number of molecules
+        pRoc = auc(p_fpr, tpr)
+        
+        if normalized:
+            pRoc = pRoc / (- np.log10(1 / self.N))
+        return pRoc
 
     # Accumulation Curve
     def _get_ac(self, y_pred, normalized):
