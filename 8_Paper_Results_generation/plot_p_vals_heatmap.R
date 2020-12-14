@@ -1,5 +1,6 @@
-library(PMCMR)
+
 library(reshape2)
+library(PMCMR)
 library(ggplot2)
 
 p_labels = c("p < 0.001", "p < 0.01", 'p < 0.05', 'NS')
@@ -9,7 +10,7 @@ names(p_colors) <- p_labels
 
 plot_p_vals_heatmap <- function(df_R) {
     df_melt <- df_R %>%
-        mutate(rep = factor(1:30)) %>%
+        mutate(rep = factor(1:nrow(df_R))) %>%
         pivot_longer(cols=c(everything(), -rep), names_to='Method', 
                      values_to='score')
 

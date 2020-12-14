@@ -1,5 +1,5 @@
 library(scmamp)
-library("scales")
+library(scales)
 
 
 getNemenyiCD <- function (alpha = 0.05, num.alg, num.problems) {
