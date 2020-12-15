@@ -18,7 +18,8 @@ getNemenyiCD <- function (alpha = 0.05, num.alg, num.problems) {
   return(cd)
 }
 
-plotCD_color <- function (results.matrix, alpha=0.05, cex=0.75, colPalette, ...) {
+plotCD_color <- function (results.matrix, alpha=0.05, cex=0.75, colPalette, 
+            side_marging=0, line.spacing=0.9, ...) {
   
   opar <- par(mai = c(0,0,0,0))
   on.exit(par(opar))
@@ -43,12 +44,12 @@ plotCD_color <- function (results.matrix, alpha=0.05, cex=0.75, colPalette, ...)
   
   # Basic dimensions and definitions
   char.size    <- 0.001  # Character size
-  line.spacing <- 0.25   # Line spacing for the algorithm name
+  line.spacing <- line.spacing   # Line spacing for the algorithm name
   m            <- floor(min(mean.rank))
   M            <- ceiling(max(mean.rank))
   max.char     <- max(sapply(colnames(results.matrix), FUN = nchar))  # Longest length of a label
-  text.width   <- (max.char + 4) * char.size
-  w            <- (M-m) + 2 * text.width
+  text.width   <- (max.char + 8) * char.size
+  w            <- (M-m) + 2 * text.width + side_marging
   h.up         <- 2.5 * line.spacing  # The upper part is fixed. Extra space is for the CD
   h.down       <- (max.rows + 2.25) * line.spacing # The lower part depends on the no. of algorithms. 
   # The 2 extra spaces are for the lines that join algorithms
@@ -71,7 +72,7 @@ plotCD_color <- function (results.matrix, alpha=0.05, cex=0.75, colPalette, ...)
   
   # Draw the critical difference
   lines(c(m, m + cd), c(1.75 * line.spacing, 1.75 * line.spacing), lwd=2)
-  text(m + cd / 2, 2.25 * line.spacing, paste("CD:", round(cd,2)), cex=cex)
+  text(m + cd / 2, 2.5 * line.spacing, paste("CD:", round(cd,2)), cex=cex)
   lines(c(m, m), c(1.75 * line.spacing - tick.h, 
                    1.75 * line.spacing + tick.h))
   lines(c(m + cd, m + cd), c(1.75 * line.spacing - tick.h, 

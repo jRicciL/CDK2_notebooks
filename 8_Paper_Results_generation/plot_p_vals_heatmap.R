@@ -5,7 +5,7 @@ library(ggplot2)
 
 p_labels = c("p < 0.001", "p < 0.01", 'p < 0.05', 'NS')
 names(p_labels) <- p_labels
-p_colors = c('#1965DB', "#078EE1",  "#27E4C2", '#FB992A')
+p_colors = c('#FA3A6A',   "#FD9EB2", "#FBDEE3", '#53CDF6')
 names(p_colors) <- p_labels
 
 plot_p_vals_heatmap <- function(df_R) {
@@ -25,12 +25,17 @@ plot_p_vals_heatmap <- function(df_R) {
        scale_fill_manual(labels = p_labels, 
                          values = p_colors,
                         name='Significance') + 
-       geom_text(aes(family="Trebuchet MS", Var1, Var2, label = round(value, 4)), color = "black", size = 3) +
-       theme(text=element_text(family="Trebuchet MS"), 
+       geom_text(aes(Var1, Var2, label = round(value, 4)), color = "black", size = 3.5) +
+       theme(
+        # text=element_text(family="Trebuchet MS"),
+             plot.title = element_text(hjust = 0.5, size=13),
+             plot.subtitle = element_text(hjust = 0.5, size=11),
              panel.background = element_rect(fill = "white"),
              legend.position = c(0.85, 0.8),
              axis.title.x = element_blank(),
              axis.title.y = element_blank(),
-             axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+             axis.text.x = element_text(angle = 45, vjust = 1, hjust=1, size=10, color='black'),
+             axis.text.y = element_text(size=10, color='black')
+             )
     
     }

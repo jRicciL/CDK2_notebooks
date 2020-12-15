@@ -9,6 +9,8 @@ library("scales")
 library(matrixStats)
 library(tidyverse)
 
+theme_set(theme_gray(base_size = 10))
+
 # lb <- function(x) { MedianCI(x, 0.95)['lwr.ci'] }
 lb <- function(x) { median(x) - 1.57*IQR(x)/sqrt(length(x)) }
 # ub <- function(x) { MedianCI(x, 0.95)['upr.ci'] }
@@ -77,8 +79,9 @@ plot_swarm_box <- function(df, cbbPalette, decreasing_order = TRUE, y_label='AUC
       scale_fill_manual(values=cbbPalette)
 }
 
-plot_violin<- function(df, cbbPalette, decreasing_order = TRUE, y_label='AUC-ROC', 
-                           y_min=0.4, y_max=1, dot_size=8, bin_width=0.001, base_h_line=0.5) {
+plot_violin<- function(df, cbbPalette, decreasing_order = TRUE, y_label='AUC-ROC', scale='area',
+                           y_min=0.4, y_max=1, dot_size=8, bin_width=0.001, base_h_line=0.5,
+                           violin_width=1.1) {
     
     names_order <- names(sort(apply(df, 2, FUN=median), decreasing = decreasing_order))
     df <- df[, names_order]
@@ -100,11 +103,11 @@ plot_violin<- function(df, cbbPalette, decreasing_order = TRUE, y_label='AUC-ROC
            mapping = aes(x = method, 
                          y = score, 
                          fill = method)) + 
-      geom_hline(yintercept= base_h_line, linetype="dashed", color="#444444", lwd=0.3) +
-      geom_violin(width=1.2, lwd=0.3, color='black', alpha=0.6, trim=FALSE) +
-      geom_boxplot(notch=TRUE, width=0.2, lwd=0.2, color='black',
+      geom_hline(yintercept= base_h_line, linetype="dotted", color="#444444", lwd=0.8) +
+      geom_violin(width=violin_width, lwd=0.3, color='black', alpha=0.6, trim=TRUE, scale=scale) +
+      geom_boxplot(notch=TRUE, width=0.3, lwd=0.2, color='black',
                   outlier.size=0.1) +
-      theme(text=element_text(family="Trebuchet MS")) + 
+      # theme(text=element_text(family="Trebuchet MS")) + 
       stat_summary(fun.data = mean_sdl, 
                    fun.args = list(mult = 1), 
                    geom = "pointrange", 
@@ -122,28 +125,29 @@ plot_violin<- function(df, cbbPalette, decreasing_order = TRUE, y_label='AUC-ROC
       #              alpha = 0.9,
       #              stroke=0,
       #              position = position_nudge(0.08)) +
-        theme(legend.position = "none", panel.border = element_rect(colour = "black", fill=NA, size=1),
+        theme(legend.position = "none", panel.border = element_rect(colour = "black", fill=NA, size=0.6),
               panel.background = element_rect(fill = "white",
                                     colour = "white",
-                                    size = 0.5, linetype = "solid"),
-              panel.grid.major.y = element_line(size = 0.1, linetype = 'solid', colour = "grey"), 
-              # panel.grid.minor.y = element_line(size = 0.05, linetype = 'solid', colour = "darkgrey"),
-              # axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1),
-              panel.grid.major.x = element_blank()
+                                    size = 0.6, linetype = "solid"),
+              panel.grid.major.y = element_line(size = 0.2, linetype = 'solid', colour = "grey"), 
+              panel.grid.minor.y = element_line(size = 0.2, linetype = 'solid', colour = "lightgrey"),
+              axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1),
+              panel.grid.major.x = element_blank(),
+              plot.title = element_text(hjust = 0.5, size=11)
              ) + 
           labs(x = "Methods (ML/CS)", 
                y = y_label) +
       scale_y_continuous(breaks = seq(y_min, y_max, 0.1), limits = c(y_min, y_max)) + 
-      scale_x_discrete(guide = guide_axis(n.dodge = 2)) + 
+      # scale_x_discrete(guide = guide_axis(n.dodge = 2)) + 
     #   scale_fill_brewer(palette = "") +
       scale_fill_manual(values=cbbPalette)
 }
 
 
-add_ref_values <- function(text, value, color='#888888', y_add=0.02, x=1, size=2.3) {
+add_ref_values <- function(text, value, color='#888888', y_add=0.02, x=0.5, size=2.3) {
         list(
-            geom_hline(yintercept= value, linetype="dotted", color=color, size=0.3),
-            geom_text(aes(x=x, y= value + y_add), label=text, color=color,  size=size)
+            geom_hline(yintercept= value, linetype="dashed", color=color, size=0.3),
+            annotate('text', x=x, y= value + y_add, label=text, color=color,  size=size, hjust=0)
         )
     }
 
@@ -164,23 +168,24 @@ plot_lines <- function(df, cbbPalette, y_label='AUC-ROC', y_min=0.4, y_max=1, sw
                          color = method)) + 
         geom_hline(yintercept= base_h_line, 
                    linetype="dashed", color="#333333") +
-        geom_line(size=line_size) + 
-        theme(text=element_text(family="Trebuchet MS")) + 
+        geom_line(size=line_size, alpha=0.7) + 
+        # theme(text=element_text(family="Trebuchet MS")) + 
         {if(switch_x)scale_x_reverse()} +
         geom_errorbar(aes(ymin=mean-std, ymax=mean+std), width=error_width, size=error_size, position=position_dodge(error_dodge)) +
-        geom_errorbar(aes(ymin=mean-std, ymax=mean+std), width=error_width, size=error_size, position=position_dodge(error_dodge)) +
-        geom_point(color='black', size=point_size + 1, stroke=0.5)+
-        geom_point(size=point_size, stroke=0.5)+
+        geom_point(color='black', size = point_size + 0.6, stroke = 0.5)+
+        geom_point(size = point_size, stroke = 0.5)+
         ggtitle(title) +
         scale_y_continuous(breaks = seq(y_min, y_max, 0.1), limits = c(y_min, y_max)) + 
-        theme(panel.border = element_rect(colour = "black", fill=NA, size=1),
-             panel.background = element_rect(fill = "white",
-                                        colour = "white",
-                                        size = 0.5, linetype = "solid"),
-                  panel.grid.major.y = element_line(size = 0.2, linetype = 'solid', colour = "grey"), 
-                  panel.grid.minor.y = element_line(size = 0.05, linetype = 'solid', colour = "darkgrey"),
-                  panel.grid.major.x = element_blank()
+        theme(legend.position = "none", panel.border = element_rect(colour = "black", fill=NA, size=0.6),
+              panel.background = element_rect(fill = "white",
+                                    colour = "white",
+                                    size = 0.6, linetype = "solid"),
+              panel.grid.major.y = element_line(size = 0.2, linetype = 'solid', colour = "grey"), 
+              panel.grid.minor.y = element_line(size = 0.2, linetype = 'solid', colour = "lightgrey"),
+              axis.title.x = element_text(size=8),
+              panel.grid.major.x = element_blank(),
+              plot.title = element_text(hjust = 0.5, size=11)
              ) + 
                   labs(x = x_label, y = y_label) +
-        scale_color_manual(values=rev(cbbPalette), name='Method')
+        scale_color_manual(values=rev(cbbPalette), name='Method') 
     }
