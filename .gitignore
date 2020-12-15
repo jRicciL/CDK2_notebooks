@@ -1,2 +1,4 @@
+*.DS_Store
 8_Paper_Results_generation/cachedir/joblib/*
-*.ipynb_checkpoints
+8_Paper_Results_generation/images/*
+*.ipynb_checkpoints*
