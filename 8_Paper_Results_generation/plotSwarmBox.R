@@ -105,8 +105,8 @@ plot_violin<- function(df, cbbPalette, decreasing_order = TRUE, y_label='AUC-ROC
                          fill = method)) + 
       geom_hline(yintercept= base_h_line, linetype="dotted", color="#444444", lwd=0.8) +
       geom_violin(width=violin_width, lwd=0.3, color='black', alpha=0.6, trim=TRUE, scale=scale) +
-      geom_boxplot(notch=TRUE, width=0.3, lwd=0.2, color='black',
-                  outlier.size=0.1) +
+      geom_boxplot(aes(outlier.color=method), notch=TRUE, width=0.3, lwd=0.2, color='black',
+                  outlier.size=0.5, outier.shape=21) +
       # theme(text=element_text(family="Trebuchet MS")) + 
       stat_summary(fun.data = mean_sdl, 
                    fun.args = list(mult = 1), 
@@ -159,7 +159,9 @@ library(plyr)
 
 
 plot_lines <- function(df, cbbPalette, y_label='AUC-ROC', y_min=0.4, y_max=1, switch_x=TRUE, 
-                       line_size=1, point_size=2.2, error_dodge=0.05, error_width=1.5, error_size=1,
+                       line_size=1, point_size=2.2, error_dodge=0.05, error_width=1.5, error_size=1, 
+                       legend.position='none', shape=21, add_ribbon=FALSE, ribbon_alpha=0.2, title.size=11,
+                       ticks.text.size=8, ticks.text.angle=0, 
                        base_h_line=0.5, x_label="Percentage of shuffled labels (%)", title='') {
 
     ggplot(data = df, 
@@ -172,20 +174,24 @@ plot_lines <- function(df, cbbPalette, y_label='AUC-ROC', y_min=0.4, y_max=1, sw
         # theme(text=element_text(family="Trebuchet MS")) + 
         {if(switch_x)scale_x_reverse()} +
         geom_errorbar(aes(ymin=mean-std, ymax=mean+std), width=error_width, size=error_size, position=position_dodge(error_dodge)) +
-        geom_point(color='black', size = point_size + 0.6, stroke = 0.5)+
-        geom_point(size = point_size, stroke = 0.5)+
+        {if(add_ribbon) geom_ribbon(aes(ymin=mean-std, ymax=mean+std, fill=method), alpha=ribbon_alpha, colour=NA)} +
+        # geom_point(color='black', size = point_size + 0.6, stroke = 0.5, shape=shape)+
+        geom_point(aes(fill=method), colour='black', size = point_size, stroke = 0.4, shape=shape)+
         ggtitle(title) +
         scale_y_continuous(breaks = seq(y_min, y_max, 0.1), limits = c(y_min, y_max)) + 
-        theme(legend.position = "none", panel.border = element_rect(colour = "black", fill=NA, size=0.6),
+        theme(legend.position = legend.position, panel.border = element_rect(colour = "black", fill=NA, size=0.6),
               panel.background = element_rect(fill = "white",
                                     colour = "white",
                                     size = 0.6, linetype = "solid"),
               panel.grid.major.y = element_line(size = 0.2, linetype = 'solid', colour = "grey"), 
               panel.grid.minor.y = element_line(size = 0.2, linetype = 'solid', colour = "lightgrey"),
               axis.title.x = element_text(size=8),
+              axis.text.x=element_text(size=ticks.text.size, angle=ticks.text.angle),
               panel.grid.major.x = element_blank(),
-              plot.title = element_text(hjust = 0.5, size=11)
+              panel.grid.minor.x = element_blank(),
+              plot.title = element_text(hjust = 0.5, size=title.size)
              ) + 
                   labs(x = x_label, y = y_label) +
-        scale_color_manual(values=rev(cbbPalette), name='Method') 
+        scale_color_manual(values=rev(cbbPalette), name='method') +
+        scale_fill_manual(values=rev(cbbPalette), name='method') 
     }
