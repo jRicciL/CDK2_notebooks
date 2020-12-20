@@ -19,7 +19,7 @@ getNemenyiCD <- function (alpha = 0.05, num.alg, num.problems) {
 }
 
 plotCD_color <- function (results.matrix, alpha=0.05, cex=0.75, colPalette, 
-            side_marging=0, line.spacing=0.9, ...) {
+            side_marging=0, line.spacing=0.9, labels.cex=0.6, ...) {
   
   opar <- par(mai = c(0,0,0,0))
   on.exit(par(opar))
@@ -55,7 +55,7 @@ plotCD_color <- function (results.matrix, alpha=0.05, cex=0.75, colPalette,
   # The 2 extra spaces are for the lines that join algorithms
   tick.h       <- 0.25 * line.spacing 
   
-  label.displacement <- 0.25    # Displacement of the label with respect to the axis
+  label.displacement <- 1    # Displacement of the label with respect to the axis
   line.displacement  <- 0.025  # Displacement for the lines that join algorithms
   
   # Background of the plot
@@ -71,7 +71,7 @@ plotCD_color <- function (results.matrix, alpha=0.05, cex=0.75, colPalette,
                })
   
   # Draw the critical difference
-  lines(c(m, m + cd), c(1.75 * line.spacing, 1.75 * line.spacing), lwd=2)
+  lines(c(m, m + cd), c(1.75 * line.spacing, 1.75 * line.spacing), lwd=1)
   text(m + cd / 2, 2.5 * line.spacing, paste("CD:", round(cd,2)), cex=cex)
   lines(c(m, m), c(1.75 * line.spacing - tick.h, 
                    1.75 * line.spacing + tick.h))
@@ -83,7 +83,7 @@ plotCD_color <- function (results.matrix, alpha=0.05, cex=0.75, colPalette,
                 FUN=function(x) {
                   line.h <- -line.spacing * (x + 2)
                   text(x=m - label.displacement, y=line.h, 
-                       labels=names(left.algs)[x], cex=cex, adj=1)
+                       labels=names(left.algs)[x], cex=labels.cex, adj=1)
                   lines(c(m - label.displacement*0.75, left.algs[x]), 
                         c(line.h, line.h), col=left.colors[x], lwd=2)
                   lines(c(left.algs[x], left.algs[x]), c(line.h, 0),
@@ -95,7 +95,7 @@ plotCD_color <- function (results.matrix, alpha=0.05, cex=0.75, colPalette,
                 FUN=function(x) {
                   line.h <- -line.spacing * (x + 2)
                   text(x=M + label.displacement, y=line.h, 
-                       labels=names(right.algs)[x], cex=cex, adj=0)
+                       labels=names(right.algs)[x], cex=labels.cex, adj=0)
                   lines(c(M + label.displacement*0.75, right.algs[x]), 
                         c(line.h, line.h), col=right.colors[x], lwd=2)
                   lines(c(right.algs[x], right.algs[x]), c(line.h, 0),
