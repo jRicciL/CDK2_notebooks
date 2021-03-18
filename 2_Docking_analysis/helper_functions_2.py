@@ -9,7 +9,7 @@ sns.set(style='white', context='talk', font_scale=0.8)
 
 
 def violin_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='', figsize=(12,4),
-                       split_by_activity=False, palette="Spectral", linewidth=1.8, **kwargs):
+                       split_by_activity=False, palette="Spectral", linewidth=1.2, **kwargs):
     df_ = pd.DataFrame()
     # Create the dataset
     names_ = []
@@ -18,10 +18,11 @@ def violin_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='', fi
         activity = dataset['Activity']
         n_actives = np.sum(activity == 'active')
         length = len(a)
-        std_ = np.std(a).round(2)
-        mean_ = np.mean(a).round(2)
+        std_ = round(np.std(a), 2)
+        mean_ = round(np.mean(a), 2)
 
-        names_.append(f'{name}\nn_a/N = {n_actives}/{length}\nMean = {mean_}\nStd = {std_}')
+        #names_.append(f'{name}\n' + r'$n_a/N$' + f' = {n_actives}/{length}\nmean = {mean_}\nstd = {std_}')
+        names_.append(f'{name}\n' + r'$n_a/N$' + f' = {n_actives}/{length}')
 
         df_ = df_.append(
                 pd.DataFrame(
@@ -30,17 +31,35 @@ def violin_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='', fi
 
     plt.figure(figsize=figsize)
     if split_by_activity:
-        _ = sns.violinplot(x='Database', y='Feature', hue = 'Activity', linewidth=linewidth,
+        ax = sns.violinplot(x='Database', y='Feature', hue = 'Activity', linewidth=linewidth,
                            data=df_, palette=palette, bw=.15, split=split_by_activity, **kwargs)
+        plt.legend(loc='upper center', bbox_to_anchor=(0.5, 0.12),
+          fancybox=True, ncol=5)
     else:
-        _ = sns.violinplot(x='Database', y='Feature', linewidth=linewidth,
+        ax = sns.violinplot(x='Database', y='Feature', linewidth=linewidth,
                            data=df_, palette=palette, bw=.15, **kwargs) 
+        
+    
+    for v in ax.collections:
+        v.set_edgecolor('#151515')
+        
+    for l in ax.lines:
+        l.set_linestyle('--')
+        l.set_linewidth(1.5)
+        l.set_color('blue')
+        l.set_alpha(0.8)
+    for l in ax.lines[1::3]:
+        l.set_linestyle('-')
+        l.set_linewidth(2)
+        l.set_color('black')
+        l.set_alpha(0.8)
 
     # plotting
     plt.xticks(np.arange(len(names_)), labels=names_)
     plt.ylabel(ylabel, weight='bold')
     plt.xlabel(xlabel, weight='bold')
     plt.title(title, weight='bold')
+    
     plt.grid(c='lightgrey')
 
 def swarm_plot_helper(feature, lig_datasets, xlabel='', ylabel='', title='', figsize=(12,4),

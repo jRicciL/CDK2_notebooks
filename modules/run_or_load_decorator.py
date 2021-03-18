@@ -6,6 +6,7 @@ from functools import wraps
 def run_or_load(func):
     '''Decorates a function with a "filename" parameter which is used to save a pickle
     file after run the function or directly load the file if it already exists'''
+    @wraps(func)
     def wrapper(filename, *args, **kwargs):
         if os.path.isfile(filename):
             print('File loaded:', filename)

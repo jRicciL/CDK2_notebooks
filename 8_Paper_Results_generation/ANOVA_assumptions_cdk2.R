@@ -1,37 +1,87 @@
 library(rstatix)
 library(ggpubr)
 library(tidyr)
+library(tidyverse)
 library(dplyr)
+library(ez)
+library(xtable)
 
-df = read.csv('Documents/Doctorado/Proteinas_modelo/ML-Ensemble-Docking/CDK2/ANALISIS/8_Paper_Results_generation/cv30x4_cdk2.csv', header = TRUE)
+# REPEAT THIS ANALYSIS PER METRIC AND PER PROTEIN
+# MEtrics: roc_auc and nef_12_Ra
+# Proteins: cv30x4_cdk2.csv and cv30x4_fxa.csv
 
-df = df %>%
-  filter(X == 'roc_auc') %>%
-  select(-X.1, -X)
+do_RM_ANOVA <- function(csv_file, metric_colname='roc_auc') {
+  df = read.csv(csv_file, header = TRUE)
+  
+  df = df %>%
+    filter(X == metric_colname) %>%
+    select(-X.1, -X)
+  
+  # Melting the data
+  df_melt <- df  %>%
+    mutate(rep = factor(1:nrow(.))) %>%
+    pivot_longer(cols=c(everything(), -rep), 
+                 names_to='VS_method', 
+                 values_to='score')
+  
+  # Check for outliers
+  df_melt %>%
+    group_by(VS_method) %>%
+    identify_outliers(score)
+  
+  df_melt %>%
+    group_by(VS_method) %>%
+    shapiro_test(score)
+  
+  shapiro.test(df$csGEO)
+  
+  anova <- aov(score ~ VS_method, data=df_melt)
+  print(summary(anova))
+  # Perfrom the repeated measures ANOVA
+  res.aov <- anova_test(data = df_melt, 
+                        dv = score, 
+                        wid = rep, 
+                        within = VS_method)
+  get_anova_table(res.aov)
+  return(res.aov)
+}
 
-# Melting the data
-df_melt <- df  %>%
-  mutate(rep = factor(1:nrow(.))) %>%
-  pivot_longer(cols=c(everything(), -rep), 
-               names_to='method', 
-               values_to='score')
+# Perform the analysis
 
-# Check for outliers
-df_melt %>%
-  group_by(method) %>%
-  identify_outliers(score)
+# CDK2
+cdk2_file = './Documents/Doctorado/Proteinas_modelo/ML-Ensemble-Docking/CDK2/ANALISIS/8_Paper_Results_generation/cv30x4_cdk2.csv'
+## ROC
+res.aov.cdk2.roc <- do_RM_ANOVA(csv_file = cdk2_file, metric_colname = 'roc_auc')
+## NEF
+res.aov.cdk2.nef <- do_RM_ANOVA(csv_file = cdk2_file, metric_colname = 'nef_12_Ra')
 
-df_melt %>%
-  group_by(method) %>%
-  shapiro_test(score)
+# FXa
+cdk2_file = './Documents/Doctorado/Proteinas_modelo/ML-Ensemble-Docking/CDK2/ANALISIS/8_Paper_Results_generation/cv30x4_fxa.csv'
+## ROC
+res.aov.fxa.roc <- do_RM_ANOVA(csv_file = cdk2_file, metric_colname = 'roc_auc')
+## NEF
+res.aov.fxa.nef <- do_RM_ANOVA(csv_file = cdk2_file, metric_colname = 'nef_05_Ra')
 
-shapiro.test(df$csMIN)
+### Format a table in latex form to report in the supplementary material
+results <- list(res.aov.cdk2.roc, res.aov.cdk2.nef,
+             res.aov.fxa.roc, res.aov.fxa.nef)
+tab_res <- c()
+for (res in results) {
+    tab_res <- rbind(tab_res, cbind(res$ANOVA,
+          res$`Mauchly's Test for Sphericity`[2:4]))
+}
 
-anova <- aov(score ~ method + rep, data=df_melt)
-print(summary(anova))
+friedman_test(score ~ time |id)
+
+# Print the latex table
+xtable(
+  tab_res
+)
+
+# Citation
+citation('rstatix')
+citation('tidyverse')
 
 
-res.aov <- anova_test(data = df_melt, dv = score, 
-                      wid = rep, within = method)
-get_anova_table(res.aov)
-res.aov
+
+
